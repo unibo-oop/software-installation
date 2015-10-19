@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 ---
 
 Il seguente documento fornisce le istruzioni necessarie per installare gli strumenti di sviluppo utilizzati nel contesto del corso di Programmazione ad Oggetti. La guida presenta le procedure di installazione su Linux (varie distribuzioni), MacOS X e Windows.
