@@ -4,7 +4,7 @@ email: danilo.pianini@unibo.it
 description: > # this means to ignore newlines until "baseurl:"
   Course software installation
 baseurl: "/software-installation-instructions" # the subpath of your site, e.g. /blog/
-url: "http://yourdomain.com" # the base hostname & protocol for your site
+url: "http://oop-at-disi.github.io" # the base hostname & protocol for your site
 twitter_username: DanySK86
 github_username:  danysk
 encoding: utf-8
