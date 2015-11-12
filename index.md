@@ -215,10 +215,6 @@ Seguire le istruzioni riportate a questo link.
 
 Mercurial è un decentralized version control system (DVCS), che consente di tenere traccia della storia di un progetto, versionarla, tornare allo stato precedente, e lavorare in parallelo.
 
-## Linux
-
-Come per altri softare, la procedura è distro-dependent.
-
 Al termine del processo di installazione, per verificare la corretta installazione dei Mercurial JDK, è possibile eseguire da shell il comando: ``hg``, accertandosi che l’output prodotto sia del tipo:
 {% highlight bash %}
 Mercurial Distributed SCM
@@ -252,7 +248,11 @@ basic commands:
 {% endhighlight %}
 
 
-Per qualsiasi domanda o problematica riscontrata durante l’installazione, rivolgersi direttamente ai tutor del corso.
+## Linux
+
+Come per altri softare, la procedura è distro-dependent.
+
+Per qualsiasi domanda o problema riscontrato durante l’installazione, rivolgersi direttamente ai tutor del corso.
 
 ### Debian, Ubuntu e derivate (Linux Mint, elementaryOS...)
 Mercurial è disponibile sui repository ufficiali.
