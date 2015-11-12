@@ -211,4 +211,86 @@ Seguire le istruzioni riportate a questo link.
 * Seguire le istruzioni, accettare la licenza, attendere che Eclipse scarichi ed installi il prodotti, accettare l'installazione e riavviare l'IDE.
 
 
+# Mercurial
+
+Mercurial è un decentralized version control system (DVCS), che consente di tenere traccia della storia di un progetto, versionarla, tornare allo stato precedente, e lavorare in parallelo.
+
+## Linux
+
+Come per altri softare, la procedura è distro-dependent.
+
+Al termine del processo di installazione, per verificare la corretta installazione dei Mercurial JDK, è possibile eseguire da shell il comando: ``hg``, accertandosi che l’output prodotto sia del tipo:
+{% highlight bash %}
+Mercurial Distributed SCM
+
+basic commands:
+
+ add           add the specified files on the next commit
+ annotate      show changeset information by line for each file
+ clone         make a copy of an existing repository
+ commit        commit the specified files or all outstanding changes
+ diff          diff repository (or selected files)
+ export        dump the header and diffs for one or more changesets
+ forget        forget the specified files on the next commit
+ init          create a new repository in the given directory
+ log           show revision history of entire repository or files
+ merge         merge another revision into working directory
+ pull          pull changes from the specified source
+ push          push changes to the specified destination
+ qdiff         diff of the current patch and subsequent modifications
+ qnew          create a new patch
+ qpop          pop the current patch off the stack
+ qpush         push the next patch onto the stack
+ qrefresh      update the current patch
+ remove        remove the specified files on the next commit
+ serve         start stand-alone webserver
+ status        show changed files in the working directory
+ summary       summarize working directory state
+ update        update working directory (or switch revisions)
+
+(use "hg help" for the full list of commands or "hg -v" for details)
+{% endhighlight %}
+
+
+Per qualsiasi domanda o problematica riscontrata durante l’installazione, rivolgersi direttamente ai tutor del corso.
+
+### Debian, Ubuntu e derivate (Linux Mint, elementaryOS...)
+Mercurial è disponibile sui repository ufficiali.
+{% highlight bash %}
+sudo apt-get update
+sudo apt-get install mercurial
+{% endhighlight %}
+
+### Arch e derivate (Antergos, Manjaro, Bridge…)
+Mercurial è disponibile nel repository ``extra``
+{% highlight bash %}
+sudo pacman -S mercurial
+{% endhighlight %}
+
+### Gentoo e derivate eccetto Sabayon (Calculate, Scientific…)
+{% highlight bash %}
+su -
+emerge --sync
+emerge mercurial
+exit
+{% endhighlight %}
+
+### Sabayon
+{% highlight bash %}
+su -
+equo u
+equo i mercurial
+exit
+{% endhighlight %}
+
+### Distro con package manager RPM (Red Hat, Fedora, SUSE, Oracle, SLES)
+{% highlight bash %}
+sudo yum install mercurial
+{% endhighlight %}
+
+## Mac OS X e Windows
+Visitare il [sito web di Selenic][Mercurial download page], scaricare a mano il pacchetto compatibile col proprio sistema operativo e seguire le istruzioni per l'installazione.
+
+
 [JDK download page]: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
+[Mercurial download page]: https://www.mercurial-scm.org/downloads
