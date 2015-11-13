@@ -98,8 +98,8 @@ Su Windows la procedura dipende dalla versione utilizzata. In particolare, diffe
 
 1. Scaricare il JDK dalla [pagina di download ufficiale di Oracle][JDK download page]. Scegliere la versione 32/64 bit corrispondente alla propria versione del sistema operativo (p.e. Windows a 32 bit ---> JDK a 32 bit).
 2. Eseguire l’eseguibile scaricato e seguire il wizard di installazione passo passo.
-![Missing image](img/win-system-properties.png "Windows system properties")
 3. Aprire le proprietà di sistema:<br/>
+![Missing image](img/win-system-properties.png "Windows system properties")
 
 4. Aprire la schermata relativa alle variabili di ambiente:<br/>
 ![Missing image](img/win-environment-variables.png "Windows environment variables")
@@ -154,9 +154,9 @@ where possible options include:
 ### Windows 8
 1. Seguire i punti 1 e 2 della guida per Windows 7
 
-2. Aprire le proprietà di sistema:<br/>
-![Missing image](img/win8-0.png "Windows system properties")<br/>
-![Missing image](img/win8-1.png "Windows system properties")<br/>
+2. Aprire le proprietà di sistema: <br/>
+![Missing image](img/win8-0.png "Windows system properties") <br/>
+![Missing image](img/win8-1.png "Windows system properties") <br/>
 ![Missing image](img/win8-2.png "Windows system properties")
 
 3. Seguire i punti 4, 5, e 6 della guida a per Windows 7
@@ -288,9 +288,19 @@ exit
 sudo yum install mercurial
 {% endhighlight %}
 
-## Mac OS X e Windows
-Visitare il [sito web di Selenic][Mercurial download page], scaricare a mano il pacchetto compatibile col proprio sistema operativo e seguire le istruzioni per l'installazione.
+## Mac OS X
+Visitare il [sito web di Selenic][Mercurial download page], scaricare a mano il pacchetto installabile per Mac, eseguirlo e seguire le istruzioni.
 
+## Windows
+Visitare il [sito web di Selenic][Mercurial download page], scaricare a mano il pacchetto compatibile col proprio sistema operativo e seguire le istruzioni per l'installazione.
+Una volta installato, bisognerà modificare il path per far sì che Windows sia in grado di trovare ``hg.exe`` fra gli eseguibili.
+Si proceda come segue:
+
+1. Identificare la cartella dove si trova il file ``hg.exe``. Normalmente, viene installato in ``C:\Windows\Programmi\Mercurial``. Ci si annoti il percorso, che d'ora in poi chiameremo ``<PATH_MERCURIAL>``.
+
+2. Utilizzando la medesima procedura illustrata per l'installazione del JDK, si modifichi la variabile di sistema ``PATH`` **aggiungendo** alla stringa già esistente ``;<PATH_MERCURIAL>`` dove a ``<PATH_MERCURIAL>`` va sostituito il percorso che avete identificato al punto precedente.
+
+3. Si chiudano eventuali prompt dei comandi aperti, si apra un nuovo prompt dei comandi, e si testi il corretto funzionamento del comando ``hg``.
 
 [JDK download page]: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
 [Mercurial download page]: https://www.mercurial-scm.org/downloads
