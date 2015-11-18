@@ -210,6 +210,12 @@ Seguire le istruzioni riportate a questo link.
 * Uno dei plugin trovati dovrebbe essere "Checkstyle Plug-in", clickare su Install
 * Seguire le istruzioni, accettare la licenza, attendere che Eclipse scarichi ed installi il prodotti, accettare l'installazione e riavviare l'IDE.
 
+## MercurialEclipse (HGE)
+* Installare **prima** di seguire questa guida Mercurial nel proprio OS ed assicurarsi che funzioni correttamente (si veda la prossima sezione di questo documento)
+* In Eclipse, click Help -> Eclipse Marketplace...
+* Nella barra di ricerca, inserire "hge", quindi premere Invio
+* Uno dei plugin trovati dovrebbe essere "MercurialEclipse", con un'icona argento. Clickare su Install
+* Seguire le istruzioni, accettare la licenza, attendere che Eclipse scarichi ed installi il prodotti, accettare l'installazione e riavviare l'IDE.
 
 # Mercurial
 
