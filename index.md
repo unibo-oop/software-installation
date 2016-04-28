@@ -188,8 +188,6 @@ Arch è l’unica distribuzione che manutiene nel repository ufficiale Eclipse a
 
 Eclipse utilizza un'architettura a plug-in. Lungo il corso ne utilizzeremo alcuni che ci forniranno funzionalità aggiuntive.
 
-Seguire le istruzioni riportate a questo link.
-
 ## FindBugs
 * In Eclipse, click Help -> Eclipse Marketplace...
 * Nella barra di ricerca, inserire "findbugs", quindi premere Invio
