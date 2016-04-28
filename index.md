@@ -176,7 +176,7 @@ where possible options include:
 Arch è l’unica distribuzione che manutiene nel repository ufficiale Eclipse all’ultima versione, sempre aggiornato. Gli utenti di Arch possono usare il package manager per installare Eclipse (``sudo pacman -S eclipse``), e saltare direttamente al punto 6, lanciando il comando ``eclipse``.
 
 ## Tutti i sistemi operativi
-1. Scaricare “Eclipse Standard” (ultima versione disponibile) dalla pagina di download ufficiale (qui). Scegliere la versione 32/64 bit corrispondente alla propria versione del JDK (normalmente 64bit).
+1. Scaricare “Eclipse IDE for Java Developers” (ultima versione disponibile) dalla [pagina di download ufficiale (qui)][Eclipse Download]. Scegliere la versione 32/64 bit corrispondente alla propria versione del JDK (normalmente 64bit).
 2. Decomprimere il file scaricato utilizzando il programma di gestione degli archivi che siete abituati ad utilizzare (FileRoller, Ark, 7zip...).
 3. Al termine della procedura dovrebbe essere presente la cartella “eclipse”.
 4. Per utenti Windows e MacOS X: All’interno della cartella dovrebbe essere presente il file di configurazione “eclipse.ini”: aprire il file con un editor di testo e aggiungere in fondo la seguente riga: ``-Dfile.encoding=UTF8``. Gli utenti Linux hanno UTF-8 settato di default.
@@ -308,3 +308,4 @@ Si proceda come segue:
 
 [JDK download page]: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
 [Mercurial download page]: https://www.mercurial-scm.org/downloads
+[Eclipse Download]: https://www.eclipse.org/downloads/
