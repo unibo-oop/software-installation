@@ -183,6 +183,80 @@ Arch è l’unica distribuzione che manutiene nel repository ufficiale Eclipse a
 5. Aprire la cartella e lanciare l’IDE facendo doppio click sul file eseguibile contenuto nella cartella.
 6. Se l’installazione è andata a buon fine si dovrebbe aprire il welcome screen dell'IDE.
 
+### Risolvere bug Eclipse / GTK+3 su Linux
+Eclipse ha attualmente [Un bug noto](https://bugs.eclipse.org/bugs/show_bug.cgi?id=354842) che rende l'interfaccia poco reattiva ed aumenta l'uso della CPU da parte dell'IDE, rendendolo praticamente inusabile.
+Tale bug è dovuto al modo in cui SWT (la libreria grafica usata da Eclipse) si interfaccia con GTK+3. Il bug si presenta solo in alcune combinazioni di Eclipse / GTK+3.
+Onde evitare qualunque problema di questo tipo, il suggerimento è quello di utilizzare GTK+2.
+Per farlo, si utilizzi uno dei seguenti modi:
+
+* Se l'installazione è stata eseguita da package manager, si utilizzi il comando `which eclipse` per individuare la posizione del file eseguibile rappresentante Eclipse (normalmente è `/usr/bin/eclipse`). Il file dovrebbe essere uno script sh, che può essere editato. Si esegua `sudo <EDITOR> <PERCORSO>`, sostituendo a `<EDITOR>` il nome del vostro editor di testi preferito (ad esempio, `nano`) e a `<PERCORSO>` il percorso effettivo del file (ad esempio `/usr/bin/eclipse`). Il file che si apre dovrebbe avere il seguente aspetto:
+{% highlight bash %}
+#!/bin/bash
+export ECLIPSE_HOME=/usr/lib/eclipse
+exec ${ECLIPSE_HOME}/eclipse "$@"
+{% endhighlight %}
+Lo si modifichi in modo che diventi:
+{% highlight bash %}
+#!/bin/bash
+export ECLIPSE_HOME=/usr/lib/eclipse
+export SWT_GTK3=0
+exec ${ECLIPSE_HOME}/eclipse "$@"
+{% endhighlight %}
+Si salvi il file. Le nuove istanze di Eclipse utilizzeranno GTK+2.
+
+* Se l'installazione è stata fatta manualmente, scaricando il pacchetto dal sito di Eclipse, si individui il file `eclipse.ini` nella cartella di installazione. Lo si apra con un editor di testo. Il file dovrebbe apparire simile a:
+{% highlight bash %}
+-startup
+plugins/org.eclipse.equinox.launcher_1.3.100.v20150511-1540.jar
+--launcher.library
+plugins/org.eclipse.equinox.launcher.gtk.linux.x86_64_1.1.300.v20150602-1417
+-product
+org.eclipse.epp.package.java.product
+--launcher.defaultAction
+openFile
+-showsplash
+org.eclipse.platform
+--launcher.XXMaxPermSize
+256m
+--launcher.defaultAction
+openFile
+--launcher.appendVmargs                                                                                                                                                                                             
+-vmargs                                                                                                                                                                                                             
+-Dosgi.requiredJavaVersion=1.7                                                                                                                                                                                      
+-XX:MaxPermSize=256m                                                                                                                                                                                                
+-Xms256m
+-Xmx1024m
+{% endhighlight %}
+Si aggiunga alle opzioni, **prima** di `-vmargs`, la seguente opzione:
+``
+--launcher.GTK_version
+2
+``
+In modo che il file diventi:
+{% highlight bash %}
+-startup
+plugins/org.eclipse.equinox.launcher_1.3.100.v20150511-1540.jar
+--launcher.library
+plugins/org.eclipse.equinox.launcher.gtk.linux.x86_64_1.1.300.v20150602-1417
+-product
+org.eclipse.epp.package.java.product
+--launcher.defaultAction
+openFile
+-showsplash
+org.eclipse.platform
+--launcher.XXMaxPermSize
+256m
+--launcher.defaultAction
+openFile
+--launcher.appendVmargs
+--launcher.GTK_version
+2
+-vmargs                                                                                                                                                                                                             
+-Dosgi.requiredJavaVersion=1.7                                                                                                                                                                                      
+-XX:MaxPermSize=256m                                                                                                                                                                                                
+-Xms256m
+-Xmx1024m
+{% endhighlight %}
 
 # Plugin di Eclipse
 
