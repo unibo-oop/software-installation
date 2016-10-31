@@ -380,6 +380,18 @@ Si proceda come segue:
 
 3. Si chiudano eventuali prompt dei comandi aperti, si apra un nuovo prompt dei comandi, e si testi il corretto funzionamento del comando ``hg``.
 
+# GIT per Windows
+1. Scaricare “GIT for Windows” (nella versione specifica per la propria architettura x86 o x64) dalla [pagina di download ufficiale (qui)][GIT-Windows Download].
+2. Eseguire il programma di installazione
+* Accettare la licenza > Next > Next
+* (IMPORTANTE) Selezione "Use Git from the Windows Command Prompt" > Next
+* Accettare le successive opzioni proposte dall'installer > Install > Finish
+3. Verificare la corretta installazione
+* Aprire il prompt dei comandi (cmd.exe)
+* Se il tool è stato installato correttamente, digitando il comando "git" apparirà il classico help
+
+
 [JDK download page]: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
 [Mercurial download page]: https://www.mercurial-scm.org/downloads
 [Eclipse Download]: https://www.eclipse.org/downloads/
+[GIT-Windows Download]: https://git-for-windows.github.io/
