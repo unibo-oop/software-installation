@@ -282,104 +282,90 @@ Eclipse utilizza un'architettura a plug-in. Lungo il corso ne utilizzeremo alcun
 * Uno dei plugin trovati dovrebbe essere "Checkstyle Plug-in", clickare su Install
 * Seguire le istruzioni, accettare la licenza, attendere che Eclipse scarichi ed installi il prodotti, accettare l'installazione e riavviare l'IDE.
 
-## MercurialEclipse (HGE)
-* Installare **prima** di seguire questa guida Mercurial nel proprio OS ed assicurarsi che funzioni correttamente (si veda la prossima sezione di questo documento)
-* In Eclipse, click Help -> Eclipse Marketplace...
-* Nella barra di ricerca, inserire "hge", quindi premere Invio
-* Uno dei plugin trovati dovrebbe essere "MercurialEclipse", con un'icona argento. Clickare su Install
-* Seguire le istruzioni, accettare la licenza, attendere che Eclipse scarichi ed installi il prodotti, accettare l'installazione e riavviare l'IDE.
 
-# Mercurial
+# Git
 
-Mercurial è un decentralized version control system (DVCS), che consente di tenere traccia della storia di un progetto, versionarla, tornare allo stato precedente, e lavorare in parallelo.
+Git è un decentralized version control system (DVCS), che consente di tenere traccia della storia di un progetto, versionarla, tornare allo stato precedente, e lavorare in parallelo.
 
-Al termine del processo di installazione, per verificare la corretta installazione dei Mercurial JDK, è possibile eseguire da shell il comando: ``hg``, accertandosi che l’output prodotto sia del tipo:
+Al termine del processo di installazione, per verificarne la correttezza, è possibile eseguire da shell il comando: ``git``, accertandosi che l’output prodotto sia del tipo:
+
 {% highlight bash %}
-Mercurial Distributed SCM
+usage: git [--version] [--help] [-C <path>] [-c name=value]
+           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
+           [-p | --paginate | --no-pager] [--no-replace-objects] [--bare]
+           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]
+           <command> [<args>]
 
-basic commands:
+These are common Git commands used in various situations:
 
- add           add the specified files on the next commit
- annotate      show changeset information by line for each file
- clone         make a copy of an existing repository
- commit        commit the specified files or all outstanding changes
- diff          diff repository (or selected files)
- export        dump the header and diffs for one or more changesets
- forget        forget the specified files on the next commit
- init          create a new repository in the given directory
- log           show revision history of entire repository or files
- merge         merge another revision into working directory
- pull          pull changes from the specified source
- push          push changes to the specified destination
- qdiff         diff of the current patch and subsequent modifications
- qnew          create a new patch
- qpop          pop the current patch off the stack
- qpush         push the next patch onto the stack
- qrefresh      update the current patch
- remove        remove the specified files on the next commit
- serve         start stand-alone webserver
- status        show changed files in the working directory
- summary       summarize working directory state
- update        update working directory (or switch revisions)
+start a working area (see also: git help tutorial)
+   clone      Clone a repository into a new directory
+   init       Create an empty Git repository or reinitialize an existing one
 
-(use "hg help" for the full list of commands or "hg -v" for details)
+work on the current change (see also: git help everyday)
+   add        Add file contents to the index
+   mv         Move or rename a file, a directory, or a symlink
+   reset      Reset current HEAD to the specified state
+   rm         Remove files from the working tree and from the index
+
+examine the history and state (see also: git help revisions)
+   bisect     Use binary search to find the commit that introduced a bug
+   grep       Print lines matching a pattern
+   log        Show commit logs
+   show       Show various types of objects
+   status     Show the working tree status
+
+grow, mark and tweak your common history
+   branch     List, create, or delete branches
+   checkout   Switch branches or restore working tree files
+   commit     Record changes to the repository
+   diff       Show changes between commits, commit and working tree, etc
+   merge      Join two or more development histories together
+   rebase     Reapply commits on top of another base tip
+   tag        Create, list, delete or verify a tag object signed with GPG
+
+collaborate (see also: git help workflows)
+   fetch      Download objects and refs from another repository
+   pull       Fetch from and integrate with another repository or a local branch
+   push       Update remote refs along with associated objects
+
+'git help -a' and 'git help -g' list available subcommands and some
+concept guides. See 'git help <command>' or 'git help <concept>'
+to read about a specific subcommand or concept.
 {% endhighlight %}
+
 
 
 ## Linux
 
-Come per altri softare, la procedura è distro-dependent.
+Git è preinstallato in molte distribuzioni.
+Si raccomanda quindi di testare se sia già presente eseguendo `git` su terminale prima di partire con l'eventuale installazione.
+Se già presente, ovviamente, non occorre intraprendere alcuna azione.
 
-Per qualsiasi domanda o problema riscontrato durante l’installazione, rivolgersi direttamente ai tutor del corso.
-
-### Debian, Ubuntu e derivate (Linux Mint, elementaryOS...)
-Mercurial è disponibile sui repository ufficiali.
-{% highlight bash %}
-sudo apt-get update
-sudo apt-get install mercurial
-{% endhighlight %}
-
-### Arch e derivate (Antergos, Manjaro, Bridge…)
-Mercurial è disponibile nel repository ``extra``
-{% highlight bash %}
-sudo pacman -S mercurial
-{% endhighlight %}
-
-### Gentoo e derivate eccetto Sabayon (Calculate, Scientific…)
-{% highlight bash %}
-su -
-emerge --sync
-emerge mercurial
-exit
-{% endhighlight %}
-
-### Sabayon
-{% highlight bash %}
-su -
-equo u
-equo i mercurial
-exit
-{% endhighlight %}
-
-### Distro con package manager RPM (Red Hat, Fedora, SUSE, Oracle, SLES)
-{% highlight bash %}
-sudo yum install mercurial
-{% endhighlight %}
-
-## Mac OS X
-Visitare il [sito web di Selenic][Mercurial download page], scaricare a mano il pacchetto installabile per Mac, eseguirlo e seguire le istruzioni.
+Se non fosse installato, è di norma installabile dal package manager.
+Le istruzioni per tutte le distribuzioni più comuni [sono disponibili qui](https://git-scm.com/download/linux).
 
 ## Windows
-Visitare il [sito web di Selenic][Mercurial download page], scaricare a mano il pacchetto compatibile col proprio sistema operativo e seguire le istruzioni per l'installazione.
-Una volta installato, bisognerà modificare il path per far sì che Windows sia in grado di trovare ``hg.exe`` fra gli eseguibili.
-Si proceda come segue:
+1. Scaricare “GIT for Windows” (nella versione specifica per la propria architettura x86 o x64) dalla [pagina di download ufficiale][GIT-Windows Download].
+2. Eseguire il programma di installazione
+    * Accettare la licenza > Next > Next
+    * (IMPORTANTE) Selezione "Use Git from the Windows Command Prompt" > Next
+    * Accettare le successive opzioni proposte dall'installer > Install > Finish
+3. Verificare la correttezza dell'installazione
+    * Aprire il prompt dei comandi (`cmd.exe`)
+    * Se il tool è stato installato correttamente, digitando il comando `git` apparirà il classico help
 
-1. Identificare la cartella dove si trova il file ``hg.exe``. Normalmente, viene installato in ``C:\Windows\Programmi\Mercurial``. Ci si annoti il percorso, che d'ora in poi chiameremo ``<PATH_MERCURIAL>``.
-
-2. Utilizzando la medesima procedura illustrata per l'installazione del JDK, si modifichi la variabile di sistema ``PATH`` **aggiungendo** alla stringa già esistente ``;<PATH_MERCURIAL>`` dove a ``<PATH_MERCURIAL>`` va sostituito il percorso che avete identificato al punto precedente.
-
-3. Si chiudano eventuali prompt dei comandi aperti, si apra un nuovo prompt dei comandi, e si testi il corretto funzionamento del comando ``hg``.
+## Mac OS X
+1. Scaricare l'installer di Git per OS X dalla [pagina di download ufficiale][GIT-OSX Download]
+2. Eseguire il programma per l'installazione
+    * Eventualmente, eseguire l'installer anche se non sviluppato da una fonte identificata da Apple Store (vedi System preferences > Security > General)
+    * Continue > Install
+3. Verificare la correttezza dell'installazione
+    * Aprire una shell
+    * Eseguire il comando `git`: se l'installazione è andata a buon fine, apparirà il menu di help per il comando
 
 [JDK download page]: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
 [Mercurial download page]: https://www.mercurial-scm.org/downloads
 [Eclipse Download]: https://www.eclipse.org/downloads/
+[GIT-Windows Download]: https://git-for-windows.github.io/
+[GIT-OSX Download]: http://git-scm.com/download/mac
