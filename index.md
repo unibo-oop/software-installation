@@ -380,18 +380,30 @@ Si proceda come segue:
 
 3. Si chiudano eventuali prompt dei comandi aperti, si apra un nuovo prompt dei comandi, e si testi il corretto funzionamento del comando ``hg``.
 
-# GIT per Windows
+# Git
+
+## GIT per Windows
 1. Scaricare “GIT for Windows” (nella versione specifica per la propria architettura x86 o x64) dalla [pagina di download ufficiale (qui)][GIT-Windows Download].
 2. Eseguire il programma di installazione
-* Accettare la licenza > Next > Next
-* (IMPORTANTE) Selezione "Use Git from the Windows Command Prompt" > Next
-* Accettare le successive opzioni proposte dall'installer > Install > Finish
+    * Accettare la licenza > Next > Next
+    * (IMPORTANTE) Selezione "Use Git from the Windows Command Prompt" > Next
+    * Accettare le successive opzioni proposte dall'installer > Install > Finish
 3. Verificare la corretta installazione
-* Aprire il prompt dei comandi (cmd.exe)
-* Se il tool è stato installato correttamente, digitando il comando "git" apparirà il classico help
+    * Aprire il prompt dei comandi (cmd.exe)
+    * Se il tool è stato installato correttamente, digitando il comando "git" apparirà il classico help
+
+## GIT per Mac OS X
+1. Scaricare l'installer di Git per OS X dalla [pagina di download ufficiale][GIT-OSX Download]
+2. Eseguire il programma per l'installazione
+    * Eventualmente, eseguire l'installer anche se non sviluppato da una fonte identificata da Apple Store (vedi System preferences > Security > General)
+    * Continue > Install
+3. Verificare la correttezza dell'installazione
+    * Aprire una shell
+    * Eseguire il comando "git": se l'installazione è andata a buon fine, apparirà il menu di help per il comando
 
 
 [JDK download page]: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
 [Mercurial download page]: https://www.mercurial-scm.org/downloads
 [Eclipse Download]: https://www.eclipse.org/downloads/
 [GIT-Windows Download]: https://git-for-windows.github.io/
+[GIT-OSX Download]: http://git-scm.com/download/mac
