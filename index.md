@@ -390,7 +390,7 @@ Si proceda come segue:
     * Accettare le successive opzioni proposte dall'installer > Install > Finish
 3. Verificare la corretta installazione
     * Aprire il prompt dei comandi (cmd.exe)
-    * Se il tool è stato installato correttamente, digitando il comando "git" apparirà il classico help
+    * Se il tool è stato installato correttamente, digitando il comando ``git`` apparirà il classico help
 
 ## GIT per Mac OS X
 1. Scaricare l'installer di Git per OS X dalla [pagina di download ufficiale][GIT-OSX Download]
@@ -399,7 +399,7 @@ Si proceda come segue:
     * Continue > Install
 3. Verificare la correttezza dell'installazione
     * Aprire una shell
-    * Eseguire il comando "git": se l'installazione è andata a buon fine, apparirà il menu di help per il comando
+    * Eseguire il comando ``git``: se l'installazione è andata a buon fine, apparirà il menu di help per il comando
 
 
 [JDK download page]: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
