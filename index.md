@@ -349,11 +349,11 @@ Le istruzioni per tutte le distribuzioni più comuni [sono disponibili qui](http
 1. Scaricare “GIT for Windows” (nella versione specifica per la propria architettura x86 o x64) dalla [pagina di download ufficiale][GIT-Windows Download].
 2. Eseguire il programma di installazione
     * Accettare la licenza > Next > Next
-    * (IMPORTANTE) Selezione "Use Git from the Windows Command Prompt" > Next
+    * (IMPORTANTE) Selezionare "Use Git from the Windows Command Prompt" > Next
     * Accettare le successive opzioni proposte dall'installer > Install > Finish
 3. Verificare la correttezza dell'installazione
     * Aprire il prompt dei comandi (`cmd.exe`)
-    * Se il tool è stato installato correttamente, digitando il comando `git` apparirà il classico help
+    * Se il tool è stato installato correttamente, digitando il comando `git` apparirà l'help relativo al comando stesso
 
 ## Mac OS X
 1. Scaricare l'installer di Git per OS X dalla [pagina di download ufficiale][GIT-OSX Download]
