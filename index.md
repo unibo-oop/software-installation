@@ -122,21 +122,21 @@ Scegliere la versione 32/64 bit corrispondente alla propria versione del sistema
 
 ### Impostazione variabili d'ambiente su Vista / 7
 
-0. Aprire le proprietà di sistema:<br/>
+1. Aprire le proprietà di sistema:<br/>
 ![Missing image](img/win-system-properties.png "Windows system properties")
 
-0. Aprire la schermata relativa alle variabili di ambiente:<br/>
+2. Aprire la schermata relativa alle variabili di ambiente:<br/>
 ![Missing image](img/win-environment-variables.png "Windows environment variables")
 
-0. Configurare la variabile JAVA_HOME come mostrato:<br/>
+3. Configurare la variabile JAVA_HOME come mostrato:<br/>
 ![Missing image](img/win-java-home.png "Windows JAVA_HOME")
 
-0. Aggiornare la  variabile d’ambiente PATH come mostrato:<br/>
+4. Aggiornare la  variabile d’ambiente PATH come mostrato:<br/>
 ![Missing image](img/win-path.png "Windows PATH")
 
-0. Aprire il prompt dei comandi:<br/>
+5. Aprire il prompt dei comandi:<br/>
 
-0. Verificare la corretta installazione del JDK eseguendo il comando `javac -version` e `java -version` dal prompt dei comandi.
+6. Verificare la corretta installazione del JDK eseguendo il comando `javac -version` e `java -version` dal prompt dei comandi.
 
 
 ### Impostazione variabili d'ambiente su Windows 10
@@ -168,22 +168,39 @@ Scegliere la versione 32/64 bit corrispondente alla propria versione del sistema
 
 8. Fatto! Verificare la corretta installazione del JDK eseguendo __entrambi__ i comandi `javac -version` e `java -version` dal prompt dei comandi.
 
-
 # Eclipse
 
 ### Arch Linux e derivate (Manjaro, Antergos, Bridge...)
 Arch è l’unica distribuzione che manutiene nel repository ufficiale Eclipse all’ultima versione, sempre aggiornato. Gli utenti di Arch possono usare il package manager per installare Eclipse (``sudo pacman -S eclipse``), e saltare direttamente al punto 6, lanciando il comando ``eclipse``.
 
 ## Tutti i sistemi operativi
+
 1. Scaricare “Eclipse IDE for Java Developers” (ultima versione disponibile) dalla [pagina di download ufficiale (qui)][Eclipse Download]. Scegliere la versione 32/64 bit corrispondente alla propria versione del JDK (normalmente 64bit).
+![Missing image](img/win10/install_eclipse/download/1.png)
+![Missing image](img/win10/install_eclipse/download/2.png)
+![Missing image](img/win10/install_eclipse/download/3.png)
+
 2. Decomprimere il file scaricato utilizzando il programma di gestione degli archivi che siete abituati ad utilizzare (FileRoller, Ark, 7zip...).
-3. Al termine della procedura dovrebbe essere presente la cartella “eclipse”.
-4. Per utenti Windows e MacOS X: All’interno della cartella dovrebbe essere presente il file di configurazione “eclipse.ini”: aprire il file con un editor di testo e aggiungere in fondo la seguente riga: ``-Dfile.encoding=UTF8``. Gli utenti Linux hanno UTF-8 settato di default.
-5. Aprire la cartella e lanciare l’IDE facendo doppio click sul file eseguibile contenuto nella cartella.
-6. Se l’installazione è andata a buon fine si dovrebbe aprire il welcome screen dell'IDE.
+
+3. Al termine della procedura, aprire la cartella appena scompattata.
+Al suo interno dovrebbero essere presenti:
+    - l'eseguibile `eclipse` (o `eclipse.exe`, su Windows)
+    - il file di configurazione `eclipse.ini`
+    - le cartelle `configuration`, `features`, `plugins` e altre...
+
+4. Per utenti Windows e MacOS X:  aprire il file `eclipse.ini` con un editor di testo qualsiasi e aggiungere in fondo la seguente riga: ``-Dfile.encoding=UTF8``.
+![Missing image](img/win10/install_eclipse/download/5.png)
+
+
+5. Lanciare l’IDE facendo doppio click sull'eseguibile `eclipse` (o `eclipse.exe`, su Windows) contenuto nella cartella.
+    - Si consiglia di creare un collegamento sul desktop (o in un altro punto facilmente raggiungibile) per poter eseguire rapidamente Eclipse.
+
+6. Se l’installazione è andata a buon fine si dovrebbe aprire la schermata di benvenuto dell'IDE.
+![Missing image](img/win10/install_eclipse/download/6.png)
 
 ### Risolvere bug Eclipse / GTK+3 su Linux
-Eclipse ha attualmente [Un bug noto](https://bugs.eclipse.org/bugs/show_bug.cgi?id=354842) che rende l'interfaccia poco reattiva ed aumenta l'uso della CPU da parte dell'IDE, rendendolo praticamente inusabile.
+
+Eclipse ha attualmente [un bug noto](https://bugs.eclipse.org/bugs/show_bug.cgi?id=354842) che rende l'interfaccia poco reattiva ed aumenta l'uso della CPU da parte dell'IDE, rendendolo praticamente inusabile.
 Tale bug è dovuto al modo in cui SWT (la libreria grafica usata da Eclipse) si interfaccia con GTK+3. Il bug si presenta solo in alcune combinazioni di Eclipse / GTK+3.
 Onde evitare qualunque problema di questo tipo, il suggerimento è quello di utilizzare GTK+2.
 Per farlo, si utilizzi uno dei seguenti modi:
