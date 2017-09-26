@@ -109,7 +109,7 @@ I passi in comune a tutte le versioni di Windows sono i seguenti:
 1. Scaricare il JDK dalla [pagina di download ufficiale di Oracle][JDK download page].
 Scegliere la versione 32/64 bit corrispondente alla propria versione del sistema operativo (p.e. Windows a 32 bit ---> JDK a 32 bit).
 ![Missing image](img/win10/download_jdk/1.png "Oracle JDK downloads page")
-2. Eseguire l’eseguibile scaricato e seguire il wizard di installazione passo-passo.
+2. Eseguire l'installer scaricato e seguire lo wizard di installazione passo-passo.
 3. Configurazione delle variabili d'ambiente
     - Questa fase varia leggermente a senconda della versione di Windows. Le istruzioni specifiche di ogni versione sono riportate nel seguito.
 4. Verifica dell'avvenuta installazione eseguendo i segenti due comandi su un prompt dei comandi:
@@ -138,6 +138,25 @@ Scegliere la versione 32/64 bit corrispondente alla propria versione del sistema
 
 6. Verificare la corretta installazione del JDK eseguendo il comando `javac -version` e `java -version` dal prompt dei comandi.
 
+
+### Impostazione variabili d'ambiente su Windows 8
+
+1. Aprire il menù d'avvio cercare il __"Pannello di controllo"__:
+![Missing image](img/win8/env_vars/1.png)
+
+2. Cliccare sulla voce __"Sistema e sicurezza"__ del Pannello di controllo:
+![Missing image](img/win8/env_vars/2.png)
+
+3. Appariranno una serie di voci. Selezionare __"Sistema"__:
+![Missing image](img/win8/env_vars/3.png)
+
+4. Selezionare __"Impostazioni di sistema avanzate"__ tra le voci a sinistra:
+![Missing image](img/win8/env_vars/4.png)
+
+5. Nella schermata __"Proprietà del sistema"__ che apparirà, cliccare sul pulsante __"Variabili d'ambiente"__:
+![Missing image](img/win8/env_vars/5.png)
+
+6. Proseguire seguendo le istruzioni per Windows 7 partendo dal punto 3.
 
 ### Impostazione variabili d'ambiente su Windows 10
 
