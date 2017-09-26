@@ -106,18 +106,24 @@ In particolare, si differenzia fra Windows 7 (e precedenti), Windows 8 e Windows
 Versioni inferiori a Windows Vista non sono supportate.
 
 I passi in comune a tutte le versioni di Windows sono i seguenti:
+
 1. Scaricare il JDK dalla [pagina di download ufficiale di Oracle][JDK download page].
 Scegliere la versione 32/64 bit corrispondente alla propria versione del sistema operativo (p.e. Windows a 32 bit ---> JDK a 32 bit).
 ![Missing image](img/win10/download_jdk/1.png "Oracle JDK downloads page")
+
 2. Eseguire l'installer scaricato e seguire il wizard di installazione passo-passo.
+
 3. Configurazione delle variabili d'ambiente
     - Questa fase varia leggermente a seconda della versione di Windows. Le istruzioni specifiche di ogni versione sono riportate nel seguito.
-4. Dopo aver configurato le variabili d'ambiente, verificare l'avvenuta installazione eseguendo i seguenti due comandi su un prompt dei comandi:
+
+4. Aprire un prompt dei comandi (è sufficente cercare `cmd.exe` nel menù di Start)
+![Missing image](img/win-prompt.png "Windows PATH")
+
+5. Dopo aver configurato le variabili d'ambiente, verificare l'avvenuta installazione eseguendo i seguenti due comandi su un prompt dei comandi:
     {% highlight bash %}
     javac -version  # Output atteso: 'javac 1.8.0_121'
     java -version   # Output atteso: 'java version "1.8.0_144" ...'
     {% endhighlight %}
-    ![Missing image](img/win-prompt.png "Windows PATH")
 
 
 ### Impostazione variabili d'ambiente su Vista / 7
