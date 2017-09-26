@@ -2,23 +2,31 @@
 layout: default
 ---
 
-Il seguente documento fornisce le istruzioni necessarie per installare gli strumenti di sviluppo utilizzati nel contesto del corso di Programmazione ad Oggetti. La guida presenta le procedure di installazione su Linux (varie distribuzioni), MacOS X e Windows.
+Il seguente documento fornisce le istruzioni necessarie per installare gli strumenti di sviluppo utilizzati nel contesto del corso di Programmazione ad Oggetti.
+La guida presenta le procedure di installazione e configurazione su Linux (varie distribuzioni), MacOS X e Windows del **Java Development Kit** (JDK) e dell'ambiente di sviluppo integrato **Eclipse**.
+
 
 # Java Development Kit (JDK)
 
-Il JDK è l'insieme degli strumenti necessari a sviluppare software standard in Java. Include la virtual machine Java, le librerie Java, di base, il compilatore, e i tool di contorno.
-
+Il JDK è l'insieme degli strumenti necessari a sviluppare software standard in Java.
+Include la virtual machine Java, le librerie Java, di base, il compilatore, e i tool di contorno.
+Seguono le istruzioni di installazione e configuazione per i vari sistemi operativi.
 
 ## Linux
 
-In ambiente Linux, la procedura è distro-dependent, ovvero dipendente dal package-manager utilizzato sulla specifica distribuzione. Si riportano qui le istruzioni per le distribuzioni più famose, più diffuse e/o quelle usate dai docenti. Tutte le istruzioni hanno forma di comandi da lanciare nel terminale. Nel caso in cui lo studente utilizzi una diversa distribuzione, si senta libero di contattare i docenti per essere aiutato (va detto che storicamente le richieste sono state zero: chi utilizza una distribuzione poco diffusa di norma sa bene cosa sta facendo).
+In ambiente Linux, la procedura è distro-dependent, ovvero dipendente dal package-manager utilizzato sulla specifica distribuzione.
+Si riportano qui le istruzioni per le distribuzioni più famose, più diffuse e/o quelle usate dai docenti.
+Tutte le istruzioni hanno forma di comandi da lanciare nel terminale.
+Nel caso in cui lo studente utilizzi una diversa distribuzione, si senta libero di contattare i docenti per essere aiutato (va detto che storicamente le richieste sono state zero: chi utilizza una distribuzione poco diffusa di norma sa bene cosa sta facendo).
 
-Al termine del processo di installazione, per verificare la corretta installazione del JDK, è possibile eseguire da shell il comando: ``javac -version``, accertandosi che l’output prodotto sia del tipo: ``javac 1.8.0_<version>``
+Le istruzioni specifiche per ogni distribuzione sono indicate nelle sottosezioni sequenti.
+In ogni caso, al termine del processo di installazione, per verificare la corretta installazione del JDK, è possibile eseguire da shell il comando: ``javac -version``, accertandosi che l’output prodotto sia del tipo: ``javac 1.8.0_<version>``
 
 Per qualsiasi domanda o problematica riscontrata durante l’installazione, rivolgersi direttamente ai tutor del corso.
 
 ### Ubuntu e derivate (Linux Mint, elementaryOS...)
-Java 8 non è disponibile sui repository ufficiali, ma è fornito tramite PPA.
+Java 8 non è disponibile sui repository ufficiali, ma è fornito tramite la PPA ``ppa:webupd8team/java``:
+
 {% highlight bash %}
 sudo add-apt-repository ppa:webupd8team/java
 sudo apt-get update
@@ -85,89 +93,80 @@ exit
 {% endhighlight %}
 
 ## Mac OS X
-1. Scaricare il JDK dalla pagina di download ufficiale di Oracle (qui).
+1. Scaricare il JDK [dalla pagina di download ufficiale di Oracle][JDK download page], avendo cura di scegliere la versione per **Mac OS X**.
+![Missing image](img/win10/download_jdk/1.png "Oracle JDK downloads page")
 2. Eseguire l’eseguibile scaricato e seguire il wizard di installazione passo passo.
 3. Verificare la corretta installazione del JDK eseguendo il comando javac da shell.
 
 
 ## Windows
 
-Su Windows la procedura dipende dalla versione utilizzata. In particolare, differisce (a causa di differenze nell'interfaccia grafica) fra Windows 7 e precedenti e Windows 8 e precedenti. Versioni inferiori a Windows Vista non sono supportate.
+Su Windows la procedura dipende dalla versione utilizzata.
+In particolare, si differenzia fra Windows 7 (e precedenti), Windows 8 e Windows 10 a causa delle variazioni nell'interfaccia grafica.
+Versioni inferiori a Windows Vista non sono supportate.
 
-### Vista / 7
+I passi in comune a tutte le versioni di Windows sono i seguenti:
+1. Scaricare il JDK dalla [pagina di download ufficiale di Oracle][JDK download page].
+Scegliere la versione 32/64 bit corrispondente alla propria versione del sistema operativo (p.e. Windows a 32 bit ---> JDK a 32 bit).
+![Missing image](img/win10/download_jdk/1.png "Oracle JDK downloads page")
+2. Eseguire l’eseguibile scaricato e seguire il wizard di installazione passo-passo.
+3. Configurazione delle variabili d'ambiente
+    - Questa fase varia leggermente a senconda della versione di Windows. Le istruzioni specifiche di ogni versione sono riportate nel seguito.
+4. Verifica dell'avvenuta installazione eseguendo i segenti due comandi su un prompt dei comandi:
+    {% highlight bash %}
+    javac -version  # Output atteso: 'javac 1.8.0_121'
+    java -version   # Output atteso: 'java version "1.8.0_144" ...'
+    {% endhighlight %}
+    ![Missing image](img/win-prompt.png "Windows PATH")
 
-1. Scaricare il JDK dalla [pagina di download ufficiale di Oracle][JDK download page]. Scegliere la versione 32/64 bit corrispondente alla propria versione del sistema operativo (p.e. Windows a 32 bit ---> JDK a 32 bit).
-2. Eseguire l’eseguibile scaricato e seguire il wizard di installazione passo passo.
-3. Aprire le proprietà di sistema:<br/>
+
+### Impostazione variabili d'ambiente su Vista / 7
+
+0. Aprire le proprietà di sistema:<br/>
 ![Missing image](img/win-system-properties.png "Windows system properties")
 
-4. Aprire la schermata relativa alle variabili di ambiente:<br/>
+0. Aprire la schermata relativa alle variabili di ambiente:<br/>
 ![Missing image](img/win-environment-variables.png "Windows environment variables")
 
-5. Configurare la variabile JAVA_HOME come mostrato:<br/>
+0. Configurare la variabile JAVA_HOME come mostrato:<br/>
 ![Missing image](img/win-java-home.png "Windows JAVA_HOME")
 
-6. Aggiornare la  variabile d’ambiente PATH come mostrato:<br/>
+0. Aggiornare la  variabile d’ambiente PATH come mostrato:<br/>
 ![Missing image](img/win-path.png "Windows PATH")
 
-7. Aprire il prompt dei comandi:<br/>
-![Missing image](img/win-prompt.png "Windows PATH")
+0. Aprire il prompt dei comandi:<br/>
 
-8. Verificare la corretta installazione del JDK eseguendo il comando `javac` dal prompt dei comandi. L'output atteso è:
-{% highlight bash %}
-Usage: javac <options> <source files>
-where possible options include:
-  -g                         Generate all debugging info
-  -g:none                    Generate no debugging info
-  -g:{lines,vars,source}     Generate only some debugging info
-  -nowarn                    Generate no warnings
-  -verbose                   Output messages about what the compiler is doing
-  -deprecation               Output source locations where deprecated APIs are used
-  -classpath <path>          Specify where to find user class files and annotation processors
-  -cp <path>                 Specify where to find user class files and annotation processors
-  -sourcepath <path>         Specify where to find input source files
-  -bootclasspath <path>      Override location of bootstrap class files
-  -extdirs <dirs>            Override location of installed extensions
-  -endorseddirs <dirs>       Override location of endorsed standards path
-  -proc:{none,only}          Control whether annotation processing and/or compilation is done.
-  -processor <class1>[,<class2>,<class3>...] Names of the annotation processors to run; bypasses default discovery process
-  -processorpath <path>      Specify where to find annotation processors
-  -parameters                Generate metadata for reflection on method parameters
-  -d <directory>             Specify where to place generated class files
-  -s <directory>             Specify where to place generated source files
-  -h <directory>             Specify where to place generated native header files
-  -implicit:{none,class}     Specify whether or not to generate class files for implicitly referenced files
-  -encoding <encoding>       Specify character encoding used by source files
-  -source <release>          Provide source compatibility with specified release
-  -target <release>          Generate class files for specific VM version
-  -profile <profile>         Check that API used is available in the specified profile
-  -version                   Version information
-  -help                      Print a synopsis of standard options
-  -Akey[=value]              Options to pass to annotation processors
-  -X                         Print a synopsis of nonstandard options
-  -J<flag>                   Pass <flag> directly to the runtime system
-  -Werror                    Terminate compilation if warnings occur
-  @<filename>                Read options and filenames from file
-{% endhighlight %}
+0. Verificare la corretta installazione del JDK eseguendo il comando `javac -version` e `java -version` dal prompt dei comandi.
 
 
-### Windows 8
-1. Seguire i punti 1 e 2 della guida per Windows 7
+### Impostazione variabili d'ambiente su Windows 10
 
-2. Aprire le proprietà di sistema: <br/>
-![Missing image](img/win8-0.png "Windows system properties") <br/>
-![Missing image](img/win8-1.png "Windows system properties") <br/>
-![Missing image](img/win8-2.png "Windows system properties")
+1. Aprire il menù d'avvio e digitare __"Modifica variabili d'ambiente relative al sistema"__:
+![Missing image](img/win10/env_vars/1.png)
+    - In alternativa, dal menù d'avvio, cercare la voce __"Questo PC"__ e cliccare su di essa col pulsante destro. Dal menù a tendina che apparirà, selezionare la voce __"Proprietà"__:
+    ![Missing image](img/win10/env_vars/1alt1.png)
+    - Dalla schermata __"Sistema"__ che apparirà, selezionare la voce __"Impostazioni di sistema avanzate"__ (a sinistra):
+    ![Missing image](img/win10/env_vars/1alt2.png "System")
 
-3. Seguire i punti 4, 5, e 6 della guida a per Windows 7
 
-4. Muovere il mouse verso l'angolo in alto a destra dello schermo.
+2. Si aprirà la finestra "Proprietà del sistema":
+![Missing image](img/win10/env_vars/2.png "System Properties")
 
-5. Nel menu che apparirà, scegliere la ricerca, quindi scorrere il menu verso destra - inizialmente la parte destra potrebbe essere nascosta.
+3. Cliccando poi sul pulsante __"Nuova"__ (_quello più in basso!_), si aprirà la finestra di dialogo __"Variabili d'ambiente"__, necessaria per creare una nuova variabile d'ambiente:
+![Missing image](img/win10/env_vars/3.png "Envarionment Variables")
 
-6. A questo punto, dovrebbe comparire il prompt dei comandi fra le applicazioni avviabili.
+4. Creare la variabile denonimata __"JAVA_HOME"__ con valore `C:\Program Files\Java\jdk1.8.<minor_version>` e cliccare sul pulsante __"OK"__:
+![Missing image](img/win10/env_vars/5.png "Creating JAVA_HOME")
+    - __Nota bene__: il percorso specifico del JDK potrebbe variare da quello qui descritto in caso di installazioni personalizzate.
 
-7. Eseguire il punto 8 delle istruzioni per Windows 7.
+5. Tornando alla schermata __"Variabili d'ambiente"__, modificare la variabile `Path` (_quella più in basso!_), cliccando sul pulsante __"Modifica"__.
+
+6. Alla lista di percorsi che apparirà, aggingere la voce `%JAVA_HOME%\bin`:
+![Missing image](img/win10/env_vars/6.png)
+
+7. Premere su __"OK"__ su tutte le finestre sin qui aperte per confermare le modifiche.
+
+8. Fatto! Verificare la corretta installazione del JDK eseguendo __entrambi__ i comandi `javac -version` e `java -version` dal prompt dei comandi.
 
 
 # Eclipse
