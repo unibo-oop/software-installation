@@ -109,9 +109,9 @@ I passi in comune a tutte le versioni di Windows sono i seguenti:
 1. Scaricare il JDK dalla [pagina di download ufficiale di Oracle][JDK download page].
 Scegliere la versione 32/64 bit corrispondente alla propria versione del sistema operativo (p.e. Windows a 32 bit ---> JDK a 32 bit).
 ![Missing image](img/win10/download_jdk/1.png "Oracle JDK downloads page")
-2. Eseguire l'installer scaricato e seguire lo wizard di installazione passo-passo.
+2. Eseguire l'installer scaricato e seguire il wizard di installazione passo-passo.
 3. Configurazione delle variabili d'ambiente
-    - Questa fase varia leggermente a senconda della versione di Windows. Le istruzioni specifiche di ogni versione sono riportate nel seguito.
+    - Questa fase varia leggermente a seconda della versione di Windows. Le istruzioni specifiche di ogni versione sono riportate nel seguito.
 4. Verifica dell'avvenuta installazione eseguendo i segenti due comandi su un prompt dei comandi:
     {% highlight bash %}
     javac -version  # Output atteso: 'javac 1.8.0_121'
