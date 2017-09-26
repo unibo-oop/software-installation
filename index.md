@@ -205,7 +205,7 @@ Tale bug è dovuto al modo in cui SWT (la libreria grafica usata da Eclipse) si 
 Onde evitare qualunque problema di questo tipo, il suggerimento è quello di utilizzare GTK+2.
 Per farlo, si utilizzi uno dei seguenti modi:
 
-* Se l'installazione è stata eseguita da package manager, si utilizzi il comando `which eclipse` per individuare la posizione del file eseguibile rappresentante Eclipse (normalmente è `/usr/bin/eclipse`). Il file dovrebbe essere uno script sh, che può essere editato. Si esegua `sudo <EDITOR> <PERCORSO>`, sostituendo a `<EDITOR>` il nome del vostro editor di testi preferito (ad esempio, `nano`) e a `<PERCORSO>` il percorso effettivo del file (ad esempio `/usr/bin/eclipse`). Il file che si apre dovrebbe avere il seguente aspetto:
+* __Se l'installazione è stata eseguita da package manager__, si utilizzi il comando `which eclipse` per individuare la posizione del file eseguibile rappresentante Eclipse (normalmente è `/usr/bin/eclipse`). Il file dovrebbe essere uno script sh, che può essere editato. Si esegua `sudo <EDITOR> <PERCORSO>`, sostituendo a `<EDITOR>` il nome del vostro editor di testi preferito (ad esempio, `nano`) e a `<PERCORSO>` il percorso effettivo del file (ad esempio `/usr/bin/eclipse`). Il file che si apre dovrebbe avere il seguente aspetto:
 {% highlight bash %}
 #!/bin/bash
 export ECLIPSE_HOME=/usr/lib/eclipse
@@ -220,7 +220,7 @@ exec ${ECLIPSE_HOME}/eclipse "$@"
 {% endhighlight %}
 Si salvi il file. Le nuove istanze di Eclipse utilizzeranno GTK+2.
 
-* Se l'installazione è stata fatta manualmente, scaricando il pacchetto dal sito di Eclipse, si individui il file `eclipse.ini` nella cartella di installazione. Lo si apra con un editor di testo. Il file dovrebbe apparire simile a:
+* __Se l'installazione è stata fatta manualmente__, scaricando il pacchetto dal sito di Eclipse, si individui il file `eclipse.ini` nella cartella di installazione. Lo si apra con un editor di testo. Il file dovrebbe apparire simile a:
 {% highlight bash %}
 -startup
 plugins/org.eclipse.equinox.launcher_1.3.100.v20150511-1540.jar
@@ -280,21 +280,32 @@ Eclipse utilizza un'architettura a plug-in. Lungo il corso ne utilizzeremo alcun
 
 ## FindBugs
 * In Eclipse, click Help -> Eclipse Marketplace...
+![Missing image](img/win10/install_eclipse/install_plugins_marketplace/1.png)
+
 * Nella barra di ricerca, inserire "findbugs", quindi premere Invio
+![Missing image](img/win10/install_eclipse/install_plugins_marketplace/2A.png)
+
 * Uno dei plugin trovati dovrebbe essere "FindBugs Eclipse Plugin", clickare su Install
+![Missing image](img/win10/install_eclipse/install_plugins_marketplace/2B.png)
+
 * Seguire le istruzioni, accettare la licenza, attendere che Eclipse scarichi ed installi il prodotti, accettare l'installazione e riavviare l'IDE.
 
 ## PMD
 * **NON** installare eclipse-pmd da Eclipse Marketplace
 * In Eclipse, click Help -> Install New Software
-* Nel campo di testo con etichetta "Work with:", scrivere: https://sourceforge.net/projects/pmd/files/pmd-eclipse/update-site-latest/
+![Missing image](img/win10/install_eclipse/install_plugins_updatesite/1.png)
+* Nel campo di testo con etichetta "Work with:", scrivere: `https://dl.bintray.com/pmd/pmd-eclipse-plugin/updates/`
+![Missing image](img/win10/install_eclipse/install_plugins_updatesite/2.png)
 * Premere Invio
 * PMD for Eclipse 4 apparirà nella lista dei plugin. Selezionatelo e clickate Next.
+![Missing image](img/win10/install_eclipse/install_plugins_updatesite/3.png)
 * Seguire le istruzioni, accettare la licenza, attendere che Eclipse scarichi ed installi il prodotti, accettare l'installazione e riavviare l'IDE.
 
 ## Checkstyle
 * In Eclipse, click Help -> Eclipse Marketplace...
+![Missing image](img/win10/install_eclipse/install_plugins_marketplace/1.png)
 * Nella barra di ricerca, inserire "checkstyle", quindi premere Invio
+![Missing image](img/win10/install_eclipse/install_plugins_marketplace/2B.png)
 * Uno dei plugin trovati dovrebbe essere "Checkstyle Plug-in", clickare su Install
 * Seguire le istruzioni, accettare la licenza, attendere che Eclipse scarichi ed installi il prodotti, accettare l'installazione e riavviare l'IDE.
 
