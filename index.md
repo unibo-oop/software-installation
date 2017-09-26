@@ -128,8 +128,9 @@ Scegliere la versione 32/64 bit corrispondente alla propria versione del sistema
 2. Aprire la schermata relativa alle variabili di ambiente:<br/>
 ![Missing image](img/win-environment-variables.png "Windows environment variables")
 
-3. Configurare la variabile JAVA_HOME come mostrato:<br/>
+3. Configurare la variabile `JAVA_HOME` come mostrato:<br/>
 ![Missing image](img/win-java-home.png "Windows JAVA_HOME")
+    - Sostituire `<PATH_JDK>` con il percorso in cui si è installato il JDK (che, di solito, è `C:\Program Files\Java\jdk.1.8.<minor_version>`)
 
 4. Aggiornare la  variabile d’ambiente PATH come mostrato:<br/>
 ![Missing image](img/win-path.png "Windows PATH")
