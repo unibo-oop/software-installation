@@ -112,7 +112,7 @@ Scegliere la versione 32/64 bit corrispondente alla propria versione del sistema
 2. Eseguire l'installer scaricato e seguire il wizard di installazione passo-passo.
 3. Configurazione delle variabili d'ambiente
     - Questa fase varia leggermente a seconda della versione di Windows. Le istruzioni specifiche di ogni versione sono riportate nel seguito.
-4. Verifica dell'avvenuta installazione eseguendo i segenti due comandi su un prompt dei comandi:
+4. Dopo aver configurato le variabili d'ambiente, verificare l'avvenuta installazione eseguendo i seguenti due comandi su un prompt dei comandi:
     {% highlight bash %}
     javac -version  # Output atteso: 'javac 1.8.0_121'
     java -version   # Output atteso: 'java version "1.8.0_144" ...'
