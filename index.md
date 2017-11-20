@@ -302,15 +302,14 @@ openFile
 
 Eclipse utilizza un'architettura a plug-in. Lungo il corso ne utilizzeremo alcuni che ci forniranno funzionalità aggiuntive.
 
-## FindBugs
+## SpotBugs (precedentemente noto come FingBugs)
 * In Eclipse, click Help -> Eclipse Marketplace...
 ![Missing image](img/win10/install_eclipse/install_plugins_marketplace/1.png)
 
-* Nella barra di ricerca, inserire "findbugs", quindi premere Invio
+* Nella barra di ricerca, inserire "spotbugs", quindi premere Invio
 ![Missing image](img/win10/install_eclipse/install_plugins_marketplace/2A.png)
 
-* Uno dei plugin trovati dovrebbe essere "FindBugs Eclipse Plugin", clickare su Install
-![Missing image](img/win10/install_eclipse/install_plugins_marketplace/2B.png)
+* Uno dei plugin trovati dovrebbe essere "SpotBugs Eclipse Plugin", clickare su `"Install Now >"`
 
 * Seguire le istruzioni, accettare la licenza, attendere che Eclipse scarichi ed installi il prodotti, accettare l'installazione e riavviare l'IDE.
 
