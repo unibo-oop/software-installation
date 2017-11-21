@@ -302,7 +302,7 @@ openFile
 
 Eclipse utilizza un'architettura a plug-in. Lungo il corso ne utilizzeremo alcuni che ci forniranno funzionalità aggiuntive.
 
-## SpotBugs (precedentemente noto come FingBugs)
+## SpotBugs (precedentemente noto come FindBugs)
 * In Eclipse, click Help -> Eclipse Marketplace...
 ![Missing image](img/win10/install_eclipse/install_plugins_marketplace/1.png)
 
