@@ -10,96 +10,88 @@ La guida presenta le procedure di installazione e configurazione su Linux (varie
 
 Il JDK è l'insieme degli strumenti necessari a sviluppare software standard in Java.
 Include la virtual machine Java, le librerie Java, di base, il compilatore, e i tool di contorno.
+
+Esistono varie versioni del JDK, quella di riferimento è OpenJDK, a partire dalla quale ne vengono sviluppate altre soa gratuite che a pagamento (fra cui [Oracle JDK](https://www.oracle.com/technetwork/java/javase/downloads/index.html), [Eclipse OpenJ9](https://www.eclipse.org/openj9/), [Amazon Corretto](https://aws.amazon.com/corretto/), [GraalVM](https://www.graalvm.org/), [Bellsoft Liberica JDK](https://bell-sw.com/), [Azul Zulu](https://www.azul.com/downloads/zulu-community/?&show-old-builds=true)...).
+
+A sua volta, OpenJDK è distribuito in forma di sorgente, e vari distributori ne forniscono versioni binarie.
+Fra questi, [AdoptOpenJDK](https://adoptopenjdk.net/).
+La macchina virtuale Java di riferimento sarà OpenJDK 11 come fornita da AdoptOpenJDK.
+
 Seguono le istruzioni di installazione e configuazione per i vari sistemi operativi.
 
-## Linux
+## Installazione multipiattaforma via Jabba
 
-In ambiente Linux, la procedura è distro-dependent, ovvero dipendente dal package-manager utilizzato sulla specifica distribuzione.
-Si riportano qui le istruzioni per le distribuzioni più famose, più diffuse e/o quelle usate dai docenti.
-Tutte le istruzioni hanno forma di comandi da lanciare nel terminale.
-Nel caso in cui lo studente utilizzi una diversa distribuzione, si senta libero di contattare i docenti per essere aiutato (va detto che storicamente le richieste sono state zero: chi utilizza una distribuzione poco diffusa di norma sa bene cosa sta facendo).
+Data la varietà di versioni, distribuzioni sorgenti, e distribuzioni binarie di JVM, esiste un tool Linux che consente di installare quella desiderata e cambiarla rapidamente.
+Il tool è [Jabba](https://github.com/shyiko/jabba).
 
-Le istruzioni specifiche per ogni distribuzione sono indicate nelle sottosezioni sequenti.
-In ogni caso, al termine del processo di installazione, per verificare la corretta installazione del JDK, è possibile eseguire da shell il comando: ``javac -version``, accertandosi che l’output prodotto sia del tipo: ``javac 1.8.0_<version>``
-
-Per qualsiasi domanda o problematica riscontrata durante l’installazione, rivolgersi direttamente ai tutor del corso.
-
-### Ubuntu e derivate (Linux Mint, elementaryOS...)
-Java 8 non è disponibile sui repository ufficiali, ma è fornito tramite la PPA ``ppa:webupd8team/java``:
+Per installare Jabba su Linux o Mac OS X, si lanci il seguente comando da terminale:
 
 {% highlight bash %}
-sudo add-apt-repository ppa:webupd8team/java
-sudo apt-get update
-sudo apt-get install oracle-java8-installer
-sudo apt-get install oracle-java8-set-default
+curl -sL https://github.com/shyiko/jabba/raw/master/install.sh | bash && . ~/.jabba/jabba.sh
 {% endhighlight %}
 
-### Arch e derivate (Antergos, Manjaro, Bridge…)
-Arch offre il pacchetto OpenJDK 8 direttamente nel repository principale
+Per installare Jabba su Windows 10, si lanci invece il seguente comando su Powershell:
+
+{% highlight powershell %}
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+Invoke-Expression (
+  Invoke-WebRequest https://github.com/shyiko/jabba/raw/master/install.ps1 -UseBasicParsing
+).Content
+{% endhighlight %}
+
+Una volta che Jabba è installato, può essere utilizzato per installare il JDK.
+Si elenchino tutte le versioni di AdoptOpenJDK utilizzando
 {% highlight bash %}
-sudo pacman -S jdk8-openjdk
+jabba ls-remote adopt@
+{% endhighlight %}
+
+Quindi si selezioni la più recente fra le versioni 11, ad esempio se l'output è:
+
+```
+adopt@1.12.33-0
+adopt@1.12.0-2
+adopt@1.12.0-1
+adopt@1.11.28-0
+adopt@1.11.0-4
+adopt@1.11.0-3
+adopt@1.11.0-2
+adopt@1.11.0-1
+adopt@1.10.0-2
+adopt@1.9.181-0
+adopt@1.9.0-4
+adopt@1.8.222-10
+adopt@1.8.212-04
+adopt@1.8.212-03
+adopt@1.8.202-08
+adopt@1.8.192-12
+adopt@1.8.181-13
+adopt@1.8.172-11
+```
+
+Si scelga `adopt@1.11.28-0`.
+A questo punto si installi utilizzando i seguenti comandi:
+
+{% highlight bash %}
+jabba install adopt@1.11.28-0
+jabba use adopt@1.11.28-0
+{% endhighlight %}
+
+## Installazione alternativa su specifici OS
+
+### Arch e derivate (Manjaro, Bridge…)
+Arch offre il pacchetto OpenJDK 11 direttamente nel repository principale:
+{% highlight bash %}
+sudo pacman -S jdk11-openjdk
 {% endhighlight %}
 È possibile avere più ambienti Java installati contemporaneamente, si può selezionare quello corrente utilizzando il comando ``archlinux-java``.
-
-### Debian
-Java 8 non è disponibile sui repository ufficiali, ma è fornito tramite PPA.
+Per assicurarsi di star lavorando con OpenJDK 11, si utilizzi:
 {% highlight bash %}
-su -
-echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main" | tee /etc/apt/sources.list.d/webupd8team-java.list
-echo "deb-src http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main" | tee -a /etc/apt/sources.list.d/webupd8team-java.list
-apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys EEA14886
-apt-get update
-apt-get install oracle-java8-installer
-exit
+sudo archlinux-java set java-11-openjdk
 {% endhighlight %}
-
-### Gentoo e derivate eccetto Sabayon (Calculate, Scientific…)
-Gentoo offre il pacchetto JDK 8 via Portage.
-Il pacchetto è soggetto a fetch restriction per via della licenza Oracle, dunque come primo passo dovrete scaricare il JDK per Linux dal sito web di Oracle in formato tar.gz, quindi spostare tale archivio in ``/usr/portage/distfiles/``.
-A questo punto, lanciare:
-{% highlight bash %}
-su -
-emerge --sync
-emerge oracle-jdk-bin
-eselect java-vm set system oracle-jdk-bin-1.8
-exit
-eselect java-vm set user oracle-jdk-bin-1.8
-{% endhighlight %}
-È possibile utilizzare contemporaneamente più versioni del JDK, e cambiare quella di default utilizzando il comando `eselect`. In particolare ``eselect java-vm list`` elenca tutte le Java VM installate nel sistema. È possibile configurare la virtual machine di default per-utente e per-sistema.
-
-### Sabayon
-{% highlight bash %}
-su -
-equo u
-equo i oracle-jdk-bin
-eselect java-vm set system oracle-jdk-bin-1.8
-exit
-eselect java-vm set user oracle-jdk-bin-1.8
-{% endhighlight %}
-Le medesime considerazioni fatte per Gentoo valgono su Sabayon.
-
-### Distro con package manager RPM (Red Hat, Fedora, SUSE, Oracle, SLES)
-In generale è possible utilizzare questa procedura per tutte le distribuzioni dotate del package manager RPM. Scaricare il pacchetto di installazione [dal sito Oracle][JDK download page], selezionando il fomato rpm, e la versione Linux x86 oppure Linux x64 a seconda del sistema operativo rispettivamente a 32 o 64 bit.
-Tale informazione può essere stampata a video utilizzando il comando `uname -m`. Quindi:
-{% highlight bash %}
-sudo -s
-mkdir /opt/Oracle_Java
-cd /opt/Oracle_java
-rpm -ivh /path/to/package/jdk-8u<version>-linux-x64.rpm
-/usr/sbin/alternatives --config java (selezionare l’indice corrispondente a jdk 8)
-/usr/sbin/alternatives --config javac (selezionare l’indice corrispondente a jdk 8)
-/usr/sbin/alternatives --config jar (selezionare l’indice corrispondente a jdk 8)
-exit
-{% endhighlight %}
-
-## Mac OS X
-1. Scaricare il JDK [dalla pagina di download ufficiale di Oracle][JDK download page], avendo cura di scegliere la versione per **Mac OS X**.
-![Missing image](img/win10/download_jdk/1.png "Oracle JDK downloads page")
-2. Eseguire l’eseguibile scaricato e seguire il wizard di installazione passo passo.
-3. Verificare la corretta installazione del JDK eseguendo il comando javac da shell.
-
 
 ## Windows
+
+**@Angelo, intervieni da qui, passa tutto ad AdoptOpenJDK**
 
 Su Windows la procedura dipende dalla versione utilizzata.
 In particolare, si differenzia fra Windows 7 (e precedenti), Windows 8 e Windows 10 a causa delle variazioni nell'interfaccia grafica.
@@ -192,111 +184,19 @@ Scegliere la versione 32/64 bit corrispondente alla propria versione del sistema
 
 8. Fatto! Verificare la corretta installazione del JDK eseguendo __entrambi__ i comandi `javac -version` e `java -version` dal prompt dei comandi.
 
+**Fine intervento @Angelo**
+
 # Eclipse
 
 ### Arch Linux e derivate (Manjaro, Antergos, Bridge...)
-Arch è l’unica distribuzione che manutiene nel repository ufficiale Eclipse all’ultima versione, sempre aggiornato. Gli utenti di Arch possono usare il package manager per installare Eclipse (``sudo pacman -S eclipse``), e saltare direttamente al punto 6, lanciando il comando ``eclipse``.
+Arch manutiene nel repository ufficiale Eclipse all’ultima versione, sempre aggiornato. Gli utenti di Arch possono usare il package manager per installare Eclipse (``sudo pacman -S eclipse``), e saltare direttamente al punto 6, lanciando il comando ``eclipse``.
 
 ## Tutti i sistemi operativi
 
-1. Scaricare “Eclipse IDE for Java Developers” (ultima versione disponibile) dalla [pagina di download ufficiale (qui)][Eclipse Download]. Scegliere la versione 32/64 bit corrispondente alla propria versione del JDK (normalmente 64bit).
-![Missing image](img/win10/install_eclipse/download/1.png)
-![Missing image](img/win10/install_eclipse/download/2.png)
-![Missing image](img/win10/install_eclipse/download/3.png)
-
-2. Decomprimere il file scaricato utilizzando il programma di gestione degli archivi che siete abituati ad utilizzare (FileRoller, Ark, 7zip...).
-
-3. Al termine della procedura, aprire la cartella appena scompattata.
-Al suo interno dovrebbero essere presenti:
-    - l'eseguibile `eclipse` (o `eclipse.exe`, su Windows)
-    - il file di configurazione `eclipse.ini`
-    - le cartelle `configuration`, `features`, `plugins` e altre...
-
-4. Per utenti Windows e MacOS X:  aprire il file `eclipse.ini` con un editor di testo qualsiasi e aggiungere in fondo la seguente riga: ``-Dfile.encoding=UTF8``.
-![Missing image](img/win10/install_eclipse/download/5.png)
-
-
-5. Lanciare l’IDE facendo doppio click sull'eseguibile `eclipse` (o `eclipse.exe`, su Windows) contenuto nella cartella.
-    - Si consiglia di creare un collegamento sul desktop (o in un altro punto facilmente raggiungibile) per poter eseguire rapidamente Eclipse.
-
-6. Se l’installazione è andata a buon fine si dovrebbe aprire la schermata di benvenuto dell'IDE.
+1. Scaricare “Eclipse IDE” (ultima versione disponibile) dalla [pagina di download ufficiale (qui)][Eclipse Download]. 
+2. Seguire le istruzioni per l'installazione, selezionando "Eclipse IDE for Java Developers".
+3. Si lanci l'IDE: se l’installazione è andata a buon fine si dovrebbe aprire la schermata di benvenuto dell'IDE.
 ![Missing image](img/win10/install_eclipse/download/6.png)
-
-### Risolvere bug Eclipse / GTK+3 su Linux
-
-Eclipse ha attualmente [un bug noto](https://bugs.eclipse.org/bugs/show_bug.cgi?id=354842) che rende l'interfaccia poco reattiva ed aumenta l'uso della CPU da parte dell'IDE, rendendolo praticamente inusabile.
-Tale bug è dovuto al modo in cui SWT (la libreria grafica usata da Eclipse) si interfaccia con GTK+3. Il bug si presenta solo in alcune combinazioni di Eclipse / GTK+3.
-Onde evitare qualunque problema di questo tipo, il suggerimento è quello di utilizzare GTK+2.
-Per farlo, si utilizzi uno dei seguenti modi:
-
-* __Se l'installazione è stata eseguita da package manager__, si utilizzi il comando `which eclipse` per individuare la posizione del file eseguibile rappresentante Eclipse (normalmente è `/usr/bin/eclipse`). Il file dovrebbe essere uno script sh, che può essere editato. Si esegua `sudo <EDITOR> <PERCORSO>`, sostituendo a `<EDITOR>` il nome del vostro editor di testi preferito (ad esempio, `nano`) e a `<PERCORSO>` il percorso effettivo del file (ad esempio `/usr/bin/eclipse`). Il file che si apre dovrebbe avere il seguente aspetto:
-{% highlight bash %}
-#!/bin/bash
-export ECLIPSE_HOME=/usr/lib/eclipse
-exec ${ECLIPSE_HOME}/eclipse "$@"
-{% endhighlight %}
-Lo si modifichi in modo che diventi:
-{% highlight bash %}
-#!/bin/bash
-export ECLIPSE_HOME=/usr/lib/eclipse
-export SWT_GTK3=0
-exec ${ECLIPSE_HOME}/eclipse "$@"
-{% endhighlight %}
-Si salvi il file. Le nuove istanze di Eclipse utilizzeranno GTK+2.
-
-* __Se l'installazione è stata fatta manualmente__, scaricando il pacchetto dal sito di Eclipse, si individui il file `eclipse.ini` nella cartella di installazione. Lo si apra con un editor di testo. Il file dovrebbe apparire simile a:
-{% highlight bash %}
--startup
-plugins/org.eclipse.equinox.launcher_1.3.100.v20150511-1540.jar
---launcher.library
-plugins/org.eclipse.equinox.launcher.gtk.linux.x86_64_1.1.300.v20150602-1417
--product
-org.eclipse.epp.package.java.product
---launcher.defaultAction
-openFile
--showsplash
-org.eclipse.platform
---launcher.XXMaxPermSize
-256m
---launcher.defaultAction
-openFile
---launcher.appendVmargs                                                                                                                                                                                             
--vmargs                                                                                                                                                                                                             
--Dosgi.requiredJavaVersion=1.7                                                                                                                                                                                      
--XX:MaxPermSize=256m                                                                                                                                                                                                
--Xms256m
--Xmx1024m
-{% endhighlight %}
-Si aggiunga alle opzioni, **prima** di `-vmargs`, la seguente opzione:
-``
---launcher.GTK_version
-2
-``
-In modo che il file diventi:
-{% highlight bash %}
--startup
-plugins/org.eclipse.equinox.launcher_1.3.100.v20150511-1540.jar
---launcher.library
-plugins/org.eclipse.equinox.launcher.gtk.linux.x86_64_1.1.300.v20150602-1417
--product
-org.eclipse.epp.package.java.product
---launcher.defaultAction
-openFile
--showsplash
-org.eclipse.platform
---launcher.XXMaxPermSize
-256m
---launcher.defaultAction
-openFile
---launcher.appendVmargs
---launcher.GTK_version
-2
--vmargs                                                                                                                                                                                                             
--Dosgi.requiredJavaVersion=1.7                                                                                                                                                                                      
--XX:MaxPermSize=256m                                                                                                                                                                                                
--Xms256m
--Xmx1024m
-{% endhighlight %}
 
 # Plugin di Eclipse
 
@@ -415,7 +315,6 @@ Le istruzioni per tutte le distribuzioni più comuni [sono disponibili qui](http
     * Eseguire il comando `git`: se l'installazione è andata a buon fine, apparirà il menu di help per il comando
 
 [JDK download page]: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
-[Mercurial download page]: https://www.mercurial-scm.org/downloads
 [Eclipse Download]: https://www.eclipse.org/downloads/
 [GIT-Windows Download]: https://git-for-windows.github.io/
 [GIT-OSX Download]: http://git-scm.com/download/mac
