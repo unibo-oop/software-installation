@@ -96,22 +96,29 @@ Jabba installa il JDK desiderato in una cartella dedicata nella user home dell'u
 E' necessario quindi definire una variabile d'ambiente (`JAVA_HOME`) relativa a tale percorso ed includerla nel `Path` di sistema, come segue (si fa riferimento a Windows 10, per versioni precedenti la procedura è analoga).
 
 1. Aprire il menù d'avvio e digitare __"Modifica variabili d'ambiente relative al sistema"__:
+
 ![Missing image](img/win10/env_vars/1.png)
 
 2. Cliccando su __Apri__ Si aprirà la finestra "Proprietà del sistema":
+
 ![Missing image](img/win10/env_vars/2.png "System Properties")
+
 dalla quale sarà necessario cliccare sul bottone __Variabili d'ambiente__.
 
 3. Si aprirà la finestra di dialogo __"Variabili d'ambiente"__. Cliccando poi sul pulsante __"Nuova"__ (_quello più in basso, relativo alle variabili d'ambiente di sistema_)
+
 ![Missing image](img/win10/env_vars/3.png "Envarionment Variables")
 
 4. Creare la variabile denonimata __"JAVA_HOME"__ con valore `%HOMEPATH%\.jabba\jdk\<version>` e cliccare sul pulsante __"OK"__:
+
 ![Missing image](img/win10/env_vars/5.png "Creating JAVA_HOME")
+    
     - __Nota bene__: il percorso specifico del JDK potrebbe variare da quello qui descritto in caso di installazioni personalizzate.
 
 5. Tornando alla schermata __"Variabili d'ambiente"__, modificare la variabile `Path` (_quella più in basso!_), cliccando sul pulsante __"Modifica"__.
 
 6. Alla lista di percorsi che apparirà, aggingere la voce `%JAVA_HOME%\bin`:
+
 ![Missing image](img/win10/env_vars/6.png)
 
 7. Premere su __"OK"__ su tutte le finestre sin qui aperte per confermare le modifiche.
