@@ -100,7 +100,7 @@ E' necessario quindi definire una variabile d'ambiente (`JAVA_HOME`) relativa a 
 
 2. Cliccando su __Apri__ Si aprirà la finestra "Proprietà del sistema":
 ![Missing image](img/win10/env_vars/2.png "System Properties")
-dalla quale sarà necessario cliccare sul bottone __Variabili dambiente__.
+dalla quale sarà necessario cliccare sul bottone __Variabili d'ambiente__.
 
 3. Si aprirà la finestra di dialogo __"Variabili d'ambiente"__. Cliccando poi sul pulsante __"Nuova"__ (_quello più in basso, relativo alle variabili d'ambiente di sistema_)
 ![Missing image](img/win10/env_vars/3.png "Envarionment Variables")
