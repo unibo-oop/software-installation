@@ -97,11 +97,6 @@ E' necessario quindi definire una variabile d'ambiente (`JAVA_HOME`) relativa a 
 
 1. Aprire il menù d'avvio e digitare __"Modifica variabili d'ambiente relative al sistema"__:
 ![Missing image](img/win10/env_vars/1.png)
-    - In alternativa, dal menù d'avvio, cercare la voce __"Questo PC"__ e cliccare su di essa col pulsante destro. Dal menù a tendina che apparirà, selezionare la voce __"Proprietà"__:
-    ![Missing image](img/win10/env_vars/1alt1.png)
-    - Dalla schermata __"Sistema"__ che apparirà, selezionare la voce __"Impostazioni di sistema avanzate"__ (a sinistra):
-    ![Missing image](img/win10/env_vars/1alt2.png "System")
-
 
 2. Si aprirà la finestra "Proprietà del sistema":
 ![Missing image](img/win10/env_vars/2.png "System Properties")
