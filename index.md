@@ -89,7 +89,7 @@ Per assicurarsi di star lavorando con OpenJDK 11, si utilizzi:
 sudo archlinux-java set java-11-openjdk
 {% endhighlight %}
 
-## Windows
+### Windows
 
 **@Angelo, intervieni da qui, passa tutto ad AdoptOpenJDK**
 
@@ -118,7 +118,7 @@ Scegliere la versione 32/64 bit corrispondente alla propria versione del sistema
     {% endhighlight %}
 
 
-### Impostazione variabili d'ambiente su Vista / 7
+#### Impostazione variabili d'ambiente su Vista / 7
 
 1. Aprire le proprietà di sistema:<br/>
 ![Missing image](img/win-system-properties.png "Windows system properties")
@@ -136,7 +136,7 @@ Scegliere la versione 32/64 bit corrispondente alla propria versione del sistema
 5. Verificare la corretta installazione del JDK eseguendo il comando `javac -version` e `java -version` dal prompt dei comandi.
 
 
-### Impostazione variabili d'ambiente su Windows 8
+#### Impostazione variabili d'ambiente su Windows 8
 
 1. Aprire il menù d'avvio cercare il __"Pannello di controllo"__:
 ![Missing image](img/win8/env_vars/1.png)
@@ -188,7 +188,7 @@ Scegliere la versione 32/64 bit corrispondente alla propria versione del sistema
 
 # Eclipse
 
-### Arch Linux e derivate (Manjaro, Antergos, Bridge...)
+## Arch Linux e derivate (Manjaro, Antergos, Bridge...)
 Arch manutiene nel repository ufficiale Eclipse all’ultima versione, sempre aggiornato. Gli utenti di Arch possono usare il package manager per installare Eclipse (``sudo pacman -S eclipse``), e saltare direttamente al punto 6, lanciando il comando ``eclipse``.
 
 ## Tutti i sistemi operativi
