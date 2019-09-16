@@ -158,23 +158,14 @@ sudo archlinux-java set java-11-openjdk
 {% endhighlight %}
 
 ### Windows
+I passi in comune a tutte le versioni di Windows sono i seguenti (di seguito si fa riferimento a Windows 10, analogamente per le versioni precedenti con eventuali variazioni in termini di interfaccia utente):
 
-**@Angelo, intervieni da qui, passa tutto ad AdoptOpenJDK**
-
-Su Windows la procedura dipende dalla versione utilizzata.
-In particolare, si differenzia fra Windows 7 (e precedenti), Windows 8 e Windows 10 a causa delle variazioni nell'interfaccia grafica.
-Versioni inferiori a Windows Vista non sono supportate.
-
-I passi in comune a tutte le versioni di Windows sono i seguenti:
-
-1. Scaricare il JDK dalla [pagina di download ufficiale di Oracle][JDK download page].
-Scegliere la versione 32/64 bit corrispondente alla propria versione del sistema operativo (p.e. Windows a 32 bit ---> JDK a 32 bit).
-![Missing image](img/win10/download_jdk/1.png "Oracle JDK downloads page")
+1. Scaricare il JDK dalla [pagina di download ufficiale di AdoptOpenJDK][Adopt JDK download page].
+Scegliere la versione OpenJDK 11 (LTS) e cliccare sul pulsante "Latest release". Selezionare quindi la piattaforma desiderata (Windows x32 oppure Windows x64).Premere quindi il bottone "Install JDK"
 
 2. Eseguire l'installer scaricato e seguire il wizard di installazione passo-passo.
 
-3. Configurazione delle variabili d'ambiente
-    - Questa fase varia leggermente a seconda della versione di Windows. Le istruzioni specifiche di ogni versione sono riportate nel seguito.
+3. Configurazione delle variabili d'ambiente (come riportato di seguito)
 
 4. Dopo aver configurato le variabili d'ambiente, aprire un prompt dei comandi per verificare l'esito positivo dello step precedente (è sufficente cercare `cmd.exe` nel menù di Start):
 ![Missing image](img/win-prompt.png "Windows PATH")
@@ -184,75 +175,36 @@ Scegliere la versione 32/64 bit corrispondente alla propria versione del sistema
     javac -version  # Output atteso: 'javac 1.8.0_121'
     java -version   # Output atteso: 'java version "1.8.0_144" ...'
     {% endhighlight %}
+    
+#### Modifica delle variabili d'ambiente in Windows 10
+    
+    1. Aprire il menù d'avvio e digitare __"Modifica variabili d'ambiente relative al sistema"__:
 
-
-#### Impostazione variabili d'ambiente su Vista / 7
-
-1. Aprire le proprietà di sistema:<br/>
-![Missing image](img/win-system-properties.png "Windows system properties")
-
-2. Aprire la schermata relativa alle variabili di ambiente:<br/>
-![Missing image](img/win-environment-variables.png "Windows environment variables")
-
-3. Configurare la variabile `JAVA_HOME` come mostrato:<br/>
-![Missing image](img/win-java-home.png "Windows JAVA_HOME")
-    - Sostituire `<PATH_JDK>` con il percorso in cui si è installato il JDK (che, di solito, è `C:\Program Files\Java\jdk.1.8.<minor_version>`)
-
-4. Modificare la  variabile d’ambiente `Path` aggiungendo al contenuto preesistente `;%JAVA_HOME%\bin` (*il punto-e-virgola è importante!*):<br/>
-![Missing image](img/win-path.png "Windows PATH")
-
-5. Verificare la corretta installazione del JDK eseguendo il comando `javac -version` e `java -version` dal prompt dei comandi.
-
-
-#### Impostazione variabili d'ambiente su Windows 8
-
-1. Aprire il menù d'avvio cercare il __"Pannello di controllo"__:
-![Missing image](img/win8/env_vars/1.png)
-
-2. Cliccare sulla voce __"Sistema e sicurezza"__ del Pannello di controllo:
-![Missing image](img/win8/env_vars/2.png)
-
-3. Appariranno una serie di voci. Selezionare __"Sistema"__:
-![Missing image](img/win8/env_vars/3.png)
-
-4. Selezionare __"Impostazioni di sistema avanzate"__ tra le voci a sinistra:
-![Missing image](img/win8/env_vars/4.png)
-
-5. Nella schermata __"Proprietà del sistema"__ che apparirà, cliccare sul pulsante __"Variabili d'ambiente"__:
-![Missing image](img/win8/env_vars/5.png)
-
-6. Proseguire seguendo le istruzioni per Windows 7 partendo dal punto 3.
-
-### Impostazione variabili d'ambiente su Windows 10
-
-1. Aprire il menù d'avvio e digitare __"Modifica variabili d'ambiente relative al sistema"__:
 ![Missing image](img/win10/env_vars/1.png)
-    - In alternativa, dal menù d'avvio, cercare la voce __"Questo PC"__ e cliccare su di essa col pulsante destro. Dal menù a tendina che apparirà, selezionare la voce __"Proprietà"__:
-    ![Missing image](img/win10/env_vars/1alt1.png)
-    - Dalla schermata __"Sistema"__ che apparirà, selezionare la voce __"Impostazioni di sistema avanzate"__ (a sinistra):
-    ![Missing image](img/win10/env_vars/1alt2.png "System")
 
+2. Cliccando su __Apri__ Si aprirà la finestra "Proprietà del sistema":
 
-2. Si aprirà la finestra "Proprietà del sistema":
 ![Missing image](img/win10/env_vars/2.png "System Properties")
 
-3. Cliccando poi sul pulsante __"Nuova"__ (_quello più in basso!_), si aprirà la finestra di dialogo __"Variabili d'ambiente"__, necessaria per creare una nuova variabile d'ambiente:
+dalla quale sarà necessario cliccare sul bottone __Variabili d'ambiente__.
+
+3. Si aprirà la finestra di dialogo __"Variabili d'ambiente"__. Cliccando poi sul pulsante __"Nuova"__ (_quello più in basso, relativo alle variabili d'ambiente di sistema_)
+
 ![Missing image](img/win10/env_vars/3.png "Envarionment Variables")
 
-4. Creare la variabile denonimata __"JAVA_HOME"__ con valore `C:\Program Files\Java\jdk1.8.<minor_version>` e cliccare sul pulsante __"OK"__:
+4. Creare la variabile denonimata __"JAVA_HOME"__ con valore `%HOMEPATH%\.jabba\jdk\<version>` e cliccare sul pulsante __"OK"__:
+
 ![Missing image](img/win10/env_vars/5.png "Creating JAVA_HOME")
+    
     - __Nota bene__: il percorso specifico del JDK potrebbe variare da quello qui descritto in caso di installazioni personalizzate.
 
 5. Tornando alla schermata __"Variabili d'ambiente"__, modificare la variabile `Path` (_quella più in basso!_), cliccando sul pulsante __"Modifica"__.
 
 6. Alla lista di percorsi che apparirà, aggingere la voce `%JAVA_HOME%\bin`:
+
 ![Missing image](img/win10/env_vars/6.png)
 
 7. Premere su __"OK"__ su tutte le finestre sin qui aperte per confermare le modifiche.
-
-8. Fatto! Verificare la corretta installazione del JDK eseguendo __entrambi__ i comandi `javac -version` e `java -version` dal prompt dei comandi.
-
-**Fine intervento @Angelo**
 
 # Eclipse
 
@@ -393,6 +345,7 @@ Le istruzioni per tutte le distribuzioni più comuni [sono disponibili qui](http
     * Eseguire il comando `git`: se l'installazione è andata a buon fine, apparirà il menu di help per il comando
 
 [JDK download page]: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
+[Adopt JDK download page]: https://adoptopenjdk.net/index.html?variant=openjdk11&jvmVariant=hotspot
 [Eclipse Download]: https://www.eclipse.org/downloads/
 [GIT-Windows Download]: https://git-for-windows.github.io/
 [GIT-OSX Download]: http://git-scm.com/download/mac
