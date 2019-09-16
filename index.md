@@ -196,6 +196,7 @@ Arch manutiene nel repository ufficiale Eclipse all’ultima versione, sempre ag
 1. Scaricare “Eclipse IDE” (ultima versione disponibile) dalla [pagina di download ufficiale (qui)][Eclipse Download]. 
 2. Seguire le istruzioni per l'installazione, selezionando "Eclipse IDE for Java Developers".
 3. Si lanci l'IDE: se l’installazione è andata a buon fine si dovrebbe aprire la schermata di benvenuto dell'IDE.
+
 ![Missing image](img/win10/install_eclipse/download/6.png)
 
 # Plugin di Eclipse
@@ -204,32 +205,41 @@ Eclipse utilizza un'architettura a plug-in. Lungo il corso ne utilizzeremo alcun
 
 ## SpotBugs (precedentemente noto come FindBugs)
 * In Eclipse, click Help -> Eclipse Marketplace...
+
 ![Missing image](img/win10/install_eclipse/install_plugins_marketplace/1.png)
 
 * Nella barra di ricerca, inserire "spotbugs", quindi premere Invio
-![Missing image](img/win10/install_eclipse/install_plugins_marketplace/2A.png)
+* Uno dei plugin trovati dovrebbe essere "SpotBugs Eclipse Plugin", si usi l'immagine seguente per verificare che corrisponda:
 
-* Uno dei plugin trovati dovrebbe essere "SpotBugs Eclipse Plugin", clickare su `"Install Now >"`
+![Missing image](img/eclipse/spotbugs.png)
 
+* clickare su `"Install Now >"`
 * Seguire le istruzioni, accettare la licenza, attendere che Eclipse scarichi ed installi il prodotti, accettare l'installazione e riavviare l'IDE.
 
 ## PMD
-* **NON** installare eclipse-pmd da Eclipse Marketplace
-* In Eclipse, click Help -> Install New Software
-![Missing image](img/win10/install_eclipse/install_plugins_updatesite/1.png)
-* Nel campo di testo con etichetta "Work with:", scrivere: `https://dl.bintray.com/pmd/pmd-eclipse-plugin/updates/`
-![Missing image](img/win10/install_eclipse/install_plugins_updatesite/2.png)
-* Premere Invio
-* PMD for Eclipse 4 apparirà nella lista dei plugin. Selezionatelo e clickate Next.
-![Missing image](img/win10/install_eclipse/install_plugins_updatesite/3.png)
+* In Eclipse, click Help -> Eclipse Marketplace...
+
+![Missing image](img/win10/install_eclipse/install_plugins_marketplace/1.png)
+
+* Nella barra di ricerca, inserire "pmd", quindi premere Invio
+* Appariranno più plugin, uno dei plugin trovati dovrebbe essere pmd-eclipse-plugin. *ATTENZIONE:* I diversi plugin PMD *confliggono fra loro*, installare solo quello suggerito. Lo si identifichi utilizzando l'immagine seguente:
+
+![Missing image](img/eclipse/pmd.png)
+
+* clickare su `"Install Now >"`
 * Seguire le istruzioni, accettare la licenza, attendere che Eclipse scarichi ed installi il prodotti, accettare l'installazione e riavviare l'IDE.
 
 ## Checkstyle
 * In Eclipse, click Help -> Eclipse Marketplace...
+
 ![Missing image](img/win10/install_eclipse/install_plugins_marketplace/1.png)
-* Nella barra di ricerca, inserire "checkstyle", quindi premere Invio
-![Missing image](img/win10/install_eclipse/install_plugins_marketplace/2B.png)
-* Uno dei plugin trovati dovrebbe essere "Checkstyle Plug-in", clickare su Install
+
+* Nella barra di ricerca, inserire "pmd", quindi premere Invio
+* Appariranno più plugin, uno dei plugin trovati dovrebbe essere "Checkstyle Plug-in X.Y.Z" (con X.Y.Z numero di versione). Lo si identifichi utilizzando l'immagine seguente:
+
+![Missing image](img/eclipse/checkstyle.png)
+
+* clickare su `"Install Now >"`
 * Seguire le istruzioni, accettare la licenza, attendere che Eclipse scarichi ed installi il prodotti, accettare l'installazione e riavviare l'IDE.
 
 
