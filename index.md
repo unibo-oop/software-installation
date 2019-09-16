@@ -76,6 +76,43 @@ jabba install adopt@1.11.28-0
 jabba use adopt@1.11.28-0
 {% endhighlight %}
 
+## Impostazione delle variabli d'ambiente
+
+### Arch Linux e derivate
+
+Operazione non necessaria.
+
+### Ubuntu Linux e derivate (Mint)
+
+**@Roby, ci pensi tu?**
+
+### Mac OS X
+
+**@Roby, ci pensi tu?**
+
+### Windows
+
+**@Angelo, ci pensi tu?**
+
+## Verifica del funzionamento
+
+Al fine di testare l'esecuzione, si chiuda il terminale, si apra un nuovo terminale, e si eseguano i comandi:
+{% highlight bash %}
+java -version
+javac -version
+{% endhighlight %}
+e si osservi il risultato. L'output atteso dovrà essere analogo a:
+{% highlight bash %}
+$ java -version
+openjdk version "11" 2018-09-25
+OpenJDK Runtime Environment AdoptOpenJDK (build 11+28)
+OpenJDK 64-Bit Server VM AdoptOpenJDK (build 11+28, mixed mode)
+
+$ javac -version
+javac 11
+{% endhighlight %}
+Si noti, in particolare, la versione 11, ed il provider AdoptOpenJDK.
+
 ## Installazione alternativa su specifici OS
 
 ### Arch e derivate (Manjaro, Bridge…)
