@@ -105,7 +105,7 @@ dalla quale sarà necessario cliccare sul bottone __Variabili d'ambiente__.
 3. Si aprirà la finestra di dialogo __"Variabili d'ambiente"__. Cliccando poi sul pulsante __"Nuova"__ (_quello più in basso, relativo alle variabili d'ambiente di sistema_)
 ![Missing image](img/win10/env_vars/3.png "Envarionment Variables")
 
-4. Creare la variabile denonimata __"JAVA_HOME"__ con valore `C:\Program Files\Java\jdk1.8.<minor_version>` e cliccare sul pulsante __"OK"__:
+4. Creare la variabile denonimata __"JAVA_HOME"__ con valore `%HOMEPATH%\.jabba\jdk\<version>` e cliccare sul pulsante __"OK"__:
 ![Missing image](img/win10/env_vars/5.png "Creating JAVA_HOME")
     - __Nota bene__: il percorso specifico del JDK potrebbe variare da quello qui descritto in caso di installazioni personalizzate.
 
