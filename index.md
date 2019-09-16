@@ -92,7 +92,35 @@ Operazione non necessaria.
 
 ### Windows
 
-**@Angelo, ci pensi tu?**
+Jabba installa il JDK desiderato in una cartella dedicata nella user home dell'utente, ovvero: `%HOMEPATH%\.jabba\jdk\<version>` .
+E' necessario quindi definire una variabile d'ambiente (`JAVA_HOME`) relativa a tale percorso ed includerla nel `Path` di sistema, come segue (si fa riferimento a Windows 10, per versioni precedenti la procedura è analoga).
+
+1. Aprire il menù d'avvio e digitare __"Modifica variabili d'ambiente relative al sistema"__:
+![Missing image](img/win10/env_vars/1.png)
+    - In alternativa, dal menù d'avvio, cercare la voce __"Questo PC"__ e cliccare su di essa col pulsante destro. Dal menù a tendina che apparirà, selezionare la voce __"Proprietà"__:
+    ![Missing image](img/win10/env_vars/1alt1.png)
+    - Dalla schermata __"Sistema"__ che apparirà, selezionare la voce __"Impostazioni di sistema avanzate"__ (a sinistra):
+    ![Missing image](img/win10/env_vars/1alt2.png "System")
+
+
+2. Si aprirà la finestra "Proprietà del sistema":
+![Missing image](img/win10/env_vars/2.png "System Properties")
+
+3. Cliccando poi sul pulsante __"Nuova"__ (_quello più in basso!_), si aprirà la finestra di dialogo __"Variabili d'ambiente"__, necessaria per creare una nuova variabile d'ambiente:
+![Missing image](img/win10/env_vars/3.png "Envarionment Variables")
+
+4. Creare la variabile denonimata __"JAVA_HOME"__ con valore `C:\Program Files\Java\jdk1.8.<minor_version>` e cliccare sul pulsante __"OK"__:
+![Missing image](img/win10/env_vars/5.png "Creating JAVA_HOME")
+    - __Nota bene__: il percorso specifico del JDK potrebbe variare da quello qui descritto in caso di installazioni personalizzate.
+
+5. Tornando alla schermata __"Variabili d'ambiente"__, modificare la variabile `Path` (_quella più in basso!_), cliccando sul pulsante __"Modifica"__.
+
+6. Alla lista di percorsi che apparirà, aggingere la voce `%JAVA_HOME%\bin`:
+![Missing image](img/win10/env_vars/6.png)
+
+7. Premere su __"OK"__ su tutte le finestre sin qui aperte per confermare le modifiche.
+
+8. Fatto! Verificare la corretta installazione del JDK eseguendo __entrambi__ i comandi `javac -version` e `java -version` dal prompt dei comandi.
 
 ## Verifica del funzionamento
 
