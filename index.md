@@ -169,32 +169,25 @@ Scegliere la versione OpenJDK 11 (LTS) e cliccare sul pulsante "Latest release".
     java -version   # Output atteso: 'java version "<version>" ...'
     {% endhighlight %}
     
-#### Modifica delle variabili d'ambiente in Windows 10
+### Modifica delle variabili d'ambiente in Windows 10
     
-    1. Aprire il menù d'avvio e digitare __"Modifica variabili d'ambiente relative al sistema"__:
-
+1. Aprire il menù d'avvio e digitare __"Modifica variabili d'ambiente relative al sistema"__:
 ![Missing image](img/win10/env_vars/1.png)
 
 2. Cliccando su __Apri__ Si aprirà la finestra "Proprietà del sistema":
-
 ![Missing image](img/win10/env_vars/2.png "System Properties")
-
 dalla quale sarà necessario cliccare sul bottone __Variabili d'ambiente__.
 
 3. Si aprirà la finestra di dialogo __"Variabili d'ambiente"__. Cliccando poi sul pulsante __"Nuova"__ (_quello più in basso, relativo alle variabili d'ambiente di sistema_)
-
 ![Missing image](img/win10/env_vars/3.png "Envarionment Variables")
 
 4. Creare la variabile denonimata __"JAVA_HOME"__ con specificando come valore il percorso in cui è stato installato il JDK e cliccare sul pulsante __"OK"__:
-
 ![Missing image](img/win10/env_vars/5.png "Creating JAVA_HOME")
-    
     - __Nota bene__: il percorso specifico del JDK potrebbe variare da quello qui descritto in caso di installazioni personalizzate.
 
 5. Tornando alla schermata __"Variabili d'ambiente"__, modificare la variabile `Path` (_quella più in basso!_), cliccando sul pulsante __"Modifica"__.
 
 6. Alla lista di percorsi che apparirà, aggingere la voce `%JAVA_HOME%\bin`:
-
 ![Missing image](img/win10/env_vars/6.png)
 
 7. Premere su __"OK"__ su tutte le finestre sin qui aperte per confermare le modifiche.
