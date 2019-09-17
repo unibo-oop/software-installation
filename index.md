@@ -165,8 +165,8 @@ Scegliere la versione OpenJDK 11 (LTS) e cliccare sul pulsante "Latest release".
 
 5. Verificare l'avvenuta installazione eseguendo i seguenti due comandi su un prompt dei comandi:
     {% highlight bash %}
-    javac -version  # Output atteso: 'javac 1.8.0_121'
-    java -version   # Output atteso: 'java version "1.8.0_144" ...'
+    javac -version  # Output atteso: 'javac <version>'
+    java -version   # Output atteso: 'java version "<version>" ...'
     {% endhighlight %}
     
 #### Modifica delle variabili d'ambiente in Windows 10
