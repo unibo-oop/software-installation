@@ -82,13 +82,13 @@ jabba use adopt@1.11.28-0
 
 Operazione non necessaria.
 
-### Ubuntu Linux e derivate (Mint)
+### Ubuntu Linux e derivate (Mint), Mac OS X
 
-**@Roby, ci pensi tu?**
+Per impostare una versione di default del JDK da usare (senza dover ogni volta utilizzare `jabba use`) all'apertura di un nuovo terminale, si usi il seguente comando:
 
-### Mac OS X
-
-**@Roby, ci pensi tu?**
+```
+jabba alias default <default-version>
+```
 
 ### Windows
 
@@ -157,7 +157,7 @@ I passi in comune a tutte le versioni di Windows sono i seguenti (di seguito si 
 Scegliere la versione OpenJDK 11 (LTS) e cliccare sul pulsante "Latest release". Selezionare quindi la piattaforma desiderata (Windows x32 oppure Windows x64).Premere quindi il bottone "Install JDK"
 ![Missing image](img/win10/adopt1.png)
 
-2. Eseguire l'installer scaricato e seguire il wizard di installazione passo-passo. Nella prima schermata dell'installer è possibile optare per la configurazione automatica delle variabili d'ambiente (si suggerisce di spuntare tutte le opzioni e procedere con l'installazione. In questo caso, terminata l'installazione passare direttamente al punto 4). 
+2. Eseguire l'installer scaricato e seguire il wizard di installazione passo-passo. Nella prima schermata dell'installer è possibile optare per la configurazione automatica delle variabili d'ambiente (si suggerisce di spuntare tutte le opzioni e procedere con l'installazione. In questo caso, terminata l'installazione passare direttamente al punto 4).
 
 3. Configurazione delle variabili d'ambiente (come riportato di seguito, se necessario).
 
@@ -168,9 +168,9 @@ Scegliere la versione OpenJDK 11 (LTS) e cliccare sul pulsante "Latest release".
     javac -version  # Output atteso: 'javac <version>'
     java -version   # Output atteso: 'java version "<version>" ...'
     {% endhighlight %}
-    
+
 ### Modifica delle variabili d'ambiente in Windows 10
-    
+
 1. Aprire il menù d'avvio e digitare __"Modifica variabili d'ambiente relative al sistema"__:
 ![Missing image](img/win10/env_vars/1.png)
 
@@ -199,7 +199,7 @@ Arch manutiene nel repository ufficiale Eclipse all’ultima versione, sempre ag
 
 ## Tutti i sistemi operativi
 
-1. Scaricare “Eclipse IDE” (ultima versione disponibile) dalla [pagina di download ufficiale (qui)][Eclipse Download]. 
+1. Scaricare “Eclipse IDE” (ultima versione disponibile) dalla [pagina di download ufficiale (qui)][Eclipse Download].
 2. Seguire le istruzioni per l'installazione, selezionando "Eclipse IDE for Java Developers".
 3. Si lanci l'IDE: se l’installazione è andata a buon fine si dovrebbe aprire la schermata di benvenuto dell'IDE.
 
