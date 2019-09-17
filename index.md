@@ -155,13 +155,13 @@ I passi in comune a tutte le versioni di Windows sono i seguenti (di seguito si 
 
 1. Scaricare il JDK dalla [pagina di download ufficiale di AdoptOpenJDK][Adopt JDK download page].
 Scegliere la versione OpenJDK 11 (LTS) e cliccare sul pulsante "Latest release". Selezionare quindi la piattaforma desiderata (Windows x32 oppure Windows x64).Premere quindi il bottone "Install JDK"
+![Missing image](img/win10/adopt1.png)
 
-2. Eseguire l'installer scaricato e seguire il wizard di installazione passo-passo.
+2. Eseguire l'installer scaricato e seguire il wizard di installazione passo-passo. Nella prima schermata dell'installer è possibile optare per la configurazione automatica delle variabili d'ambiente (si suggerisce di spuntare tutte le opzioni e procedere con l'installazione. In questo caso, terminata l'installazione passare direttamente al punto 4). 
 
-3. Configurazione delle variabili d'ambiente (come riportato di seguito)
+3. Configurazione delle variabili d'ambiente (come riportato di seguito, se necessario).
 
-4. Dopo aver configurato le variabili d'ambiente, aprire un prompt dei comandi per verificare l'esito positivo dello step precedente (è sufficente cercare `cmd.exe` nel menù di Start):
-![Missing image](img/win-prompt.png "Windows PATH")
+4. (Dopo aver configurato le variabili d'ambiente, se necessario) Aprire un prompt dei comandi per verificare l'esito positivo dello step precedente (per aprire il prompt dei comandi è sufficente cercare `cmd.exe` nel menù di Start):
 
 5. Verificare l'avvenuta installazione eseguendo i seguenti due comandi su un prompt dei comandi:
     {% highlight bash %}
@@ -185,7 +185,7 @@ dalla quale sarà necessario cliccare sul bottone __Variabili d'ambiente__.
 
 ![Missing image](img/win10/env_vars/3.png "Envarionment Variables")
 
-4. Creare la variabile denonimata __"JAVA_HOME"__ con valore `%HOMEPATH%\.jabba\jdk\<version>` e cliccare sul pulsante __"OK"__:
+4. Creare la variabile denonimata __"JAVA_HOME"__ con specificando come valore il percorso in cui è stato installato il JDK e cliccare sul pulsante __"OK"__:
 
 ![Missing image](img/win10/env_vars/5.png "Creating JAVA_HOME")
     
