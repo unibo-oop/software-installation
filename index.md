@@ -19,6 +19,8 @@ La macchina virtuale Java di riferimento sarà OpenJDK 11 come fornita da AdoptO
 
 Seguono le istruzioni di installazione e configuazione per i vari sistemi operativi.
 
+**NOTA**: Qualora il sistema operativo non consentisse di installare il JDK attraverso Jabba o se durante l'installazione via Jabba dovessero emergere problematiche di qualunque genere, procedere con l'installazione alternativa, proposta più avanti in questo documento.
+
 ## Installazione multipiattaforma via Jabba
 
 Data la varietà di versioni, distribuzioni sorgenti, e distribuzioni binarie di JVM, esiste un tool Linux che consente di installare quella desiderata e cambiarla rapidamente.
