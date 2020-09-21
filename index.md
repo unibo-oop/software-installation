@@ -11,7 +11,7 @@ La guida presenta le procedure di installazione e configurazione su Linux (varie
 Il JDK è l'insieme degli strumenti necessari a sviluppare software standard in Java.
 Include la virtual machine Java, le librerie Java, di base, il compilatore, e i tool di contorno.
 
-Esistono varie versioni del JDK, quella di riferimento è OpenJDK, a partire dalla quale ne vengono sviluppate altre soa gratuite che a pagamento (fra cui [Oracle JDK](https://www.oracle.com/technetwork/java/javase/downloads/index.html), [Eclipse OpenJ9](https://www.eclipse.org/openj9/), [Amazon Corretto](https://aws.amazon.com/corretto/), [GraalVM](https://www.graalvm.org/), [Bellsoft Liberica JDK](https://bell-sw.com/), [Azul Zulu](https://www.azul.com/downloads/zulu-community/?&show-old-builds=true)...).
+Esistono varie versioni del JDK, quella di riferimento è OpenJDK, a partire dalla quale ne vengono sviluppate altre sia gratuite che a pagamento (fra cui [Oracle JDK](https://www.oracle.com/technetwork/java/javase/downloads/index.html), [Eclipse OpenJ9](https://www.eclipse.org/openj9/), [Amazon Corretto](https://aws.amazon.com/corretto/), [GraalVM](https://www.graalvm.org/), [Bellsoft Liberica JDK](https://bell-sw.com/), [Azul Zulu](https://www.azul.com/downloads/zulu-community/?&show-old-builds=true)...).
 
 A sua volta, OpenJDK è distribuito in forma di sorgente, e vari distributori ne forniscono versioni binarie.
 Fra questi, [AdoptOpenJDK](https://adoptopenjdk.net/).
