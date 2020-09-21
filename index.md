@@ -318,8 +318,12 @@ Le istruzioni per tutte le distribuzioni più comuni [sono disponibili qui](http
 ## Windows
 1. Scaricare “GIT for Windows” (nella versione specifica per la propria architettura x86 o x64) dalla [pagina di download ufficiale][GIT-Windows Download].
 2. Eseguire il programma di installazione
-    * Accettare la licenza > Next > Next
-    * **IMPORTANTE:** Selezionare "Use Git from the Windows Command Prompt" > Next
+    * Accettare la licenza > Next > Next > Next > Next
+    * Selezionare come editor di testo uno tra:
+        * "Use the nano editor by default"
+        * "Use Notepad++ as Git's default editor" (se Notepad++ non è già presente, richiede di installarlo prima di poter proseguire con l'installazione di git)
+    * Premere Next > Next > Next
+    * Selezionare "Checkout as-is, commit as-is" quindi Next
     * Accettare le successive opzioni proposte dall'installer > Install > Finish
 3. Verificare la correttezza dell'installazione
     * Aprire il prompt dei comandi (`cmd.exe`)
