@@ -5,7 +5,6 @@ layout: default
 Il seguente documento fornisce le istruzioni necessarie per installare gli strumenti di sviluppo utilizzati nel contesto del corso di Programmazione ad Oggetti.
 La guida presenta le procedure di installazione e configurazione su Linux (varie distribuzioni), MacOS X e Windows del **Java Development Kit** (JDK) e dell'ambiente di sviluppo integrato **Eclipse**.
 
-
 # Java Development Kit (JDK)
 
 Il JDK è l'insieme degli strumenti necessari a sviluppare software standard in Java.
@@ -19,9 +18,9 @@ La macchina virtuale Java di riferimento sarà OpenJDK 11 come fornita da AdoptO
 
 Seguono le istruzioni di installazione e configuazione per i vari sistemi operativi.
 
-**NOTA**: Qualora il sistema operativo non consentisse di installare il JDK attraverso Jabba o se durante l'installazione via Jabba dovessero emergere problematiche di qualunque genere, procedere con l'installazione alternativa, proposta più avanti in questo documento.
+**NOTA**: Qualora il sistema operativo non consentisse di installare il JDK attraverso Jabba o se durante l'installazione via Jabba dovessero emergere problematiche di qualunque genere, procedere con l'installazione alternativa, proposta più avanti in questo documento. In particolare, nonostante Jabba sia compatibile con Windows 10, con le ultime versioni l'installazione presenta alcuni bug e dunque non è consigliata: si preferisca l'installazione alternative attraverso file `.msi` descritta più avanti.
 
-## Installazione multipiattaforma via Jabba
+## Installazione su distribuzioni Linux e MacOS via Jabba
 
 Data la varietà di versioni, distribuzioni sorgenti, e distribuzioni binarie di JVM, esiste un tool Linux che consente di installare quella desiderata e cambiarla rapidamente.
 Il tool è [Jabba](https://github.com/shyiko/jabba).
@@ -32,24 +31,16 @@ Per installare Jabba su Linux o Mac OS X, si lanci il seguente comando da termin
 curl -sL https://github.com/shyiko/jabba/raw/master/install.sh | bash && . ~/.jabba/jabba.sh
 {% endhighlight %}
 
-Per installare Jabba su Windows 10, si lanci invece il seguente comando su Powershell:
-
-{% highlight powershell %}
-[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-Invoke-Expression (
-  Invoke-WebRequest https://github.com/shyiko/jabba/raw/master/install.ps1 -UseBasicParsing
-).Content
-{% endhighlight %}
-
 Una volta che Jabba è installato, può essere utilizzato per installare il JDK.
 Si elenchino tutte le versioni di AdoptOpenJDK utilizzando
+
 {% highlight bash %}
 jabba ls-remote adopt@
 {% endhighlight %}
 
 Quindi si selezioni la più recente fra le versioni 11, ad esempio se l'output è:
 
-```
+{% highlight bash %}
 adopt@1.12.33-0
 adopt@1.12.0-2
 adopt@1.12.0-1
@@ -68,7 +59,7 @@ adopt@1.8.202-08
 adopt@1.8.192-12
 adopt@1.8.181-13
 adopt@1.8.172-11
-```
+{% endhighlight %}
 
 Si scelga `adopt@1.11.28-0`.
 A questo punto si installi utilizzando i seguenti comandi:
@@ -77,6 +68,109 @@ A questo punto si installi utilizzando i seguenti comandi:
 jabba install adopt@1.11.28-0
 jabba use adopt@1.11.28-0
 {% endhighlight %}
+
+### Windows (tramite installer `.msi`)
+
+I passi in comune a tutte le versioni di Windows sono i seguenti (di seguito si fa riferimento a Windows 10, analogamente per le versioni precedenti con eventuali variazioni in termini di interfaccia utente):
+
+1. Scaricare il JDK dalla [pagina di download ufficiale di AdoptOpenJDK][Adopt JDK download page].
+   Scegliere la versione OpenJDK 11 (LTS) e cliccare sul pulsante "Latest release". Selezionare quindi la piattaforma desiderata (Windows x32 oppure Windows x64).
+   Premere quindi il bottone "Install JDK"
+
+   ![Missing image](img/win10/adopt1.png)
+
+2. Eseguire l'installer scaricato e seguire il wizard di installazione passo-passo.
+
+   ![Missing image](img/win10/adopt2.png)
+
+   Nella schermata dell'installer sopra riportata è possibile optare per la configurazione automatica delle variabili d'ambiente (si suggerisce di spuntare tutte le opzioni e procedere con l'installazione.
+   In questo caso, terminata l'installazione passare direttamente al punto 4)
+
+3. Configurazione delle variabili d'ambiente (come riportato di seguito, se necessario).
+
+4. (Dopo aver configurato le variabili d'ambiente, se necessario)
+   Aprire un prompt dei comandi per verificare l'esito positivo dello step precedente (per aprire il prompt dei comandi è sufficente cercare `cmd.exe` nel menù di Start):
+
+5. Verificare l'avvenuta installazione eseguendo i seguenti due comandi su un prompt dei comandi:
+    {% highlight bash %}
+    javac -version  # Output atteso: 'javac <version>'
+    java -version   # Output atteso: 'java version "<version>" ...'
+    {% endhighlight %}
+
+## Installazione alternativa su specifici OS
+
+### Arch e derivate (Manjaro, Bridge…)
+
+Arch offre il pacchetto OpenJDK 11 direttamente nel repository principale:
+
+{% highlight bash %}
+sudo pacman -S jdk11-openjdk
+{% endhighlight %}
+
+È possibile avere più ambienti Java installati contemporaneamente, si può selezionare quello corrente utilizzando il comando ``archlinux-java``.
+Per assicurarsi di star lavorando con OpenJDK 11, si utilizzi:
+
+{% highlight bash %}
+sudo archlinux-java set java-11-openjdk
+{% endhighlight %}
+
+### Windows (tramite package manager)
+
+Su Windows sono disponibli diversi pacakge manager non ufficiali o semi-ufficiali che permettono l'installazione di distru=ibuzioni OpenJDK.
+
+#### Opzione 1: Chocolatey
+
+Se sulla macchina [è installato Chocolatey](https://chocolatey.org/docs/installation), è possibile installare AdoptOpenJDK 11 Hotspot eseguendo il seguente comando su un terminale con permessi di amministratore:
+
+{% highlight powershell %}
+choco install adoptopenjdk11
+{% endhighlight %}
+
+L'installazione dovrebbe eseguire una configurazione automatica delle variabili d'ambiente.
+
+#### Opzione 2: Scoop
+
+Se sulla macchina [è installato Scoop](https://scoop.sh), è possibile installare AdoptOpenJDK 11 Hotspot eseguendo il seguente comando su un terminale:
+
+{% highlight powershell %}
+scoop bucket add java
+
+scoop install adoptopenjdk-lts-hotspot
+{% endhighlight %}
+
+Non è necessario utilizzare un terminale con permessi di amministratore.
+L'installazione dovrebbe eseguire una configurazione automatica delle variabili d'ambiente.
+
+#### Opzione 3: Jabba
+
+**Nota**: le ultime versioni presentano alcuni bug nell'installazione e dunque questa soluzione non è consigliata
+
+Per installare Jabba su Windows 10, si lanci il seguente comando su un terminale Powershell:
+
+{% highlight powershell %}
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+Invoke-Expression (
+  Invoke-WebRequest https://github.com/shyiko/jabba/raw/master/install.ps1 -UseBasicParsing
+).Content
+{% endhighlight %}
+
+A questo punto si installi utilizzando i seguenti comandi:
+
+{% highlight bash %}
+jabba install adopt@1.11.28-0
+jabba use adopt@1.11.28-0
+{% endhighlight %}
+
+#### Opzione 4: Microsoft WinGet
+
+Se sulla macchina [è installato WinGet](https://github.com/microsoft/winget-cli#installing-the-client), è possibile installare AdoptOpenJDK 11 Hotspot eseguendo il seguente comando su un terminale:
+
+{% highlight powershell %}
+winget install --id="AdoptOpenJDK.OpenJDK" --exact --version "11.0.8"
+{% endhighlight %}
+
+Non è necessario utilizzare un terminale con permessi di amministratore, in quanto questi verranno richiesti in automatico durante l'installazione.
+L'installazione dovrebbe eseguire una configurazione automatica delle variabili d'ambiente.
 
 ## Impostazione delle variabli d'ambiente
 
@@ -88,48 +182,64 @@ Operazione non necessaria.
 
 Per impostare una versione di default del JDK da usare (senza dover ogni volta utilizzare `jabba use`) all'apertura di un nuovo terminale, si usi il seguente comando:
 
-```
+{% highlight bash %}
 jabba alias default <default-version>
-```
+{% endhighlight %}
 
 Infatti, all'installazione, Jabba modifica file nella `$HOME` come`.bashrc`, `.bash_profile`, o `.zshrc` per chiamare `$HOME/.jabba/jabba.sh`; in quest'ultimo script, un comando `jabba use default` viene invocato: l'effetto è che all'apertura di un nuovo terminale, verrà automaticamente indicato di usare la versione di default del JDK indicata con Jabba.
 
 ### Windows
 
-Jabba installa il JDK desiderato in una cartella dedicata nella user home dell'utente, ovvero: `%HOMEPATH%\.jabba\jdk\<version>` .
-E' necessario quindi definire una variabile d'ambiente (`JAVA_HOME`) relativa a tale percorso ed includerla nel `Path` di sistema, come segue (si fa riferimento a Windows 10, per versioni precedenti la procedura è analoga).
+Jabba installa il JDK desiderato in una cartella dedicata nella user home dell'utente, ovvero: `%HOMEPATH%\.jabba\jdk\<version>`.
+È necessario quindi definire una variabile d'ambiente (`JAVA_HOME`) relativa a tale percorso ed includerla nel `Path` di sistema, come segue (si fa riferimento a Windows 10, per versioni precedenti la procedura è analoga).
 
 1. Aprire il menù d'avvio e digitare __"Modifica variabili d'ambiente relative al sistema"__:
-![Missing image](img/win10/env_vars/1.png)
+
+   ![Missing image](img/win10/env_vars/1.png)
 
 2. Cliccando su __Apri__ Si aprirà la finestra "Proprietà del sistema":
-![Missing image](img/win10/env_vars/2.png "System Properties")
-dalla quale sarà necessario cliccare sul bottone __Variabili d'ambiente__.
 
-3. Si aprirà la finestra di dialogo __"Variabili d'ambiente"__. Cliccando poi sul pulsante __"Nuova"__ (_quello più in basso, relativo alle variabili d'ambiente di sistema_)
-![Missing image](img/win10/env_vars/3.png "Envarionment Variables")
+   ![Missing image](img/win10/env_vars/2.png "System Properties")
 
-4. Creare la variabile denonimata __"JAVA_HOME"__ con valore `%HOMEPATH%\.jabba\jdk\<version>` e cliccare sul pulsante __"OK"__:
-![Missing image](img/win10/env_vars/5.png "Creating JAVA_HOME")
-    - __Nota bene__: il percorso specifico del JDK potrebbe variare da quello qui descritto in caso di installazioni personalizzate.
+   dalla quale sarà necessario cliccare sul bottone __Variabili d'ambiente__.
+
+3. Si aprirà la finestra di dialogo __"Variabili d'ambiente"__.
+
+   Cliccando poi sul pulsante __"Nuova"__ (_quello più in basso, relativo alle variabili d'ambiente di sistema_)
+
+   ![Missing image](img/win10/env_vars/3.png "Envarionment Variables")
+
+4. Creare la variabile denonimata __"JAVA_HOME"__ con uno dei valori seguenti e cliccare sul pulsante __"OK"__:
+
+   - `%HOMEPATH%\.jabba\jdk\<version>` se si è utilizzato Jabba;
+   - `C:\Program Files\AdoptOpenJDK\jdk-<version>-hotspot` se si è utilizzato l'installer di AdoptOpenJDK;
+
+   ![Missing image](img/win10/env_vars/5.png "Creating JAVA_HOME")
+
+   - __Nota bene__: il percorso specifico del JDK potrebbe variare da quelli qui descritti in caso di installazioni personalizzate.
 
 5. Tornando alla schermata __"Variabili d'ambiente"__, modificare la variabile `Path` (_quella più in basso!_), cliccando sul pulsante __"Modifica"__.
 
 6. Alla lista di percorsi che apparirà, aggingere la voce `%JAVA_HOME%\bin`:
-![Missing image](img/win10/env_vars/6.png)
+
+   ![Missing image](img/win10/env_vars/6.png)
 
 7. Premere su __"OK"__ su tutte le finestre sin qui aperte per confermare le modifiche.
 
-8. Fatto! Verificare la corretta installazione del JDK eseguendo __entrambi__ i comandi `javac -version` e `java -version` dal prompt dei comandi.
+8. Fatto!
+   Verificare la corretta installazione del JDK eseguendo __entrambi__ i comandi `javac -version` e `java -version` dal prompt dei comandi.
 
 ## Verifica del funzionamento
 
 Al fine di testare l'esecuzione, si chiuda il terminale, si apra un nuovo terminale, e si eseguano i comandi:
+
 {% highlight bash %}
 java -version
 javac -version
 {% endhighlight %}
+
 e si osservi il risultato. L'output atteso dovrà essere analogo a:
+
 {% highlight bash %}
 $ java -version
 openjdk version "11" 2018-09-25
@@ -139,62 +249,8 @@ OpenJDK 64-Bit Server VM AdoptOpenJDK (build 11+28, mixed mode)
 $ javac -version
 javac 11
 {% endhighlight %}
+
 Si noti, in particolare, la versione 11, ed il provider AdoptOpenJDK.
-
-## Installazione alternativa su specifici OS
-
-### Arch e derivate (Manjaro, Bridge…)
-Arch offre il pacchetto OpenJDK 11 direttamente nel repository principale:
-{% highlight bash %}
-sudo pacman -S jdk11-openjdk
-{% endhighlight %}
-È possibile avere più ambienti Java installati contemporaneamente, si può selezionare quello corrente utilizzando il comando ``archlinux-java``.
-Per assicurarsi di star lavorando con OpenJDK 11, si utilizzi:
-{% highlight bash %}
-sudo archlinux-java set java-11-openjdk
-{% endhighlight %}
-
-### Windows
-I passi in comune a tutte le versioni di Windows sono i seguenti (di seguito si fa riferimento a Windows 10, analogamente per le versioni precedenti con eventuali variazioni in termini di interfaccia utente):
-
-1. Scaricare il JDK dalla [pagina di download ufficiale di AdoptOpenJDK][Adopt JDK download page].
-Scegliere la versione OpenJDK 11 (LTS) e cliccare sul pulsante "Latest release". Selezionare quindi la piattaforma desiderata (Windows x32 oppure Windows x64).Premere quindi il bottone "Install JDK"
-![Missing image](img/win10/adopt1.png)
-
-2. Eseguire l'installer scaricato e seguire il wizard di installazione passo-passo. Nella prima schermata dell'installer è possibile optare per la configurazione automatica delle variabili d'ambiente (si suggerisce di spuntare tutte le opzioni e procedere con l'installazione. In questo caso, terminata l'installazione passare direttamente al punto 4).
-
-3. Configurazione delle variabili d'ambiente (come riportato di seguito, se necessario).
-
-4. (Dopo aver configurato le variabili d'ambiente, se necessario) Aprire un prompt dei comandi per verificare l'esito positivo dello step precedente (per aprire il prompt dei comandi è sufficente cercare `cmd.exe` nel menù di Start):
-
-5. Verificare l'avvenuta installazione eseguendo i seguenti due comandi su un prompt dei comandi:
-    {% highlight bash %}
-    javac -version  # Output atteso: 'javac <version>'
-    java -version   # Output atteso: 'java version "<version>" ...'
-    {% endhighlight %}
-
-### Modifica delle variabili d'ambiente in Windows 10
-
-1. Aprire il menù d'avvio e digitare __"Modifica variabili d'ambiente relative al sistema"__:
-![Missing image](img/win10/env_vars/1.png)
-
-2. Cliccando su __Apri__ Si aprirà la finestra "Proprietà del sistema":
-![Missing image](img/win10/env_vars/2.png "System Properties")
-dalla quale sarà necessario cliccare sul bottone __Variabili d'ambiente__.
-
-3. Si aprirà la finestra di dialogo __"Variabili d'ambiente"__. Cliccando poi sul pulsante __"Nuova"__ (_quello più in basso, relativo alle variabili d'ambiente di sistema_)
-![Missing image](img/win10/env_vars/3.png "Envarionment Variables")
-
-4. Creare la variabile denonimata __"JAVA_HOME"__ con specificando come valore il percorso in cui è stato installato il JDK e cliccare sul pulsante __"OK"__:
-![Missing image](img/win10/env_vars/5.png "Creating JAVA_HOME")
-    - __Nota bene__: il percorso specifico del JDK potrebbe variare da quello qui descritto in caso di installazioni personalizzate.
-
-5. Tornando alla schermata __"Variabili d'ambiente"__, modificare la variabile `Path` (_quella più in basso!_), cliccando sul pulsante __"Modifica"__.
-
-6. Alla lista di percorsi che apparirà, aggingere la voce `%JAVA_HOME%\bin`:
-![Missing image](img/win10/env_vars/6.png)
-
-7. Premere su __"OK"__ su tutte le finestre sin qui aperte per confermare le modifiche.
 
 # Eclipse
 
