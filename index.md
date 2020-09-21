@@ -244,7 +244,7 @@ Eclipse utilizza un'architettura a plug-in. Lungo il corso ne utilizzeremo alcun
 
 ![Missing image](img/win10/install_eclipse/install_plugins_marketplace/1.png)
 
-* Nella barra di ricerca, inserire "pmd", quindi premere Invio
+* Nella barra di ricerca, inserire "checkstyle", quindi premere Invio
 * Appariranno più plugin, uno dei plugin trovati dovrebbe essere "Checkstyle Plug-in X.Y.Z" (con X.Y.Z numero di versione). Lo si identifichi utilizzando l'immagine seguente:
 
 ![Missing image](img/eclipse/checkstyle.png)
