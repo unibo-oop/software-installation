@@ -174,11 +174,11 @@ L'installazione dovrebbe eseguire una configurazione automatica delle variabili 
 
 ## Impostazione delle variabli d'ambiente
 
-### Arch Linux e derivate
+### Linux con installazione da package manager
 
 Operazione non necessaria.
 
-### Ubuntu Linux e derivate (Mint), Mac OS X
+### Linux con installazione via Jabba, Mac OS X
 
 Per impostare una versione di default del JDK da usare (senza dover ogni volta utilizzare `jabba use`) all'apertura di un nuovo terminale, si usi il seguente comando:
 
