@@ -254,7 +254,7 @@ Si noti, in particolare, la versione 11, ed il provider AdoptOpenJDK.
 
 # Eclipse
 
-## Arch Linux e derivate (Manjaro, Antergos, Bridge...)
+## Arch Linux e derivate (Manjaro, Bridge...)
 
 Si consiglia l'utilizzo della versione manutenuta nel repository
 [Chaotic AUR](https://lonewolf.pedrohlc.com/chaotic-aur/).
@@ -285,7 +285,7 @@ sudo pacman -Sy
 sudo pacman -S eclipse-java
 ```
 
-## Tutti i sistemi operativi
+## Tutti gli altri sistemi operativi
 
 1. Scaricare “Eclipse IDE” (ultima versione disponibile) dalla [pagina di download ufficiale (qui)][Eclipse Download].
 2. Seguire le istruzioni per l'installazione, selezionando "Eclipse IDE for Java Developers".
