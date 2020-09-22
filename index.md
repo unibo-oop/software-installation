@@ -116,7 +116,7 @@ sudo archlinux-java set java-11-openjdk
 
 ### Windows (tramite package manager)
 
-Su Windows sono disponibli diversi pacakge manager non ufficiali o semi-ufficiali che permettono l'installazione di distru=ibuzioni OpenJDK.
+Su Windows sono disponibli diversi pacakge manager non ufficiali o semi-ufficiali che permettono l'installazione di distribuzioni OpenJDK.
 
 #### Opzione 1: Chocolatey
 
@@ -255,7 +255,35 @@ Si noti, in particolare, la versione 11, ed il provider AdoptOpenJDK.
 # Eclipse
 
 ## Arch Linux e derivate (Manjaro, Antergos, Bridge...)
-Arch manutiene nel repository ufficiale Eclipse all’ultima versione, sempre aggiornato. Gli utenti di Arch possono usare il package manager per installare Eclipse (``sudo pacman -S eclipse``), e saltare direttamente al punto 6, lanciando il comando ``eclipse``.
+
+Si consiglia l'utilizzo della versione manutenuta nel repository
+[Chaotic AUR](https://lonewolf.pedrohlc.com/chaotic-aur/).
+
+Si attivi il repository aggiungendo il seguente test in coda al file `/etc.pacman.conf`:
+
+```
+[chaotic-aur]
+# Germany
+Server = http://chaotic.bangl.de/$repo/$arch
+# Netherlands
+Server = https://chaotic.tn.dedyn.io/$arch
+# USA
+Server = https://builds.garudalinux.org/repos/$repo/$arch
+Server = https://repo.kitsuna.net/$arch
+# Brazil
+Server = https://lonewolf.pedrohlc.com/$repo/$arch
+
+```
+
+Si lancino i comandi
+
+```bash
+sudo pacman-key --keyserver hkp://keyserver.ubuntu.com -r 3056513887B78AEB 8A9E14A07010F7E3
+sudo pacman-key --lsign-key 3056513887B78AEB
+sudo pacman-key --lsign-key 8A9E14A07010F7E3
+sudo pacman -Sy
+sudo pacman -S eclipse-java
+```
 
 ## Tutti i sistemi operativi
 
@@ -268,6 +296,15 @@ Arch manutiene nel repository ufficiale Eclipse all’ultima versione, sempre ag
 # Plugin di Eclipse
 
 Eclipse utilizza un'architettura a plug-in. Lungo il corso ne utilizzeremo alcuni che ci forniranno funzionalità aggiuntive.
+
+## Installazione rapida su Linux (e sistemi operativi dove il comando `eclipse` è disponibile su terminale)
+
+Se il vostro sistema (tipicamente tutti i sistemi Linux) risponde al lancio da terminale del comando `eclipse`
+avviando l'interfaccia grafica dell'IDE, allora potete optare per installare tutto il necessario direttamente da terminale col comando:
+
+```bash
+eclipse -nosplash -application org.eclipse.equinox.p2.director -repository http://download.eclipse.org/releases/2020-09/,http://protelis-eclipse.surge.sh/,http://www.acanda.ch/eclipse-pmd/release/latest/,https://checkstyle.org/eclipse-cs/update,https://spotbugs.github.io/eclipse/ -installIU protelis.parser.feature.feature.group,ch.acanda.eclipse.pmd.feature.feature.group,net.sf.eclipsecs.feature.group,com.github.spotbugs.plugin.eclipse.feature.group
+```
 
 ## SpotBugs (precedentemente noto come FindBugs)
 * In Eclipse, click Help -> Eclipse Marketplace...
