@@ -288,7 +288,7 @@ Eclipse utilizza un'architettura a plug-in. Lungo il corso ne utilizzeremo alcun
 ![Missing image](img/win10/install_eclipse/install_plugins_marketplace/1.png)
 
 * Nella barra di ricerca, inserire "pmd", quindi premere Invio
-* Appariranno più plugin, uno dei plugin trovati dovrebbe essere pmd-eclipse-plugin. *ATTENZIONE:* I diversi plugin PMD *confliggono fra loro*, installare solo quello suggerito. Lo si identifichi utilizzando l'immagine seguente:
+* Appariranno più plugin, uno dei plugin trovati dovrebbe essere eclipse-pmd. *ATTENZIONE:* I diversi plugin PMD *confliggono fra loro*, installare solo quello suggerito. Lo si identifichi utilizzando l'immagine seguente:
 
 ![Missing image](img/eclipse/pmd.png)
 
