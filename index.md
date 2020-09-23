@@ -259,7 +259,7 @@ Si noti, in particolare, la versione 11, ed il provider AdoptOpenJDK.
 Si consiglia l'utilizzo della versione manutenuta nel repository
 [Chaotic AUR](https://lonewolf.pedrohlc.com/chaotic-aur/).
 
-Si attivi il repository aggiungendo il seguente test in coda al file `/etc.pacman.conf`:
+Si attivi il repository aggiungendo il seguente test in coda al file `/etc/pacman.conf`:
 
 ```
 [chaotic-aur]
