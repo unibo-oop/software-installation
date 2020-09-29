@@ -428,7 +428,6 @@ Le istruzioni per tutte le distribuzioni più comuni [sono disponibili qui](http
     * Aprire una shell
     * Eseguire il comando `git`: se l'installazione è andata a buon fine, apparirà il menu di help per il comando
 
-
 # Docker
 
 Docker si appoggia al kernel linux per l'esecuzione di container.
@@ -628,7 +627,7 @@ Ulteriori dettagli sono disponibili sulla [documentazione ufficiale](https://doc
   docker run hello-world
   {% endhighlight %}
 
-  In questo caso, docker dovrebbe scaricare l'immagine hello-world, se non già disponibile, e lanciarla.
+  In questo caso, docker dovrebbe scaricare l'immagine `hello-world`, se non già disponibile, e lanciarla.
   Attendersi un output simile al seguente:
 
   {% highlight powershell %}
@@ -659,6 +658,65 @@ Ulteriori dettagli sono disponibili sulla [documentazione ufficiale](https://doc
   For more examples and ideas, visit:
   https://docs.docker.com/get-started/
   {% endhighlight %}
+
+## Installare la macchina virtuale basata su Docker per il laboratorio
+
+### Su Linux
+
+- Eseguire in un terminale:
+
+  {% highlight bash %}
+  docker pull danysk/linux-didattica
+  {% endhighlight %}
+
+  Questo scaricherà l'immagine Docker localmente; potrebbe richiedere molto tempo.
+
+- Lanciare l'immagine con il seguente comando:
+
+  {% highlight bash %}
+  docker run --rm --net=host --env="DISPLAY" -v <WHERE_TO_LOCALLY_PERSIST>:/home/user --volume="$HOME/.Xauthority:/.Xauthority:rw" -it danysk/linux-didattica
+  {% endhighlight %}
+
+  Sostituire `<WHERE_TO_LOCALLY_PERSIST>` con il percorso alla cartella sulla quale i dati di lavoro dovranno essere salvati.
+
+### Su Windows
+
+- Scaricare VcXsrv da questo indirizzo: <https://sourceforge.net/projects/vcxsrv/> e portare a termine l'installazione guidata.
+
+- Eseguire Xlaunch dal menu start e configurarlo come segue:
+  
+  ![Missing image](img/win10/VcXsrv/Xlaunch1.png)
+
+  ![Missing image](img/win10/VcXsrv/Xlaunch2.png)
+  
+  ![Missing image](img/win10/VcXsrv/Xlaunch3.png)
+  
+  ![Missing image](img/win10/VcXsrv/Xlaunch4.png)
+
+  Assicurarsi di cliccare "Save configuration" prima di uscire!
+
+- Eseguire in un terminale:
+
+  {% highlight powershell %}
+  docker pull danysk/linux-didattica
+  {% endhighlight %}
+
+  Questo scaricherà l'immagine Docker localmente; potrebbe richiedere molto tempo.
+
+- Individuare il proprio indirizzo IP (il comando `ipconfig` può essere d'aiuto)
+  e utilizzarlo per l'impostazione della variabile `DISPLAY` come segue:
+
+  {% highlight powershell %}
+  set-variable -name DISPLAY -value <YOUR_IP>:0.0
+  {% endhighlight %}
+
+- Lanciare l'immagine con il seguente comando:
+
+  {% highlight powershell %}
+  docker run --rm "<WHERE_TO_LOCALLY_PERSIST>:/home/user" --volume="$HOME/.Xauthority:/.Xauthority:rw" -e DISPLAY=$DISPLAY -it danysk/linux-didattica
+  {% endhighlight %}
+
+  Sostituire `<WHERE_TO_LOCALLY_PERSIST>` con il percorso alla cartella sulla quale i dati di lavoro dovranno essere salvati.
 
 [JDK download page]: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
 [Adopt JDK download page]: https://adoptopenjdk.net/index.html?variant=openjdk11&jvmVariant=hotspot
