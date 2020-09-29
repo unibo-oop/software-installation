@@ -461,7 +461,7 @@ sudo systemctl enable docker.service
 Inoltre, se si desidera utilizzare `docker` come utente non-`root`, aggiungere il proprio utente al gruppo `docker` col seguente comando:
 
 {% highlight bash %}
-sudo usermod -aG docker your-user
+sudo usermod -aG docker $USER
 {% endhighlight %}
 
 ### Installare Docker Engine manualmente su Arch Linux e derivate (Manjaro, Bridge...)
@@ -602,6 +602,63 @@ Se disponibile, Docker Desktop su Windows 10 può appoggiarsi ad Hyper-V per la 
   Durante l'installazione, assicurarsi che l'opzione "Enable Hyper-V Windows Features" sia selezionata.
 
 Ulteriori dettagli sono disponibili sulla [documentazione ufficiale](https://docs.docker.com/docker-for-windows/install/).
+
+## Verificare che Docker sia installato e correttamente funzionante
+
+- Assicurarsi che Docker sia avviato; è necessario aver abilitato il servizio Docker se su Linux, o aperto Docker Desktop se su Windows o MacOS.
+- Da un qualsiasi terminale, lanciare:
+  
+  {% highlight powershell %}
+  docker --version
+  {% endhighlight %}
+
+  Questo comando dovrebbe stampare la versione attualmente installata di Docker
+
+- Da un qualsiasi terminale, lanciare:
+  
+  {% highlight powershell %}
+  docker info
+  {% endhighlight %}
+
+  Questo comando dovrebbe stampare tutte le informazioni in merito al Docker Engine installato.
+
+- Da un qualsiasi terminale, lanciare:
+
+  {% highlight powershell %}
+  docker run hello-world
+  {% endhighlight %}
+
+  In questo caso, docker dovrebbe scaricare l'immagine hello-world, se non già disponibile, e lanciarla.
+  Attendersi un output simile al seguente:
+
+  {% highlight powershell %}
+  Unable to find image 'hello-world:latest' locally
+  latest: Pulling from library/hello-world
+  0e03bdcc26d7: Pull complete
+  Digest: sha256:4cf9c47f86df71d48364001ede3a4fcd85ae80ce02ebad74156906caff5378bc
+  Status: Downloaded newer image for hello-world:latest
+
+  Hello from Docker!
+  This message shows that your installation appears to be working correctly.
+
+  To generate this message, Docker took the following steps:
+  1. The Docker client contacted the Docker daemon.
+  2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+     (amd64)
+  3. The Docker daemon created a new container from that image which runs the
+     executable that produces the output you are currently reading.
+  4. The Docker daemon streamed that output to the Docker client, which sent it
+     to your terminal.
+
+  To try something more ambitious, you can run an Ubuntu container with:
+  $ docker run -it ubuntu bash
+
+  Share images, automate workflows, and more with a free Docker ID:
+  https://hub.docker.com/
+
+  For more examples and ideas, visit:
+  https://docs.docker.com/get-started/
+  {% endhighlight %}
 
 [JDK download page]: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
 [Adopt JDK download page]: https://adoptopenjdk.net/index.html?variant=openjdk11&jvmVariant=hotspot
