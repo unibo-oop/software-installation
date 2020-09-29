@@ -345,7 +345,6 @@ eclipse -nosplash -application org.eclipse.equinox.p2.director -repository http:
 * clickare su `"Install Now >"`
 * Seguire le istruzioni, accettare la licenza, attendere che Eclipse scarichi ed installi il prodotti, accettare l'installazione e riavviare l'IDE.
 
-
 # Git
 
 Git è un decentralized version control system (DVCS), che consente di tenere traccia della storia di un progetto, versionarla, tornare allo stato precedente, e lavorare in parallelo.
@@ -397,8 +396,6 @@ concept guides. See 'git help <command>' or 'git help <concept>'
 to read about a specific subcommand or concept.
 {% endhighlight %}
 
-
-
 ## Linux
 
 Git è preinstallato in molte distribuzioni.
@@ -430,6 +427,181 @@ Le istruzioni per tutte le distribuzioni più comuni [sono disponibili qui](http
 3. Verificare la correttezza dell'installazione
     * Aprire una shell
     * Eseguire il comando `git`: se l'installazione è andata a buon fine, apparirà il menu di help per il comando
+
+
+# Docker
+
+Docker si appoggia al kernel linux per l'esecuzione di container.
+
+L'engine Docker può essere installato nativamente sulle distribuzioni Linux, mentre su Windows e MacOS è suggerita l'installazione tramite Docker Desktop.
+
+## Installare Docker Engine su Linux
+
+### Installare automaticamente Docker Engine su Linux tramite [`docker-install`](https://github.com/docker/docker-install)
+
+Per semplificare l'installazione di Docker su distribuzioni Linux supportate, Docker mette a disposizione uno script per l'installazione veloce.
+
+Aprire un terminale ed eseguire:
+
+{% highlight bash %}
+curl -sSL https://get.docker.com | sh
+{% endhighlight %}
+
+Al termine dell'esecuzione Docker Engine sarà installato correttamente.
+
+### Configurazioni aggiuntive per Linux
+
+Su Linux, è necessario abilitare il servizio `docker.service` manualmente con:
+
+{% highlight bash %}
+sudo systemctl start docker.service
+sudo systemctl enable docker.service
+{% endhighlight %}
+
+Inoltre, se si desidera utilizzare `docker` come utente non-`root`, aggiungere il proprio utente al gruppo `docker` col seguente comando:
+
+{% highlight bash %}
+sudo usermod -aG docker your-user
+{% endhighlight %}
+
+### Installare Docker Engine manualmente su Arch Linux e derivate (Manjaro, Bridge...)
+
+Il pacchetto `docker` è disponibile nei repository Arch e può essere installato con:
+
+{% highlight bash %}
+sudo pacman -S docker
+{% endhighlight %}
+
+### Installare Docker Engine manualmente su Debian 9 e 10
+
+Assicurarsi che i pacchetti necessari siano installati con:
+
+{% highlight bash %}
+sudo apt-get update
+
+sudo apt-get install \
+   apt-transport-https \
+   ca-certificates \
+   curl \
+   gnupg-agent \
+   software-properties-common
+{% endhighlight %}
+
+Fatto ciò, aggiungere la chiave GPG utilizzata dal repository Docker e poi aggiungerlo:
+
+{% highlight bash %}
+curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
+
+sudo add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/debian \
+   $(lsb_release -cs) \
+   stable"
+{% endhighlight %}
+
+Infine, aggiornare l'indice dei pacchetti di `apt` e installare `docker-ce`
+
+{% highlight bash %}
+sudo apt-get update
+
+sudo apt-get install docker-ce docker-ce-cli containerd.io
+{% endhighlight %}
+
+### Installare Docker Engine manualmente su Ubuntu 16.04, 18.04 e 20.04
+
+Assicurarsi che i pacchetti necessari siano installati con:
+
+{% highlight bash %}
+sudo apt-get update
+
+sudo apt-get install \
+   apt-transport-https \
+   ca-certificates \
+   curl \
+   gnupg-agent \
+   software-properties-common
+{% endhighlight %}
+
+Fatto ciò, aggiungere la chiave GPG utilizzata dal repository Docker e poi aggiungerlo:
+
+{% highlight bash %}
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
+sudo add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable"
+{% endhighlight %}
+
+Infine, aggiornare l'indice dei pacchetti di `apt` e installare `docker-ce`
+
+{% highlight bash %}
+sudo apt-get update
+
+sudo apt-get install docker-ce docker-ce-cli containerd.io
+{% endhighlight %}
+
+## Installare Docker Desktop su MacOS
+
+Seguendo la [documentazione ufficiale](https://docs.docker.com/docker-for-mac/install/), scaricare il file [`Docker.dmg`](https://download.docker.com/mac/stable/Docker.dmg) dal [Docker Hub](https://hub.docker.com/editions/community/docker-ce-desktop-mac/) ed effettuare l'installazione guidata.
+
+## Installare Docker Desktop su Windows
+
+A seconda della versione di Windows utilizzata, alcune funzionalità richieste da Docker potrebbero essere o meno disponibili.
+Se si ta utilizzando una versione recente di Windows 10, si suggerisce l'utilizzo dell'installazione basata su WSL2.
+
+### Installare Docker Desktop su Windows 10 2004+ con WSL2
+
+Se la versione di Windows 10 è la 2004 o superiore, dovrebbe essere attivare la funzionalità facoltativa "Sottosistema Windows per Linux 2" (o WSL2), che consiste in una macchina virtuale Linux leggera e ottimizzata per l'integrazione con Windows 10.
+
+- Abilitare WSL con il seguente comando PowerShell, da lanciare in un terminale con permessi di amministratore:
+
+  {% highlight powershell %}
+  dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+  {% endhighlight %}
+
+- Aggiornare WSL alla versione 2; per farlo eseguire i seguenti passi:
+  
+  - abilitare le funzionalità di virtualizzazione con il seguente comando PowerShell, da lanciare in un terminale con permessi di amministratore:
+
+    {% highlight powershell %}
+    dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+    {% endhighlight %}
+
+  - Scaricare il pacchetto di aggiornamento kernel per Linux da questo link: <https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi> ed installarlo
+
+  - impostare la versione di WSL con il seguente comando PowerShell, da lanciare in un terminale con permessi di amministratore:
+
+    {% highlight powershell %}
+    wsl --set-default-version 2
+    {% endhighlight %}
+
+  Per maggiori infomazioni consultare la [documentazione di Microsoft](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
+
+- Fatto ciò, è sufficiente scaricare l'installer [`Docker Desktop Installer.exe`](https://download.docker.com/win/stable/Docker%20Desktop%20Installer.exe) dal [Docker Hub](https://hub.docker.com/editions/community/docker-ce-desktop-windows/) e portare a termine l'installazione guidata.
+
+  Durante l'installazione, assicurarsi che l'opzione "Enable WSL 2 Features" sia selezionata.
+
+Ulteriori dettagli sono disponibili sulla [documentazione ufficiale](https://docs.docker.com/docker-for-windows/install-windows-home/).
+
+### Installare Docker Desktop su Windows 10 Pro, Enterprise e Education
+
+Se disponibile, Docker Desktop su Windows 10 può appoggiarsi ad Hyper-V per la virtualizzazione di un kernel Linux da utilizzare per l'esecuzione dei container.
+
+- In questo caso, assicurarsi che le fuzionalità facoltative "Hyper-V" e "Contenitori" siano abiliate.
+
+  Per farlo, aprire lo strumento per il controllo delle funzionalità ricercandolo tramite lo strumento di ricerca
+
+  ![Missing image](img/win10/docker/features.png)
+
+- Abilitare "Hyper-V" e "Contenitori"
+
+  ![Missing image](img/win10/docker/features2.png)
+
+- Fatto ciò, è sufficiente scaricare l'installer [`Docker Desktop Installer.exe`](https://download.docker.com/win/stable/Docker%20Desktop%20Installer.exe) dal [Docker Hub](https://hub.docker.com/editions/community/docker-ce-desktop-windows/) e portare a termine l'installazione guidata.
+
+  Durante l'installazione, assicurarsi che l'opzione "Enable Hyper-V Windows Features" sia selezionata.
+
+Ulteriori dettagli sono disponibili sulla [documentazione ufficiale](https://docs.docker.com/docker-for-windows/install/).
 
 [JDK download page]: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
 [Adopt JDK download page]: https://adoptopenjdk.net/index.html?variant=openjdk11&jvmVariant=hotspot
