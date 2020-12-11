@@ -728,7 +728,7 @@ Ulteriori dettagli sono disponibili sulla [documentazione ufficiale](https://doc
 
 ## Visual Studio 2019 su Windows
 
-Si consiglia di seguire la guida ufficiale: https://docs.microsoft.com/it-it/visualstudio/install/install-visual-studio?view=vs-2019
+Si consiglia di seguire la guida ufficiale: [https://docs.microsoft.com/it-it/visualstudio/install/install-visual-studio?view=vs-2019](https://docs.microsoft.com/it-it/visualstudio/install/install-visual-studio?view=vs-2019)
 
 **N.B.**
 Per il punto 4 della guida assicurarsi che sia selezionata la voce *Sviluppo per desktop .NET*, le restanti voci non sono richieste per questo corso, come nell'immagine seguente
@@ -739,13 +739,13 @@ I punti 5, 6 e 7 sono facoltativi, ma se si vogliono apportare modifiche è pref
 
 ## Visual Studio 2019 su MacOS
 
-Si consiglia di seguire la guida ufficiale: https://docs.microsoft.com/it-it/visualstudio/mac/installation?view=vsmac-2019
+Si consiglia di seguire la guida ufficiale: [https://docs.microsoft.com/it-it/visualstudio/mac/installation?view=vsmac-2019](https://docs.microsoft.com/it-it/visualstudio/mac/installation?view=vsmac-2019)
 
 **N.B.**
 Arrivati al punto 6 assicurarsi che la voce *.NET Core* sia selezionata, le restanti voci non sono richieste per questo corso.
 
 ## JetBrains Rider su tutti i sistemi operativi
 
-Operazione preliminare **da fare:** installare *.NET Core 3.1* (se non già presente sul pc) seguendo la guida ufficiale: https://dotnet.microsoft.com/download.
+Operazione preliminare **da fare:** installare *.NET Core 3.1* (se non già presente sul pc) seguendo la guida ufficiale: [https://dotnet.microsoft.com/download](https://dotnet.microsoft.com/download).
 
-Per l'installazione di *JetBrains Rider* si rimanda alla guida ufficiale: https://www.jetbrains.com/help/rider/Installation_guide.html.
+Per l'installazione di *JetBrains Rider* si rimanda alla guida ufficiale: [https://www.jetbrains.com/help/rider/Installation_guide.html](https://www.jetbrains.com/help/rider/Installation_guide.html).
