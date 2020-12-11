@@ -559,7 +559,7 @@ Se la versione di Windows 10 è la 2004 o superiore, dovrebbe essere attivare la
   {% endhighlight %}
 
 - Aggiornare WSL alla versione 2; per farlo eseguire i seguenti passi:
-  
+
   - abilitare le funzionalità di virtualizzazione con il seguente comando PowerShell, da lanciare in un terminale con permessi di amministratore:
 
     {% highlight powershell %}
@@ -606,7 +606,7 @@ Ulteriori dettagli sono disponibili sulla [documentazione ufficiale](https://doc
 
 - Assicurarsi che Docker sia avviato; è necessario aver abilitato il servizio Docker se su Linux, o aperto Docker Desktop se su Windows o MacOS.
 - Da un qualsiasi terminale, lanciare:
-  
+
   {% highlight powershell %}
   docker --version
   {% endhighlight %}
@@ -614,7 +614,7 @@ Ulteriori dettagli sono disponibili sulla [documentazione ufficiale](https://doc
   Questo comando dovrebbe stampare la versione attualmente installata di Docker
 
 - Da un qualsiasi terminale, lanciare:
-  
+
   {% highlight powershell %}
   docker info
   {% endhighlight %}
@@ -684,13 +684,13 @@ Ulteriori dettagli sono disponibili sulla [documentazione ufficiale](https://doc
 - Scaricare VcXsrv da questo indirizzo: <https://sourceforge.net/projects/vcxsrv/> e portare a termine l'installazione guidata.
 
 - Eseguire Xlaunch dal menu start e configurarlo come segue:
-  
+
   ![Missing image](img/win10/VcXsrv/Xlaunch1.png)
 
   ![Missing image](img/win10/VcXsrv/Xlaunch2.png)
-  
+
   ![Missing image](img/win10/VcXsrv/Xlaunch3.png)
-  
+
   ![Missing image](img/win10/VcXsrv/Xlaunch4.png)
 
   Assicurarsi di cliccare "Save configuration" prima di uscire!
@@ -723,3 +723,29 @@ Ulteriori dettagli sono disponibili sulla [documentazione ufficiale](https://doc
 [Eclipse Download]: https://www.eclipse.org/downloads/
 [GIT-Windows Download]: https://git-for-windows.github.io/
 [GIT-OSX Download]: http://git-scm.com/download/mac
+
+# IDE C# #
+
+## Visual Studio 2019 su Windows
+
+Si consiglia di seguire la guida ufficiale: https://docs.microsoft.com/it-it/visualstudio/install/install-visual-studio?view=vs-2019
+
+**N.B.**
+Per il punto 4 della guida assicurarsi che sia selezionata la voce *Sviluppo per desktop .NET*, le restanti voci non sono richieste per questo corso, come nell'immagine seguente
+
+![](./img/VisualStudio/win-workload.png)
+
+I punti 5, 6 e 7 sono facoltativi, ma se si vogliono apportare modifiche è preferibile farlo prima di proseguire con l'installazione
+
+## Visual Studio 2019 su MacOS
+
+Si consiglia di seguire la guida ufficiale: https://docs.microsoft.com/it-it/visualstudio/mac/installation?view=vsmac-2019
+
+**N.B.**
+Arrivati al punto 6 assicurarsi che la voce *.NET Core* sia selezionata, le restanti voci non sono richieste per questo corso.
+
+## JetBrains Rider su tutti i sistemi operativi
+
+Operazione preliminare **da fare:** installare *.NET Core 3.1* (se non già presente sul pc) seguendo la guida ufficiale: https://dotnet.microsoft.com/download.
+
+Per l'installazione di *JetBrains Rider* si rimanda alla guida ufficiale: https://www.jetbrains.com/help/rider/Installation_guide.html.
