@@ -242,34 +242,26 @@ Si noti, in particolare, la versione 11, ed il provider AdoptOpenJDK.
 
 # Eclipse
 
-## Arch Linux e derivate (Manjaro, Bridge...)
+## Arch Linux e derivate (Manjaro, Bridge, SteamOS...)
 
 Si consiglia l'utilizzo della versione manutenuta nel repository
-[Chaotic AUR](https://lonewolf.pedrohlc.com/chaotic-aur/).
+[Chaotic AUR](https://aur.chaotic.cx/).
 
-Si attivi il repository aggiungendo il seguente test in coda al file `/etc/pacman.conf`:
-
-```
-[chaotic-aur]
-# Germany
-Server = http://chaotic.bangl.de/$repo/$arch
-# Netherlands
-Server = https://chaotic.tn.dedyn.io/$arch
-# USA
-Server = https://builds.garudalinux.org/repos/$repo/$arch
-Server = https://repo.kitsuna.net/$arch
-# Brazil
-Server = https://lonewolf.pedrohlc.com/$repo/$arch
-
-```
-
-Si lancino i comandi
+Si utilizzino i seguenti comandi:
 
 ```bash
-sudo pacman-key --keyserver hkp://keyserver.ubuntu.com -r 3056513887B78AEB 8A9E14A07010F7E3
+# Download the Chaotic-AUR key
+sudo pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
+# Trust the key
 sudo pacman-key --lsign-key 3056513887B78AEB
-sudo pacman-key --lsign-key 8A9E14A07010F7E3
+# Force-install the whole Chaotic Keyring
+sudo pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst' 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'
+# Add the repository to the pacman configuration file
+echo '\n[chaotic-aur]' | sudo tee -a /etc/pacman.conf
+echo 'Include = /etc/pacman.d/chaotic-mirrorlist' | sudo tee -a /etc/pacman.conf
+# Refresh the database
 sudo pacman -Sy
+# Install Eclipse
 sudo pacman -S eclipse-java
 ```
 
