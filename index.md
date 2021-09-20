@@ -160,17 +160,6 @@ jabba install adopt@1.11.28-0
 jabba use adopt@1.11.28-0
 {% endhighlight %}
 
-#### Opzione 4: Microsoft WinGet
-
-Se sulla macchina [è installato WinGet](https://github.com/microsoft/winget-cli#installing-the-client), è possibile installare AdoptOpenJDK 11 Hotspot eseguendo il seguente comando su un terminale:
-
-{% highlight powershell %}
-winget install --id="AdoptOpenJDK.OpenJDK" --exact --version "11.0.8"
-{% endhighlight %}
-
-Non è necessario utilizzare un terminale con permessi di amministratore, in quanto questi verranno richiesti in automatico durante l'installazione.
-L'installazione dovrebbe eseguire una configurazione automatica delle variabili d'ambiente.
-
 ## Impostazione delle variabli d'ambiente
 
 ### Linux con installazione da package manager
