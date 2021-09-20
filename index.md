@@ -13,7 +13,7 @@ Include la virtual machine Java, le librerie Java, di base, il compilatore, e i 
 Esistono varie versioni del JDK, quella di riferimento è OpenJDK, a partire dalla quale ne vengono sviluppate altre sia gratuite che a pagamento (fra cui [Oracle JDK](https://www.oracle.com/technetwork/java/javase/downloads/index.html), [Eclipse OpenJ9](https://www.eclipse.org/openj9/), [Amazon Corretto](https://aws.amazon.com/corretto/), [GraalVM](https://www.graalvm.org/), [Bellsoft Liberica JDK](https://bell-sw.com/), [Azul Zulu](https://www.azul.com/downloads/zulu-community/?&show-old-builds=true)...).
 
 A sua volta, OpenJDK è distribuito in forma di sorgente, e vari distributori ne forniscono versioni binarie.
-Fra questi, [AdoptOpenJDK](https://adoptopenjdk.net/).
+Fra questi, [AdoptOpenJDK](https://adoptopenjdk.net/) (recentemente diventato [Adoptium](https://adoptium.net/)).
 La macchina virtuale Java di riferimento sarà OpenJDK 11 come fornita da AdoptOpenJDK.
 
 Seguono le istruzioni di installazione e configuazione per i vari sistemi operativi.
@@ -73,12 +73,11 @@ jabba use adopt@1.11.28-0
 
 I passi in comune a tutte le versioni di Windows sono i seguenti (di seguito si fa riferimento a Windows 10, analogamente per le versioni precedenti con eventuali variazioni in termini di interfaccia utente):
 
-1. Scaricare il JDK dalla [pagina di download ufficiale di AdoptOpenJDK][Adopt JDK download page].
-   Scegliere la versione OpenJDK 11 (LTS) e cliccare sul pulsante "Latest release". Selezionare quindi la piattaforma desiderata (Windows x32 oppure Windows x64).
-   Premere quindi il bottone "Install JDK"
-
+1. Scaricare il JDK dalla [pagina di download ufficiale di Adoptium][Adoptium download page].
+   Scegliere la versione OpenJDK 11 (LTS) e cliccare sul pulsante "Latest release".
+   
    ![Missing image](img/win10/adopt1.png)
-
+   
 2. Eseguire l'installer scaricato e seguire il wizard di installazione passo-passo.
 
    ![Missing image](img/win10/adopt2.png)
@@ -727,6 +726,7 @@ Ulteriori dettagli sono disponibili sulla [documentazione ufficiale](https://doc
 
 [JDK download page]: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
 [Adopt JDK download page]: https://adoptopenjdk.net/index.html?variant=openjdk11&jvmVariant=hotspot
+[Adoptium download page]: https://adoptium.net/
 [Eclipse Download]: https://www.eclipse.org/downloads/
 [GIT-Windows Download]: https://git-for-windows.github.io/
 [GIT-OSX Download]: http://git-scm.com/download/mac
