@@ -257,7 +257,8 @@ sudo pacman-key --lsign-key 3056513887B78AEB
 # Force-install the whole Chaotic Keyring
 sudo pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst' 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'
 # Add the repository to the pacman configuration file
-echo '\n[chaotic-aur]' | sudo tee -a /etc/pacman.conf
+echo '' | sudo tee -a /etc/pacman.conf
+echo '[chaotic-aur]' | sudo tee -a /etc/pacman.conf
 echo 'Include = /etc/pacman.d/chaotic-mirrorlist' | sudo tee -a /etc/pacman.conf
 # Refresh the database
 sudo pacman -Sy
