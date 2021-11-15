@@ -291,7 +291,16 @@ Se il vostro sistema (tipicamente tutti i sistemi Linux) risponde al lancio da t
 avviando l'interfaccia grafica dell'IDE, allora potete optare per installare tutto il necessario direttamente da terminale col comando:
 
 ```bash
-eclipse -nosplash -application org.eclipse.equinox.p2.director -repository http://download.eclipse.org/releases/2020-09/,http://protelis-eclipse.surge.sh/,http://www.acanda.ch/eclipse-pmd/release/latest/,https://checkstyle.org/eclipse-cs/update,https://spotbugs.github.io/eclipse/ -installIU protelis.parser.feature.feature.group,ch.acanda.eclipse.pmd.feature.feature.group,net.sf.eclipsecs.feature.group,com.github.spotbugs.plugin.eclipse.feature.group
+eclipse -nosplash -application org.eclipse.equinox.p2.director\
+ -repository http://download.eclipse.org/releases/2020-12/,\
+http://download.eclipse.org/releases/2021-03/,\
+http://download.eclipse.org/releases/2021-06/,\
+http://www.acanda.ch/eclipse-pmd/release/latest/,\
+https://checkstyle.org/eclipse-cs-update-site/,\
+https://spotbugs.github.io/eclipse/\
+ -installIU ch.acanda.eclipse.pmd.feature.feature.group,\
+net.sf.eclipsecs.feature.group,\
+com.github.spotbugs.plugin.eclipse.feature.group
 ```
 
 ## SpotBugs (precedentemente noto come FindBugs)
