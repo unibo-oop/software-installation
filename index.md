@@ -266,13 +266,6 @@ sudo pacman -Sy
 sudo pacman -S eclipse-java
 ```
 
-## Linux Ubuntu
-
-Si consiglia l'utilizzo della versione edge mantenuta sul repository snap, attraverso il seguente comando
-```bash
-sudo snap install eclipse --edge --classic
-```
-
 ## Tutti gli altri sistemi operativi
 
 1. Scaricare “Eclipse IDE” (ultima versione disponibile) dalla [pagina di download ufficiale (qui)][Eclipse Download].
