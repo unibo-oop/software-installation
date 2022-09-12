@@ -18,9 +18,29 @@ La macchina virtuale Java di riferimento sarà OpenJDK 17 come fornita da Adopti
 
 Seguono le istruzioni di installazione e configuazione per i vari sistemi operativi.
 
-**NOTA**: Qualora il sistema operativo non consentisse di installare il JDK attraverso Jabba o se durante l'installazione via Jabba dovessero emergere problematiche di qualunque genere, procedere con l'installazione alternativa, proposta più avanti in questo documento. In particolare, nonostante Jabba sia compatibile con Windows 10, con le ultime versioni l'installazione presenta alcuni bug e dunque non è consigliata: si preferisca l'installazione alternative attraverso file `.msi` descritta più avanti.
+## Linux
 
-## Installazione su distribuzioni Linux e MacOS via Jabba
+### Arch e derivate (Manjaro, Bridge, SteamOS...)
+
+Arch offre il pacchetto OpenJDK 17 direttamente nel repository `extra`:
+
+```bash
+sudo pacman -Syu
+sudo pacman -S jdk17-openjdk
+```
+
+È possibile avere più ambienti Java installati contemporaneamente, si può selezionare quello corrente utilizzando il comando ``archlinux-java``.
+Per assicurarsi di star lavorando con OpenJDK 17, si utilizzi:
+
+```bash
+sudo archlinux-java set java-17-openjdk
+```
+
+### Debian e Ubuntu
+
+Installare il deb da: https://pkgs.org/download/openjdk-17-jdk
+
+### Altre distribuzioni
 
 Data la varietà di versioni, distribuzioni sorgenti, e distribuzioni binarie di JVM, esiste un tool Linux che consente di installare quella desiderata e cambiarla rapidamente.
 Il tool è [Jabba](https://github.com/shyiko/jabba).
@@ -69,7 +89,21 @@ jabba install adopt@1.11.28-0
 jabba use adopt@1.11.28-0
 {% endhighlight %}
 
-### Windows (tramite installer `.msi`)
+Per impostare una versione di default del JDK da usare (senza dover ogni volta utilizzare `jabba use`) all'apertura di un nuovo terminale, si usi il seguente comando:
+
+{% highlight bash %}
+jabba alias default <default-version>
+{% endhighlight %}
+
+Infatti, all'installazione, Jabba modifica file nella `$HOME` come`.bashrc`, `.bash_profile`, o `.zshrc` per chiamare `$HOME/.jabba/jabba.sh`; in quest'ultimo script, un comando `jabba use default` viene invocato: l'effetto è che all'apertura di un nuovo terminale, verrà automaticamente indicato di usare la versione di default del JDK indicata con Jabba.
+
+## MacOS
+
+Si seguano le istruzioni per Linux / Jabba.
+
+## Windows
+
+### Tramite installer `.msi`
 
 I passi in comune a tutte le versioni di Windows sono i seguenti (di seguito si fa riferimento a Windows 10, analogamente per le versioni precedenti con eventuali variazioni in termini di interfaccia utente):
 
@@ -96,24 +130,7 @@ I passi in comune a tutte le versioni di Windows sono i seguenti (di seguito si 
     java -version   # Output atteso: 'java version "<version>" ...'
     {% endhighlight %}
 
-## Installazione alternativa su specifici OS
-
-### Arch e derivate (Manjaro, Bridge…)
-
-Arch offre il pacchetto OpenJDK 11 direttamente nel repository principale:
-
-{% highlight bash %}
-sudo pacman -S jdk11-openjdk
-{% endhighlight %}
-
-È possibile avere più ambienti Java installati contemporaneamente, si può selezionare quello corrente utilizzando il comando ``archlinux-java``.
-Per assicurarsi di star lavorando con OpenJDK 11, si utilizzi:
-
-{% highlight bash %}
-sudo archlinux-java set java-11-openjdk
-{% endhighlight %}
-
-### Windows (tramite package manager)
+### Tramite package manager
 
 Su Windows sono disponibli diversi pacakge manager non ufficiali o semi-ufficiali che permettono l'installazione di distribuzioni OpenJDK.
 
@@ -160,26 +177,14 @@ jabba install adopt@1.11.28-0
 jabba use adopt@1.11.28-0
 {% endhighlight %}
 
-## Impostazione delle variabli d'ambiente
-
-### Linux con installazione da package manager
-
-Operazione non necessaria.
-
-### Linux con installazione via Jabba, Mac OS X
-
-Per impostare una versione di default del JDK da usare (senza dover ogni volta utilizzare `jabba use`) all'apertura di un nuovo terminale, si usi il seguente comando:
-
-{% highlight bash %}
-jabba alias default <default-version>
-{% endhighlight %}
-
-Infatti, all'installazione, Jabba modifica file nella `$HOME` come`.bashrc`, `.bash_profile`, o `.zshrc` per chiamare `$HOME/.jabba/jabba.sh`; in quest'ultimo script, un comando `jabba use default` viene invocato: l'effetto è che all'apertura di un nuovo terminale, verrà automaticamente indicato di usare la versione di default del JDK indicata con Jabba.
-
-### Windows
-
 Jabba installa il JDK desiderato in una cartella dedicata nella user home dell'utente, ovvero: `%HOMEPATH%\.jabba\jdk\<version>`.
-È necessario quindi definire una variabile d'ambiente (`JAVA_HOME`) relativa a tale percorso ed includerla nel `Path` di sistema, come segue (si fa riferimento a Windows 10, per versioni precedenti la procedura è analoga).
+
+### Configurazione manuale delle variabili d'ambiente
+
+Non tutti i sistemi di installazione di Java su Windows configurano in modo opportuno l'ambiente.
+Se la verifica di funzionamento dovesse fallire, si verifichi di aver configurato correttamente il proprio ambiente perché possa eseguire il compilatore ed l'interprete Java.
+È necessario quindi definire una variabile d'ambiente (`JAVA_HOME`) relativa a tale percorso ed includerla nel `Path` di sistema, come segue
+(si fa riferimento a Windows 10, per versioni precedenti la procedura è analoga).
 
 1. Aprire il menù d'avvio e digitare __"Modifica variabili d'ambiente relative al sistema"__:
 
@@ -230,32 +235,48 @@ e si osservi il risultato. L'output atteso dovrà essere analogo a:
 
 {% highlight bash %}
 $ java -version
-openjdk version "11" 2018-09-25
-OpenJDK Runtime Environment AdoptOpenJDK (build 11+28)
-OpenJDK 64-Bit Server VM AdoptOpenJDK (build 11+28, mixed mode)
+openjdk version "17.0.4" 2022-07-19
+OpenJDK Runtime Environment (build 17.0.4+8)
+OpenJDK 64-Bit Server VM (build 17.0.4+8, mixed mode)
+
 
 $ javac -version
-javac 11
+javac 17.0.4
 {% endhighlight %}
 
-Si noti, in particolare, la versione 11, ed il provider AdoptOpenJDK.
+Si noti, in particolare, la versione 17, ed il provider AdoptOpenJDK.
 
-# Eclipse
 
-## Arch Linux e derivate (Manjaro, Bridge, SteamOS...)
+# Visual Studio Code
 
-Si consiglia l'utilizzo della versione manutenuta nel repository
+Visual Studio Code è un editor di testo e IDE con supporto a molti linguaggi di programmazione (incluso Java).
+
+## Linux
+
+[Istruzioni per tutte le distribuzioni](https://code.visualstudio.com/docs/setup/linux)
+
+### Arch Linux e derivate (Manjaro, Bridge, SteamOS...)
+
+La versione Open Source è installabile dal repository `community`,
+tipicamente abilitato di default
+
+```bash
+sudo pacman -Syu
+sudo pacmen -S code
+```
+
+In alternativa, la version completa non open source è disponibile nel repository
 [Chaotic AUR](https://aur.chaotic.cx/).
 
 Si utilizzino i seguenti comandi:
 
 ```bash
 # Download the Chaotic-AUR key
-sudo pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
+pacman-key --recv-key FBA220DFC880C036 --keyserver keyserver.ubuntu.com
 # Trust the key
-sudo pacman-key --lsign-key 3056513887B78AEB
+pacman-key --lsign-key FBA220DFC880C036
 # Force-install the whole Chaotic Keyring
-sudo pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst' 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'
+pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst' 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'
 # Add the repository to the pacman configuration file
 echo '' | sudo tee -a /etc/pacman.conf
 echo '[chaotic-aur]' | sudo tee -a /etc/pacman.conf
@@ -263,77 +284,21 @@ echo 'Include = /etc/pacman.d/chaotic-mirrorlist' | sudo tee -a /etc/pacman.conf
 # Refresh the database
 sudo pacman -Sy
 # Install Eclipse
-sudo pacman -S eclipse-java
+sudo pacman -S visual-studio-code-bin
 ```
 
-## Tutti gli altri sistemi operativi
+### Distribuzioni con supporto a Flatpak
 
-1. Scaricare “Eclipse IDE” (ultima versione disponibile) dalla [pagina di download ufficiale (qui)][Eclipse Download].
-2. Seguire le istruzioni per l'installazione, selezionando "Eclipse IDE for Java Developers".
-3. Si lanci l'IDE: se l’installazione è andata a buon fine si dovrebbe aprire la schermata di benvenuto dell'IDE.
+È disponibile un pacchetto dedicato su [Flathub](https://flathub.org/apps/details/com.visualstudio.code)
 
-![Missing image](img/win10/install_eclipse/download/6.png)
+## Mac OS X
 
-# Plugin di Eclipse
+https://code.visualstudio.com/docs/setup/mac
 
-Eclipse utilizza un'architettura a plug-in. Lungo il corso ne utilizzeremo alcuni che ci forniranno funzionalità aggiuntive.
+## Windows
 
-## Installazione rapida su Linux (e sistemi operativi dove il comando `eclipse` è disponibile su terminale)
+https://code.visualstudio.com/docs/setup/windows
 
-Se il vostro sistema (tipicamente tutti i sistemi Linux) risponde al lancio da terminale del comando `eclipse`
-avviando l'interfaccia grafica dell'IDE, allora potete optare per installare tutto il necessario direttamente da terminale col comando:
-
-```bash
-eclipse -nosplash -application org.eclipse.equinox.p2.director\
- -repository http://download.eclipse.org/releases/2020-12/,\
-http://download.eclipse.org/releases/2021-03/,\
-http://download.eclipse.org/releases/2021-06/,\
-http://www.acanda.ch/eclipse-pmd/release/latest/,\
-https://checkstyle.org/eclipse-cs-update-site/,\
-https://spotbugs.github.io/eclipse/\
- -installIU ch.acanda.eclipse.pmd.feature.feature.group,\
-net.sf.eclipsecs.feature.group,\
-com.github.spotbugs.plugin.eclipse.feature.group
-```
-
-## SpotBugs (precedentemente noto come FindBugs)
-* In Eclipse, click Help -> Eclipse Marketplace...
-
-![Missing image](img/win10/install_eclipse/install_plugins_marketplace/1.png)
-
-* Nella barra di ricerca, inserire "spotbugs", quindi premere Invio
-* Uno dei plugin trovati dovrebbe essere "SpotBugs Eclipse Plugin", si usi l'immagine seguente per verificare che corrisponda:
-
-![Missing image](img/eclipse/spotbugs.png)
-
-* clickare su `"Install Now >"`
-* Seguire le istruzioni, accettare la licenza, attendere che Eclipse scarichi ed installi il prodotti, accettare l'installazione e riavviare l'IDE.
-
-## PMD
-* In Eclipse, click Help -> Eclipse Marketplace...
-
-![Missing image](img/win10/install_eclipse/install_plugins_marketplace/1.png)
-
-* Nella barra di ricerca, inserire "pmd", quindi premere Invio
-* Appariranno più plugin, uno dei plugin trovati dovrebbe essere eclipse-pmd. *ATTENZIONE:* I diversi plugin PMD *confliggono fra loro*, installare solo quello suggerito. Lo si identifichi utilizzando l'immagine seguente:
-
-![Missing image](img/eclipse/pmd.png)
-
-* clickare su `"Install Now >"`
-* Seguire le istruzioni, accettare la licenza, attendere che Eclipse scarichi ed installi il prodotti, accettare l'installazione e riavviare l'IDE.
-
-## Checkstyle
-* In Eclipse, click Help -> Eclipse Marketplace...
-
-![Missing image](img/win10/install_eclipse/install_plugins_marketplace/1.png)
-
-* Nella barra di ricerca, inserire "checkstyle", quindi premere Invio
-* Appariranno più plugin, uno dei plugin trovati dovrebbe essere "Checkstyle Plug-in X.Y.Z" (con X.Y.Z numero di versione). Lo si identifichi utilizzando l'immagine seguente:
-
-![Missing image](img/eclipse/checkstyle.png)
-
-* clickare su `"Install Now >"`
-* Seguire le istruzioni, accettare la licenza, attendere che Eclipse scarichi ed installi il prodotti, accettare l'installazione e riavviare l'IDE.
 
 # Git
 
@@ -418,151 +383,6 @@ Le istruzioni per tutte le distribuzioni più comuni [sono disponibili qui](http
     * Aprire una shell
     * Eseguire il comando `git`: se l'installazione è andata a buon fine, apparirà il menu di help per il comando
 
-# Docker
-
-Docker si appoggia al kernel linux per l'esecuzione di container.
-
-L'engine Docker può essere installato nativamente sulle distribuzioni Linux, mentre su Windows e MacOS è suggerita l'installazione tramite Docker Desktop.
-
-## Installare Docker Engine su Linux
-
-### Installare automaticamente Docker Engine su Linux tramite [`docker-install`](https://github.com/docker/docker-install)
-
-Per semplificare l'installazione di Docker su distribuzioni Linux supportate, Docker mette a disposizione uno script per l'installazione veloce.
-
-Aprire un terminale ed eseguire:
-
-{% highlight bash %}
-curl -sSL https://get.docker.com | sh
-{% endhighlight %}
-
-Al termine dell'esecuzione Docker Engine sarà installato correttamente.
-
-### Configurazioni aggiuntive per Linux
-
-Su Linux, è necessario abilitare il servizio `docker.service` manualmente con:
-
-{% highlight bash %}
-sudo systemctl start docker.service
-sudo systemctl enable docker.service
-{% endhighlight %}
-
-Inoltre, se si desidera utilizzare `docker` come utente non-`root`, aggiungere il proprio utente al gruppo `docker` col seguente comando:
-
-{% highlight bash %}
-sudo usermod -aG docker $USER
-{% endhighlight %}
-
-### Installare Docker Engine manualmente su Arch Linux e derivate (Manjaro, Bridge...)
-
-Il pacchetto `docker` è disponibile nei repository Arch e può essere installato con:
-
-{% highlight bash %}
-sudo pacman -S docker
-{% endhighlight %}
-
-### Installare Docker Engine manualmente su Debian 9 e 10
-
-Assicurarsi che i pacchetti necessari siano installati con:
-
-{% highlight bash %}
-sudo apt-get update
-
-sudo apt-get install \
-   apt-transport-https \
-   ca-certificates \
-   curl \
-   gnupg-agent \
-   software-properties-common
-{% endhighlight %}
-
-Fatto ciò, aggiungere la chiave GPG utilizzata dal repository Docker e poi aggiungerlo:
-
-{% highlight bash %}
-curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
-
-sudo add-apt-repository \
-   "deb [arch=amd64] https://download.docker.com/linux/debian \
-   $(lsb_release -cs) \
-   stable"
-{% endhighlight %}
-
-Infine, aggiornare l'indice dei pacchetti di `apt` e installare `docker-ce`
-
-{% highlight bash %}
-sudo apt-get update
-
-sudo apt-get install docker-ce docker-ce-cli containerd.io
-{% endhighlight %}
-
-### Installare Docker Engine manualmente su Ubuntu 16.04, 18.04 e 20.04
-
-Assicurarsi che i pacchetti necessari siano installati con:
-
-{% highlight bash %}
-sudo apt-get update
-
-sudo apt-get install \
-   apt-transport-https \
-   ca-certificates \
-   curl \
-   gnupg-agent \
-   software-properties-common
-{% endhighlight %}
-
-Fatto ciò, aggiungere la chiave GPG utilizzata dal repository Docker e poi aggiungerlo:
-
-{% highlight bash %}
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-
-sudo add-apt-repository \
-   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-   $(lsb_release -cs) \
-   stable"
-{% endhighlight %}
-
-Infine, aggiornare l'indice dei pacchetti di `apt` e installare `docker-ce`
-
-{% highlight bash %}
-sudo apt-get update
-
-sudo apt-get install docker-ce docker-ce-cli containerd.io
-{% endhighlight %}
-
-## Installare Docker Desktop su MacOS
-
-Seguendo la [documentazione ufficiale](https://docs.docker.com/docker-for-mac/install/), scaricare il file [`Docker.dmg`](https://download.docker.com/mac/stable/Docker.dmg) dal [Docker Hub](https://hub.docker.com/editions/community/docker-ce-desktop-mac/) ed effettuare l'installazione guidata.
-
-## Installare la macchina virtuale basata su Docker per il laboratorio
-
-### Su Linux e MacOS X
-
-- Eseguire in un terminale:
-
-  {% highlight bash %}
-  docker pull danysk/linux-didattica
-  {% endhighlight %}
-
-  Questo scaricherà l'immagine Docker localmente; potrebbe richiedere molto tempo.
-
-- Lanciare l'immagine con il seguente comando:
-
-  {% highlight bash %}
-  docker run --rm --net=host --env="DISPLAY" -v <WHERE_TO_LOCALLY_PERSIST>:/home/user --volume="$HOME/.Xauthority:/.Xauthority:rw" -it danysk/linux-didattica
-  {% endhighlight %}
-
-  Sostituire `<WHERE_TO_LOCALLY_PERSIST>` con il percorso alla cartella sulla quale i dati di lavoro dovranno essere salvati.
-
-### Su Windows
-
-Installare l'immagine come distribuzione WSL2, in modo da non dover appoggiarsi su Docker (che in ogni caso si sarebbe appoggiato su WSL2). Per farlo, si seguano [le istruzioni fornite nel repository che contiene il codice dell'immagine](https://github.com/DanySK/docker-linux-didattica/#import-as-a-wsl2-distro)
-
-[JDK download page]: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
-[Adopt JDK download page]: https://adoptopenjdk.net/index.html?variant=openjdk11&jvmVariant=hotspot
-[Adoptium download page]: https://adoptium.net/
-[Eclipse Download]: https://www.eclipse.org/downloads/
-[GIT-Windows Download]: https://git-for-windows.github.io/
-[GIT-OSX Download]: http://git-scm.com/download/mac
 
 # IDE C# #
 
