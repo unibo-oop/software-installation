@@ -52,41 +52,47 @@ curl -sL https://github.com/shyiko/jabba/raw/master/install.sh | bash && . ~/.ja
 {% endhighlight %}
 
 Una volta che Jabba è installato, può essere utilizzato per installare il JDK.
-Si elenchino tutte le versioni di AdoptOpenJDK utilizzando
+Si elenchino tutte le versioni di OpenJDK utilizzando
 
 {% highlight bash %}
-jabba ls-remote adopt@
+jabba ls-remote openjdk@
 {% endhighlight %}
 
-Quindi si selezioni la più recente fra le versioni 11, ad esempio se l'output è:
+Quindi si selezioni la più recente fra le versioni 17, ad esempio se l'output è:
 
 {% highlight bash %}
-adopt@1.12.33-0
-adopt@1.12.0-2
-adopt@1.12.0-1
-adopt@1.11.28-0
-adopt@1.11.0-4
-adopt@1.11.0-3
-adopt@1.11.0-2
-adopt@1.11.0-1
-adopt@1.10.0-2
-adopt@1.9.181-0
-adopt@1.9.0-4
-adopt@1.8.222-10
-adopt@1.8.212-04
-adopt@1.8.212-03
-adopt@1.8.202-08
-adopt@1.8.192-12
-adopt@1.8.181-13
-adopt@1.8.172-11
+openjdk@1.17.0
+openjdk@1.16.0
+openjdk@1.16.0-1
+openjdk@1.15.0
+openjdk@1.15.0-2
+openjdk@1.15.0-1
+openjdk@1.14.0
+openjdk@1.14.0-2
+openjdk@1.14.0-1
+openjdk@1.13.0
+openjdk@1.13.0-2
+openjdk@1.13.0-1
+openjdk@1.12.0
+openjdk@1.12.0-2
+openjdk@1.12.0-1
+openjdk@1.11.0
+openjdk@1.11.0-2
+openjdk@1.11.0-1
+openjdk@1.10.0
+openjdk@1.10.0-2
+openjdk@1.10.0-1
+openjdk@1.9.0
+openjdk@1.9.0-4
+openjdk@1.9.0-1
 {% endhighlight %}
 
-Si scelga `adopt@1.11.28-0`.
+Si scelga `openjdk@1.17.0`.
 A questo punto si installi utilizzando i seguenti comandi:
 
 {% highlight bash %}
-jabba install adopt@1.11.28-0
-jabba use adopt@1.11.28-0
+jabba install openjdk@1.17.0
+jabba use openjdk@1.17.0
 {% endhighlight %}
 
 Per impostare una versione di default del JDK da usare (senza dover ogni volta utilizzare `jabba use`) all'apertura di un nuovo terminale, si usi il seguente comando:
