@@ -113,8 +113,8 @@ Si seguano le istruzioni per Linux / Jabba.
 
 I passi in comune a tutte le versioni di Windows sono i seguenti (di seguito si fa riferimento a Windows 10, analogamente per le versioni precedenti con eventuali variazioni in termini di interfaccia utente):
 
-1. Scaricare il JDK dalla [pagina di download ufficiale di Adoptium][Adoptium download page].
-   Scegliere la versione OpenJDK 11 (LTS) e cliccare sul pulsante "Latest release".
+1. Scaricare il JDK dalla [pagina di download ufficiale di Adoptium](https://adoptium.net/temurin/releases).
+   Scegliere la versione 17, filtrando anche per sistema operativo (Windows) e per architettura (x64). Cliccare il download <i class="fa fa-download"></i>`.msi`.
    
    ![Missing image](img/win10/adopt1.png)
    
@@ -142,22 +142,22 @@ Su Windows sono disponibli diversi pacakge manager non ufficiali o semi-ufficial
 
 #### Opzione 1: Chocolatey
 
-Se sulla macchina [è installato Chocolatey](https://chocolatey.org/docs/installation), è possibile installare AdoptOpenJDK 11 Hotspot eseguendo il seguente comando su un terminale con permessi di amministratore:
+Se sulla macchina [è installato Chocolatey](https://chocolatey.org/docs/installation), è possibile installare OpenJDK 17 eseguendo il seguente comando su un terminale con permessi di amministratore:
 
 {% highlight powershell %}
-choco install adoptopenjdk11
+choco install openjdk17
 {% endhighlight %}
 
 L'installazione dovrebbe eseguire una configurazione automatica delle variabili d'ambiente.
 
 #### Opzione 2: Scoop
 
-Se sulla macchina [è installato Scoop](https://scoop.sh), è possibile installare AdoptOpenJDK 11 Hotspot eseguendo il seguente comando su un terminale:
+Se sulla macchina [è installato Scoop](https://scoop.sh), è possibile installare OpenJDK 17 eseguendo il seguente comando su un terminale:
 
 {% highlight powershell %}
 scoop bucket add java
 
-scoop install adoptopenjdk-lts-hotspot
+scoop install openjdk17
 {% endhighlight %}
 
 Non è necessario utilizzare un terminale con permessi di amministratore.
@@ -179,8 +179,8 @@ Invoke-Expression (
 A questo punto si installi utilizzando i seguenti comandi:
 
 {% highlight bash %}
-jabba install adopt@1.11.28-0
-jabba use adopt@1.11.28-0
+jabba install openjdk@1.17.0
+jabba use openjdk@1.17.0
 {% endhighlight %}
 
 Jabba installa il JDK desiderato in una cartella dedicata nella user home dell'utente, ovvero: `%HOMEPATH%\.jabba\jdk\<version>`.
