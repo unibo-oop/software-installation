@@ -385,7 +385,12 @@ Le istruzioni per tutte le distribuzioni più comuni [sono disponibili qui](http
 2. Eseguire il programma per l'installazione
     * Eventualmente, eseguire l'installer anche se non sviluppato da una fonte identificata da Apple Store (vedi System preferences > Security > General)
     * Continue > Install
-3. Verificare la correttezza dell'installazione
+3. In alternativa ai due step 1 e 2, git è contenuto tra gli XCode Command Line Developer Tools che sicuramente vi è capitato di installare (o avrete la necessità di installare in futuro) per compilare sorgenti C. 
+   * Aprite il terminale, lo trovate sotto /Applications/Utilities/
+   * Eseguite il comando: ``git``
+   * Si aprirà una finestra che vi dice che xcode-select ha bisogno dell'installazione dei Command Line Tools, chiedendo se vogliamo installarli subito.
+   * Confermate cliccando su Installa.
+4. Verificare la correttezza dell'installazione
     * Aprire una shell
     * Eseguire il comando `git`: se l'installazione è andata a buon fine, apparirà il menu di help per il comando
 
