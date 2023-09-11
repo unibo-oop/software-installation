@@ -263,33 +263,21 @@ Visual Studio Code è un editor di testo e IDE con supporto a molti linguaggi di
 
 ### Arch Linux e derivate (Manjaro, Bridge, SteamOS...)
 
-La versione Open Source è installabile dal repository `community`,
-tipicamente abilitato di default
+La versione Open Source è installabile dal repository `extra`,
+tipicamente abilitato di default:
 
 ```bash
 sudo pacman -Syu
-sudo pacmen -S code
+sudo pacman -S code
 ```
 
-In alternativa, la version completa non open source è disponibile nel repository
+In alternativa, la versione completa non open source è disponibile nel repository
 [Chaotic AUR](https://aur.chaotic.cx/).
 
-Si utilizzino i seguenti comandi:
+Si abiliti Chaotic AUR usando le istruzioni presenti al link precedente, quindi:
 
 ```bash
-# Download the Chaotic-AUR key
-pacman-key --recv-key FBA220DFC880C036 --keyserver keyserver.ubuntu.com
-# Trust the key
-pacman-key --lsign-key FBA220DFC880C036
-# Force-install the whole Chaotic Keyring
-pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst' 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'
-# Add the repository to the pacman configuration file
-echo '' | sudo tee -a /etc/pacman.conf
-echo '[chaotic-aur]' | sudo tee -a /etc/pacman.conf
-echo 'Include = /etc/pacman.d/chaotic-mirrorlist' | sudo tee -a /etc/pacman.conf
-# Refresh the database
 sudo pacman -Sy
-# Install Eclipse
 sudo pacman -S visual-studio-code-bin
 ```
 
@@ -393,30 +381,3 @@ Le istruzioni per tutte le distribuzioni più comuni [sono disponibili qui](http
 4. Verificare la correttezza dell'installazione
     * Aprire una shell
     * Eseguire il comando `git`: se l'installazione è andata a buon fine, apparirà il menu di help per il comando
-
-
-# IDE C# #
-
-## Visual Studio 2019 su Windows
-
-Si consiglia di seguire la guida ufficiale: [https://docs.microsoft.com/it-it/visualstudio/install/install-visual-studio?view=vs-2019](https://docs.microsoft.com/it-it/visualstudio/install/install-visual-studio?view=vs-2019)
-
-**N.B.**
-Per il punto 4 della guida assicurarsi che sia selezionata la voce *Sviluppo per desktop .NET*, le restanti voci non sono richieste per questo corso, come nell'immagine seguente
-
-![](./img/VisualStudio/win-workload.png)
-
-I punti 5, 6 e 7 sono facoltativi, ma se si vogliono apportare modifiche è preferibile farlo prima di proseguire con l'installazione
-
-## Visual Studio 2019 su MacOS
-
-Si consiglia di seguire la guida ufficiale: [https://docs.microsoft.com/it-it/visualstudio/mac/installation?view=vsmac-2019](https://docs.microsoft.com/it-it/visualstudio/mac/installation?view=vsmac-2019)
-
-**N.B.**
-Arrivati al punto 6 assicurarsi che la voce *.NET Core* sia selezionata, le restanti voci non sono richieste per questo corso.
-
-## JetBrains Rider su tutti i sistemi operativi
-
-Operazione preliminare **da fare:** installare *.NET Core 3.1* (se non già presente sul pc) seguendo la guida ufficiale: [https://dotnet.microsoft.com/download](https://dotnet.microsoft.com/download).
-
-Per l'installazione di *JetBrains Rider* si rimanda alla guida ufficiale: [https://www.jetbrains.com/help/rider/Installation_guide.html](https://www.jetbrains.com/help/rider/Installation_guide.html).
