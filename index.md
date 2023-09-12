@@ -117,6 +117,11 @@ Si seguano le istruzioni per Linux / Jabba.
 winget install -e --id EclipseAdoptium.Temurin.17.JDK
 ```
 
+L'installazione del pacchetto dovrebbe automaticamente impostare la variabile d'ambiente `JAVA_HOME` correttamente.  
+In caso contrario, fare riferimento alla sezione [Configurazione manuale delle variabili d'ambiente](#configurazione-manuale-delle-variabili-d'ambiente).
+
+Riavviare la `PowerShell` per verificare la corretta installazione del JDK.
+
 ### Tramite installer `.msi`
 
 I passi in comune a tutte le versioni di Windows sono i seguenti (di seguito si fa riferimento a Windows 10, analogamente per le versioni precedenti con eventuali variazioni in termini di interfaccia utente):
@@ -306,6 +311,8 @@ https://code.visualstudio.com/docs/setup/mac
 ```bash
 winget install -e --id Microsoft.VisualStudioCode
 ```
+
+Riavviare la `PowerShell` per verificare la corretta installazione di `git`.
 
 ### Tramite installer
 
