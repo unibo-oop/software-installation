@@ -355,7 +355,7 @@ Se non fosse installato, è di norma installabile dal package manager.
 Le istruzioni per tutte le distribuzioni più comuni [sono disponibili qui](https://git-scm.com/download/linux).
 
 ## Windows
-1. Scaricare “GIT for Windows” (nella versione specifica per la propria architettura x86 o x64) dalla [pagina di download ufficiale][GIT-Windows Download].
+1. Scaricare “GIT for Windows” (nella versione specifica per la propria architettura x86 o x64) dalla [pagina di download ufficiale](https://git-scm.com/download/win).
 2. Eseguire il programma di installazione
     * Accettare la licenza > Next > Next > Next > Next
     * Selezionare come editor di testo uno tra:
@@ -369,7 +369,7 @@ Le istruzioni per tutte le distribuzioni più comuni [sono disponibili qui](http
     * Se il tool è stato installato correttamente, digitando il comando `git` apparirà l'help relativo al comando stesso
 
 ## Mac OS X
-1. Scaricare l'installer di Git per OS X dalla [pagina di download ufficiale][GIT-OSX Download]
+1. Scaricare l'installer di Git per OS X dalla [pagina di download ufficiale](https://git-scm.com/download/mac)
 2. Eseguire il programma per l'installazione
     * Eventualmente, eseguire l'installer anche se non sviluppato da una fonte identificata da Apple Store (vedi System preferences > Security > General)
     * Continue > Install
