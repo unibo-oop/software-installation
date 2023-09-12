@@ -38,7 +38,7 @@ sudo archlinux-java set java-17-openjdk
 
 ### Debian e Ubuntu
 
-Installare il deb da: https://pkgs.org/download/openjdk-17-jdk
+Installare il deb da: [https://pkgs.org/download/openjdk-17-jdk](https://pkgs.org/download/openjdk-17-jdk)
 
 ### Altre distribuzioni
 
