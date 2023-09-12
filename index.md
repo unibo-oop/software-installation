@@ -47,20 +47,20 @@ Il tool è [Jabba](https://github.com/shyiko/jabba).
 
 Per installare Jabba su Linux o Mac OS X, si lanci il seguente comando da terminale:
 
-{% highlight bash %}
+```bash
 curl -sL https://github.com/shyiko/jabba/raw/master/install.sh | bash && . ~/.jabba/jabba.sh
-{% endhighlight %}
+```
 
 Una volta che Jabba è installato, può essere utilizzato per installare il JDK.
 Si elenchino tutte le versioni di OpenJDK utilizzando
 
-{% highlight bash %}
+```bash
 jabba ls-remote openjdk@
-{% endhighlight %}
+```
 
 Quindi si selezioni la più recente fra le versioni 17, ad esempio se l'output è:
 
-{% highlight bash %}
+```bash
 openjdk@1.17.0
 openjdk@1.16.0
 openjdk@1.16.0-1
@@ -85,29 +85,37 @@ openjdk@1.10.0-1
 openjdk@1.9.0
 openjdk@1.9.0-4
 openjdk@1.9.0-1
-{% endhighlight %}
+```
 
 Si scelga `openjdk@1.17.0`.
 A questo punto si installi utilizzando i seguenti comandi:
 
-{% highlight bash %}
+```bash
 jabba install openjdk@1.17.0
 jabba use openjdk@1.17.0
-{% endhighlight %}
+```
 
 Per impostare una versione di default del JDK da usare (senza dover ogni volta utilizzare `jabba use`) all'apertura di un nuovo terminale, si usi il seguente comando:
 
-{% highlight bash %}
+```bash
 jabba alias default <default-version>
-{% endhighlight %}
+```
 
 Infatti, all'installazione, Jabba modifica file nella `$HOME` come`.bashrc`, `.bash_profile`, o `.zshrc` per chiamare `$HOME/.jabba/jabba.sh`; in quest'ultimo script, un comando `jabba use default` viene invocato: l'effetto è che all'apertura di un nuovo terminale, verrà automaticamente indicato di usare la versione di default del JDK indicata con Jabba.
 
-## MacOS
+## macOS
 
 Si seguano le istruzioni per Linux / Jabba.
 
 ## Windows
+
+### Tramite `winget`
+
+È possibile installare la distribuzione di Adoptium JDK 17 attraverso il seguente comando su `PowerShell`:
+
+```powershell
+winget install -e --id EclipseAdoptium.Temurin.17.JDK
+```
 
 ### Tramite installer `.msi`
 
@@ -144,9 +152,9 @@ Su Windows sono disponibli diversi pacakge manager non ufficiali o semi-ufficial
 
 Se sulla macchina [è installato Chocolatey](https://chocolatey.org/docs/installation), è possibile installare OpenJDK 17 eseguendo il seguente comando su un terminale con permessi di amministratore:
 
-{% highlight powershell %}
+```powershell
 choco install openjdk17
-{% endhighlight %}
+```
 
 L'installazione dovrebbe eseguire una configurazione automatica delle variabili d'ambiente.
 
@@ -154,11 +162,11 @@ L'installazione dovrebbe eseguire una configurazione automatica delle variabili 
 
 Se sulla macchina [è installato Scoop](https://scoop.sh), è possibile installare OpenJDK 17 eseguendo il seguente comando su un terminale:
 
-{% highlight powershell %}
+```powershell
 scoop bucket add java
 
 scoop install openjdk17
-{% endhighlight %}
+```
 
 Non è necessario utilizzare un terminale con permessi di amministratore.
 L'installazione dovrebbe eseguire una configurazione automatica delle variabili d'ambiente.
@@ -169,19 +177,19 @@ L'installazione dovrebbe eseguire una configurazione automatica delle variabili 
 
 Per installare Jabba su Windows 10, si lanci il seguente comando su un terminale Powershell:
 
-{% highlight powershell %}
+```powershell
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 Invoke-Expression (
   Invoke-WebRequest https://github.com/shyiko/jabba/raw/master/install.ps1 -UseBasicParsing
 ).Content
-{% endhighlight %}
+```
 
 A questo punto si installi utilizzando i seguenti comandi:
 
-{% highlight bash %}
+```bash
 jabba install openjdk@1.17.0
 jabba use openjdk@1.17.0
-{% endhighlight %}
+```
 
 Jabba installa il JDK desiderato in una cartella dedicata nella user home dell'utente, ovvero: `%HOMEPATH%\.jabba\jdk\<version>`.
 
@@ -232,14 +240,14 @@ Se la verifica di funzionamento dovesse fallire, si verifichi di aver configurat
 
 Al fine di testare l'esecuzione, si chiuda il terminale, si apra un nuovo terminale, e si eseguano i comandi:
 
-{% highlight bash %}
+```bash
 java -version
 javac -version
-{% endhighlight %}
+```
 
 e si osservi il risultato. L'output atteso dovrà essere analogo a:
 
-{% highlight bash %}
+```bash
 $ java -version
 openjdk version "17.0.4" 2022-07-19
 OpenJDK Runtime Environment (build 17.0.4+8)
@@ -248,7 +256,7 @@ OpenJDK 64-Bit Server VM (build 17.0.4+8, mixed mode)
 
 $ javac -version
 javac 17.0.4
-{% endhighlight %}
+```
 
 Si noti, in particolare, la versione 17, ed il provider AdoptOpenJDK.
 
@@ -285,11 +293,21 @@ sudo pacman -S visual-studio-code-bin
 
 È disponibile un pacchetto dedicato su [Flathub](https://flathub.org/apps/details/com.visualstudio.code)
 
-## Mac OS X
+## macOS
 
 https://code.visualstudio.com/docs/setup/mac
 
 ## Windows
+
+### Tramite `winget`
+
+È possibile installare `VisualStudio Code` attraverso il seguente comando `PowerShell`:
+
+```bash
+winget install -e --id Microsoft.VisualStudioCode
+```
+
+### Tramite installer
 
 https://code.visualstudio.com/docs/setup/windows
 
@@ -300,7 +318,7 @@ Git è un decentralized version control system (DVCS), che consente di tenere tr
 
 Al termine del processo di installazione, per verificarne la correttezza, è possibile eseguire da shell il comando: ``git``, accertandosi che l’output prodotto sia del tipo:
 
-{% highlight bash %}
+```bash
 usage: git [--version] [--help] [-C <path>] [-c name=value]
            [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
            [-p | --paginate | --no-pager] [--no-replace-objects] [--bare]
@@ -343,7 +361,7 @@ collaborate (see also: git help workflows)
 'git help -a' and 'git help -g' list available subcommands and some
 concept guides. See 'git help <command>' or 'git help <concept>'
 to read about a specific subcommand or concept.
-{% endhighlight %}
+```
 
 ## Linux
 
@@ -355,6 +373,17 @@ Se non fosse installato, è di norma installabile dal package manager.
 Le istruzioni per tutte le distribuzioni più comuni [sono disponibili qui](https://git-scm.com/download/linux).
 
 ## Windows
+
+### Tramite `winget`
+
+È possibile installare `git` attraverso il seguente comando su `PowerShell`:
+
+```powershell
+winget install -e --id Git.Git
+```
+
+### Tramite installer
+
 1. Scaricare “GIT for Windows” (nella versione specifica per la propria architettura x86 o x64) dalla [pagina di download ufficiale](https://git-scm.com/download/win).
 2. Eseguire il programma di installazione
     * Accettare la licenza > Next > Next > Next > Next
@@ -368,7 +397,7 @@ Le istruzioni per tutte le distribuzioni più comuni [sono disponibili qui](http
     * Aprire il prompt dei comandi (`cmd.exe`)
     * Se il tool è stato installato correttamente, digitando il comando `git` apparirà l'help relativo al comando stesso
 
-## Mac OS X
+## macOS
 1. Scaricare l'installer di Git per OS X dalla [pagina di download ufficiale](https://git-scm.com/download/mac)
 2. Eseguire il programma per l'installazione
     * Eventualmente, eseguire l'installer anche se non sviluppato da una fonte identificata da Apple Store (vedi System preferences > Security > General)
