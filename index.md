@@ -312,8 +312,6 @@ https://code.visualstudio.com/docs/setup/mac
 winget install -e --id Microsoft.VisualStudioCode
 ```
 
-Riavviare la `PowerShell` per verificare la corretta installazione di `git`.
-
 ### Tramite installer
 
 https://code.visualstudio.com/docs/setup/windows
@@ -388,6 +386,8 @@ Le istruzioni per tutte le distribuzioni più comuni [sono disponibili qui](http
 ```powershell
 winget install -e --id Git.Git
 ```
+
+Riavviare la `PowerShell` per verificare la corretta installazione di `git`.
 
 ### Tramite installer
 
