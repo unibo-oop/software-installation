@@ -118,7 +118,7 @@ winget install -e --id EclipseAdoptium.Temurin.17.JDK
 ```
 
 L'installazione del pacchetto dovrebbe automaticamente impostare la variabile d'ambiente `JAVA_HOME` correttamente.  
-In caso contrario, fare riferimento alla sezione [Configurazione manuale delle variabili d'ambiente](#configurazione-manuale-delle-variabili-d'ambiente).
+In caso contrario, fare riferimento alla sezione [Configurazione manuale delle variabili d'ambiente](#configurazione-manuale-delle-variabili-dambiente).
 
 Riavviare la `PowerShell` per verificare la corretta installazione del JDK.
 
