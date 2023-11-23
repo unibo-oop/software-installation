@@ -200,10 +200,16 @@ Jabba installa il JDK desiderato in una cartella dedicata nella user home dell'u
 
 ### Configurazione manuale delle variabili d'ambiente
 
+**ATTENZIONE:** eseguire questa procedura solo se le variabili d'ambiente non sono state correttamente settate dalla procedura di installazione.
+
 Non tutti i sistemi di installazione di Java su Windows configurano in modo opportuno l'ambiente.
-Se la verifica di funzionamento dovesse fallire, si verifichi di aver configurato correttamente il proprio ambiente perché possa eseguire il compilatore ed l'interprete Java.
-È necessario quindi definire una variabile d'ambiente (`JAVA_HOME`) relativa a tale percorso ed includerla nel `Path` di sistema, come segue
-(si fa riferimento a Windows 10, per versioni precedenti la procedura è analoga).
+Se la verifica di funzionamento dovesse fallire,
+si verifichi di aver configurato correttamente il proprio ambiente perché possa eseguire il compilatore ed l'interprete Java.
+La configurazione richiede vi sia una variabile d'ambiente (`JAVA_HOME`) che punta al percorso di installazione del JDK,
+e che nella variabile `PATH` appaia tale percorso con in più il suffisso `bin`
+(gli eseguibili `java.exe`, `javac.exe`, `javap.exe`, `javadoc.exe`, `jar.exe` eccetera stanno in quel percorso).
+
+Nella seguente guida si fa riferimento a Windows 10, per versioni precedenti la procedura è analoga.
 
 1. Aprire il menù d'avvio e digitare __"Modifica variabili d'ambiente relative al sistema"__:
 
@@ -224,7 +230,9 @@ Se la verifica di funzionamento dovesse fallire, si verifichi di aver configurat
 4. Creare la variabile denonimata __"JAVA_HOME"__ con uno dei valori seguenti e cliccare sul pulsante __"OK"__:
 
    - `%HOMEPATH%\.jabba\jdk\<version>` se si è utilizzato Jabba;
+       - **si sostituisca a `<version>` l'effettiva versione!**
    - `C:\Program Files\AdoptOpenJDK\jdk-<version>-hotspot` se si è utilizzato l'installer di AdoptOpenJDK;
+       - **si sostituisca a `<version>` l'effettiva versione!**
 
    ![Missing image](img/win10/env_vars/5.png "Creating JAVA_HOME")
 
@@ -239,7 +247,8 @@ Se la verifica di funzionamento dovesse fallire, si verifichi di aver configurat
 7. Premere su __"OK"__ su tutte le finestre sin qui aperte per confermare le modifiche.
 
 8. Fatto!
-   Verificare la corretta installazione del JDK eseguendo __entrambi__ i comandi `javac -version` e `java -version` dal prompt dei comandi.
+   Verificare la corretta installazione del JDK eseguendo __entrambi__ i comandi `javac -version` e `java -version` da un *nuovo* prompt dei comandi
+   (va riaperto *dopo* il salvataggio della modifica).
 
 ## Verifica del funzionamento
 
