@@ -22,23 +22,23 @@ Seguono le istruzioni di installazione e configuazione per i vari sistemi operat
 
 ### Arch e derivate (Manjaro, Bridge, SteamOS...)
 
-Arch offre il pacchetto OpenJDK 17 direttamente nel repository `extra`:
+Arch offre il pacchetto OpenJDK 21 direttamente nel repository `extra`:
 
 ```bash
 sudo pacman -Syu
-sudo pacman -S jdk17-openjdk
+sudo pacman -S jdk21-openjdk
 ```
 
 È possibile avere più ambienti Java installati contemporaneamente, si può selezionare quello corrente utilizzando il comando ``archlinux-java``.
-Per assicurarsi di star lavorando con OpenJDK 17, si utilizzi:
+Per assicurarsi di star lavorando con OpenJDK 21, si utilizzi:
 
 ```bash
-sudo archlinux-java set java-17-openjdk
+sudo archlinux-java set java-21-openjdk
 ```
 
 ### Debian e Ubuntu
 
-Installare il deb da: [https://pkgs.org/download/openjdk-17-jdk](https://pkgs.org/download/openjdk-17-jdk)
+Installare il deb da: [https://pkgs.org/download/openjdk-21-jdk](https://pkgs.org/download/openjdk-21-jdk)
 
 ### Altre distribuzioni
 
