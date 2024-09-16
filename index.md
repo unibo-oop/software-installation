@@ -14,7 +14,7 @@ Esistono varie versioni del JDK, quella di riferimento è OpenJDK, a partire dal
 
 A sua volta, OpenJDK è distribuito in forma di sorgente, e vari distributori ne forniscono versioni binarie.
 Fra questi, [Adoptium](https://adoptium.net/).
-La macchina virtuale Java di riferimento sarà OpenJDK 17 come fornita da Adoptium.
+La macchina virtuale Java di riferimento sarà OpenJDK 21 come fornita da Adoptium.
 
 Seguono le istruzioni di installazione e configuazione per i vari sistemi operativi.
 
