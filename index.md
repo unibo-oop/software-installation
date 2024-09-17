@@ -75,7 +75,7 @@ There are 2 choices for the alternative java (providing /usr/bin/java).
   2            /usr/lib/jvm/java-21-openjdk-arm64/jre/bin/java   1081      manual mode
 
 Press <enter> to keep the current choice[*], or type selection number: 2
-update-alternatives: using /usr/lib/jvm/java-8-openjdk-arm64/jre/bin/java to provide /usr/bin/java (java) in manual mode
+update-alternatives: using /usr/lib/jvm/java-21-openjdk-arm64/jre/bin/java to provide /usr/bin/java (java) in manual mode
 ```
 
 Ora è possibile verificare la versione in uso con il comando:
