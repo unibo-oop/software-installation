@@ -309,16 +309,16 @@ e si osservi il risultato. L'output atteso dovrà essere analogo a:
 
 ```bash
 $ java -version
-openjdk version "17.0.4" 2022-07-19
-OpenJDK Runtime Environment (build 17.0.4+8)
-OpenJDK 64-Bit Server VM (build 17.0.4+8, mixed mode)
+openjdk version "21.0.4" 2024-07-16
+OpenJDK Runtime Environment (build 21.0.4+7)
+OpenJDK 64-Bit Server VM (build 21.0.4+7, mixed mode, sharing)
 
 
 $ javac -version
-javac 17.0.4
+javac 21.0.4
 ```
 
-Si noti, in particolare, la versione 17, ed il provider AdoptOpenJDK.
+Si noti, in particolare, la versione 21, ed il provider AdoptOpenJDK.
 
 
 # Visual Studio Code
