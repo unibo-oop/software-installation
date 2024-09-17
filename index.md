@@ -40,7 +40,52 @@ sudo archlinux-java set java-21-openjdk
 
 Installare il deb da: [https://pkgs.org/download/openjdk-21-jdk](https://pkgs.org/download/openjdk-21-jdk)
 
-### Altre distribuzioni
+Oppure
+
+```
+apt-get install openjdk-21-jdk -y
+```
+
+#### update-alternatives
+
+Se si hanno più versioni di java installate, è possibile controllare quale versione usare tramite il comando `update-alternatives`.
+In particolare, con il comando:
+
+```
+update-alternatives --list java
+```
+
+verrano mostrate tutte le versioni di java installate nel sistema.
+
+Per cambiare versione di java installata, utilizzare il comando:
+
+```
+update-alternatives --config java
+```
+
+e selezionare la versione desiderata:
+
+```
+There are 2 choices for the alternative java (providing /usr/bin/java).
+
+  Selection    Path                                            Priority   Status
+------------------------------------------------------------
+  0            /usr/lib/jvm/java-17-openjdk-arm64/bin/java       1111      auto mode
+* 1            /usr/lib/jvm/java-17-openjdk-arm64/bin/java       1111      manual mode
+  2            /usr/lib/jvm/java-21-openjdk-arm64/jre/bin/java   1081      manual mode
+
+Press <enter> to keep the current choice[*], or type selection number: 2
+update-alternatives: using /usr/lib/jvm/java-8-openjdk-arm64/jre/bin/java to provide /usr/bin/java (java) in manual mode
+```
+
+Ora è possibile verificare la versione in uso con il comando:
+
+
+```
+java -version
+```
+
+<!--### Altre distribuzioni
 
 Data la varietà di versioni, distribuzioni sorgenti, e distribuzioni binarie di JVM, esiste un tool Linux che consente di installare quella desiderata e cambiarla rapidamente.
 Il tool è [Jabba](https://github.com/shyiko/jabba).
@@ -102,6 +147,7 @@ jabba alias default <default-version>
 ```
 
 Infatti, all'installazione, Jabba modifica file nella `$HOME` come`.bashrc`, `.bash_profile`, o `.zshrc` per chiamare `$HOME/.jabba/jabba.sh`; in quest'ultimo script, un comando `jabba use default` viene invocato: l'effetto è che all'apertura di un nuovo terminale, verrà automaticamente indicato di usare la versione di default del JDK indicata con Jabba.
+-->
 
 ## macOS
 
@@ -111,10 +157,10 @@ Si seguano le istruzioni per Linux / Jabba.
 
 ### Tramite `winget`
 
-È possibile installare la distribuzione di Adoptium JDK 17 attraverso il seguente comando su `PowerShell`:
+È possibile installare la distribuzione di Adoptium JDK 21 attraverso il seguente comando su `PowerShell`:
 
 ```powershell
-winget install -e --id EclipseAdoptium.Temurin.17.JDK
+winget install -e --id EclipseAdoptium.Temurin.21.JDK
 ```
 
 L'installazione del pacchetto dovrebbe automaticamente impostare la variabile d'ambiente `JAVA_HOME` correttamente.  
@@ -127,7 +173,7 @@ Riavviare la `PowerShell` per verificare la corretta installazione del JDK.
 I passi in comune a tutte le versioni di Windows sono i seguenti (di seguito si fa riferimento a Windows 10, analogamente per le versioni precedenti con eventuali variazioni in termini di interfaccia utente):
 
 1. Scaricare il JDK dalla [pagina di download ufficiale di Adoptium](https://adoptium.net/temurin/releases).
-   Scegliere la versione 17, filtrando anche per sistema operativo (Windows) e per architettura (x64). Cliccare il download <i class="fa fa-download"></i>`.msi`.
+   Scegliere la versione 21, filtrando anche per sistema operativo (Windows) e per architettura (x64). Cliccare il download <i class="fa fa-download"></i>`.msi`.
    
    ![Missing image](img/win10/adopt1.png)
    
@@ -155,28 +201,28 @@ Su Windows sono disponibli diversi pacakge manager non ufficiali o semi-ufficial
 
 #### Opzione 1: Chocolatey
 
-Se sulla macchina [è installato Chocolatey](https://chocolatey.org/docs/installation), è possibile installare OpenJDK 17 eseguendo il seguente comando su un terminale con permessi di amministratore:
+Se sulla macchina [è installato Chocolatey](https://chocolatey.org/docs/installation), è possibile installare OpenJDK 21 eseguendo il seguente comando su un terminale con permessi di amministratore:
 
 ```powershell
-choco install openjdk17
+choco install openjdk21
 ```
 
 L'installazione dovrebbe eseguire una configurazione automatica delle variabili d'ambiente.
 
 #### Opzione 2: Scoop
 
-Se sulla macchina [è installato Scoop](https://scoop.sh), è possibile installare OpenJDK 17 eseguendo il seguente comando su un terminale:
+Se sulla macchina [è installato Scoop](https://scoop.sh), è possibile installare OpenJDK 21 eseguendo il seguente comando su un terminale:
 
 ```powershell
 scoop bucket add java
 
-scoop install openjdk17
+scoop install openjdk21
 ```
 
 Non è necessario utilizzare un terminale con permessi di amministratore.
 L'installazione dovrebbe eseguire una configurazione automatica delle variabili d'ambiente.
 
-#### Opzione 3: Jabba
+<!--#### Opzione 3: Jabba
 
 **Nota**: le ultime versioni presentano alcuni bug nell'installazione e dunque questa soluzione non è consigliata
 
@@ -197,7 +243,7 @@ jabba use openjdk@1.17.0
 ```
 
 Jabba installa il JDK desiderato in una cartella dedicata nella user home dell'utente, ovvero: `%HOMEPATH%\.jabba\jdk\<version>`.
-
+-->
 ### Configurazione manuale delle variabili d'ambiente
 
 **ATTENZIONE:** eseguire questa procedura solo se le variabili d'ambiente non sono state correttamente settate dalla procedura di installazione.
