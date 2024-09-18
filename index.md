@@ -151,7 +151,46 @@ Infatti, all'installazione, Jabba modifica file nella `$HOME` come`.bashrc`, `.b
 
 ## macOS
 
-Si seguano le istruzioni per Linux / Jabba.
+Installare [sdkman](https://sdkman.io/) tramite il comando:
+
+```
+curl -s "https://get.sdkman.io" | bash
+```
+
+Per visualizzare le distribuzioni disponibili usare il comando:
+
+```
+sdk list java
+```
+Una volta identificata la distribuzione che si vuole installare, ad esempio `21.0.2-open`, installarla con il comando:
+
+```
+sdk install java 21.0.2-open
+```
+
+Una volta terminata l'installazione, è possibile visualizzare quali distribuzioni sono installate localmente:
+
+```
+sdk list java
+```
+
+Per configurare una distribuzione come default:
+
+```
+sdk use java <versione>
+```
+
+Per verificare quale versione di java è in uso, usare il comando:
+
+```
+java --version
+```
+
+oppure
+
+```
+sdk current java
+```
 
 ## Windows
 
