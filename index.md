@@ -162,10 +162,10 @@ Per visualizzare le distribuzioni disponibili usare il comando:
 ```
 sdk list java
 ```
-Una volta identificata la distribuzione che si vuole installare, ad esempio `21.0.2-open`, installarla con il comando:
+Una volta identificata la distribuzione che si vuole installare, ad esempio `21.0.2-tem`, installarla con il comando:
 
 ```
-sdk install java 21.0.2-open
+sdk install java 21.0.2-tem
 ```
 
 Una volta terminata l'installazione, è possibile visualizzare quali distribuzioni sono installate localmente:
