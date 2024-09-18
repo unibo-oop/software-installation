@@ -214,7 +214,7 @@ I passi in comune a tutte le versioni di Windows sono i seguenti (di seguito si 
 1. Scaricare il JDK dalla [pagina di download ufficiale di Adoptium](https://adoptium.net/temurin/releases).
    Scegliere la versione 21, filtrando anche per sistema operativo (Windows) e per architettura (x64). Cliccare il download <i class="fa fa-download"></i>`.msi`.
    
-   ![Missing image](img/win10/adopt1.png)
+   ![Missing image](img/win10/photo_2024-09-18_07-48-14.jpg)
    
 2. Eseguire l'installer scaricato e seguire il wizard di installazione passo-passo.
 
