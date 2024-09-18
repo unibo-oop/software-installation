@@ -201,8 +201,6 @@ Nella seguente guida si fa riferimento a Windows 10, per versioni precedenti la 
 
 4. Creare la variabile denonimata __"JAVA_HOME"__ con uno dei valori seguenti e cliccare sul pulsante __"OK"__:
 
-   - `%HOMEPATH%\.jabba\jdk\<version>` se si è utilizzato Jabba;
-       - **si sostituisca a `<version>` l'effettiva versione!**
    - `C:\Program Files\AdoptOpenJDK\jdk-<version>-hotspot` se si è utilizzato l'installer di AdoptOpenJDK;
        - **si sostituisca a `<version>` l'effettiva versione!**
 
