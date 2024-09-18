@@ -85,71 +85,7 @@ Ora è possibile verificare la versione in uso con il comando:
 java -version
 ```
 
-<!--### Altre distribuzioni
-
-Data la varietà di versioni, distribuzioni sorgenti, e distribuzioni binarie di JVM, esiste un tool Linux che consente di installare quella desiderata e cambiarla rapidamente.
-Il tool è [Jabba](https://github.com/shyiko/jabba).
-
-Per installare Jabba su Linux o Mac OS X, si lanci il seguente comando da terminale:
-
-```bash
-curl -sL https://github.com/shyiko/jabba/raw/master/install.sh | bash && . ~/.jabba/jabba.sh
-```
-
-Una volta che Jabba è installato, può essere utilizzato per installare il JDK.
-Si elenchino tutte le versioni di OpenJDK utilizzando
-
-```bash
-jabba ls-remote openjdk@
-```
-
-Quindi si selezioni la più recente fra le versioni 17, ad esempio se l'output è:
-
-```bash
-openjdk@1.17.0
-openjdk@1.16.0
-openjdk@1.16.0-1
-openjdk@1.15.0
-openjdk@1.15.0-2
-openjdk@1.15.0-1
-openjdk@1.14.0
-openjdk@1.14.0-2
-openjdk@1.14.0-1
-openjdk@1.13.0
-openjdk@1.13.0-2
-openjdk@1.13.0-1
-openjdk@1.12.0
-openjdk@1.12.0-2
-openjdk@1.12.0-1
-openjdk@1.11.0
-openjdk@1.11.0-2
-openjdk@1.11.0-1
-openjdk@1.10.0
-openjdk@1.10.0-2
-openjdk@1.10.0-1
-openjdk@1.9.0
-openjdk@1.9.0-4
-openjdk@1.9.0-1
-```
-
-Si scelga `openjdk@1.17.0`.
-A questo punto si installi utilizzando i seguenti comandi:
-
-```bash
-jabba install openjdk@1.17.0
-jabba use openjdk@1.17.0
-```
-
-Per impostare una versione di default del JDK da usare (senza dover ogni volta utilizzare `jabba use`) all'apertura di un nuovo terminale, si usi il seguente comando:
-
-```bash
-jabba alias default <default-version>
-```
-
-Infatti, all'installazione, Jabba modifica file nella `$HOME` come`.bashrc`, `.bash_profile`, o `.zshrc` per chiamare `$HOME/.jabba/jabba.sh`; in quest'ultimo script, un comando `jabba use default` viene invocato: l'effetto è che all'apertura di un nuovo terminale, verrà automaticamente indicato di usare la versione di default del JDK indicata con Jabba.
--->
-
-## macOS
+## macOS e altre distribuzioni Linux
 
 Installare [sdkman](https://sdkman.io/) tramite il comando:
 
@@ -234,55 +170,6 @@ I passi in comune a tutte le versioni di Windows sono i seguenti (di seguito si 
     java -version   # Output atteso: 'java version "<version>" ...'
     {% endhighlight %}
 
-### Tramite package manager
-
-Su Windows sono disponibli diversi pacakge manager non ufficiali o semi-ufficiali che permettono l'installazione di distribuzioni OpenJDK.
-
-#### Opzione 1: Chocolatey
-
-Se sulla macchina [è installato Chocolatey](https://chocolatey.org/docs/installation), è possibile installare OpenJDK 21 eseguendo il seguente comando su un terminale con permessi di amministratore:
-
-```powershell
-choco install openjdk21
-```
-
-L'installazione dovrebbe eseguire una configurazione automatica delle variabili d'ambiente.
-
-#### Opzione 2: Scoop
-
-Se sulla macchina [è installato Scoop](https://scoop.sh), è possibile installare OpenJDK 21 eseguendo il seguente comando su un terminale:
-
-```powershell
-scoop bucket add java
-
-scoop install openjdk21
-```
-
-Non è necessario utilizzare un terminale con permessi di amministratore.
-L'installazione dovrebbe eseguire una configurazione automatica delle variabili d'ambiente.
-
-<!--#### Opzione 3: Jabba
-
-**Nota**: le ultime versioni presentano alcuni bug nell'installazione e dunque questa soluzione non è consigliata
-
-Per installare Jabba su Windows 10, si lanci il seguente comando su un terminale Powershell:
-
-```powershell
-[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-Invoke-Expression (
-  Invoke-WebRequest https://github.com/shyiko/jabba/raw/master/install.ps1 -UseBasicParsing
-).Content
-```
-
-A questo punto si installi utilizzando i seguenti comandi:
-
-```bash
-jabba install openjdk@1.17.0
-jabba use openjdk@1.17.0
-```
-
-Jabba installa il JDK desiderato in una cartella dedicata nella user home dell'utente, ovvero: `%HOMEPATH%\.jabba\jdk\<version>`.
--->
 ### Configurazione manuale delle variabili d'ambiente
 
 **ATTENZIONE:** eseguire questa procedura solo se le variabili d'ambiente non sono state correttamente settate dalla procedura di installazione.
