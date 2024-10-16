@@ -130,6 +130,24 @@ sdk current java
 
 ## Windows
 
+### Installazione di `winget`
+
+`winget` consente agli di individuare, installare, aggiornare, rimuovere e configurare le applicazioni nei sistemi Windows.
+
+A partire da Windows 10 1709 (build 16299), `winget` è già presente nell'installazione di Widnwos, se così non fosse, installarlo con il seguente comando su `powershell`
+
+```powershell
+Add-AppxPackage -RegisterByFamilyName -MainPackage Microsoft.DesktopAppInstaller_8wekyb3d8bbwe
+```
+
+Una volta installato verificarne il corretto funzionamento con il comando:
+
+```powershell
+winget --help
+```
+
+Per ulteriori dettagli, visitare il sito [https://learn.microsoft.com/it-it/windows/package-manager/winget/](https://learn.microsoft.com/it-it/windows/package-manager/winget/)
+
 ### Tramite `winget`
 
 È possibile installare la distribuzione di Adoptium JDK 21 attraverso il seguente comando su `PowerShell`:
@@ -283,6 +301,24 @@ https://code.visualstudio.com/docs/setup/mac
 
 ## Windows
 
+### Installazione di `winget`
+
+`winget` consente agli di individuare, installare, aggiornare, rimuovere e configurare le applicazioni nei sistemi Windows.
+
+A partire da Windows 10 1709 (build 16299), `winget` è già presente nell'installazione di Widnwos, se così non fosse, installarlo con il seguente comando su `powershell`
+
+```powershell
+Add-AppxPackage -RegisterByFamilyName -MainPackage Microsoft.DesktopAppInstaller_8wekyb3d8bbwe
+```
+
+Una volta installato verificarne il corretto funzionamento con il comando:
+
+```powershell
+winget --help
+```
+
+Per ulteriori dettagli, visitare il sito [https://learn.microsoft.com/it-it/windows/package-manager/winget/](https://learn.microsoft.com/it-it/windows/package-manager/winget/)
+
 ### Tramite `winget`
 
 È possibile installare `VisualStudio Code` attraverso il seguente comando `PowerShell`:
@@ -357,6 +393,24 @@ Se non fosse installato, è di norma installabile dal package manager.
 Le istruzioni per tutte le distribuzioni più comuni [sono disponibili qui](https://git-scm.com/download/linux).
 
 ## Windows
+
+### Installazione di `winget`
+
+`winget` consente agli di individuare, installare, aggiornare, rimuovere e configurare le applicazioni nei sistemi Windows.
+
+A partire da Windows 10 1709 (build 16299), `winget` è già presente nell'installazione di Widnwos, se così non fosse, installarlo con il seguente comando su `powershell`
+
+```powershell
+Add-AppxPackage -RegisterByFamilyName -MainPackage Microsoft.DesktopAppInstaller_8wekyb3d8bbwe
+```
+
+Una volta installato verificarne il corretto funzionamento con il comando:
+
+```powershell
+winget --help
+```
+
+Per ulteriori dettagli, visitare il sito [https://learn.microsoft.com/it-it/windows/package-manager/winget/](https://learn.microsoft.com/it-it/windows/package-manager/winget/)
 
 ### Tramite `winget`
 
