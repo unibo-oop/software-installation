@@ -331,6 +331,16 @@ winget install -e --id Microsoft.VisualStudioCode
 
 https://code.visualstudio.com/docs/setup/windows
 
+## Estensioni di Visual Studio Code
+All'interno di Visual Studio Code è possibile installare e configurare estensioni per agevolarne l'utilizzo.
+Il catalogo offre un'ampia offerta di estensioni, che è possibile consultare da `Visualizza > Estensioni` o premendo `CTRL+Shift+X`.
+È possibile effettuare ricerche per le estensioni desiderate e installarle selezionando il pulsante `Installa`.
+
+Per lo svolgimento di questo corso, le estensioni che suggeriamo di installare sono le seguenti:
+1. `Extension Pack for Java`, distribuita da `Microsoft` [https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)
+2. `Gradle for Java`, distribuita da `Microsoft` [https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-gradle](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-gradle)
+
+
 
 # Git
 
