@@ -14,7 +14,7 @@ Esistono varie versioni del JDK, quella di riferimento è OpenJDK, a partire dal
 
 A sua volta, OpenJDK è distribuito in forma di sorgente, e vari distributori ne forniscono versioni binarie.
 Fra questi, [Adoptium](https://adoptium.net/).
-La macchina virtuale Java di riferimento sarà OpenJDK 21 come fornita da Adoptium.
+La macchina virtuale Java di riferimento sarà OpenJDK 25 come fornita da Adoptium.
 
 Seguono le istruzioni di installazione e configuazione per i vari sistemi operativi.
 
@@ -22,28 +22,28 @@ Seguono le istruzioni di installazione e configuazione per i vari sistemi operat
 
 ### Arch e derivate (Manjaro, Bridge, SteamOS...)
 
-Arch offre il pacchetto OpenJDK 21 direttamente nel repository `extra`:
+Arch offre il pacchetto OpenJDK 25 direttamente nel repository `extra`:
 
 ```bash
 sudo pacman -Syu
-sudo pacman -S jdk21-openjdk
+sudo pacman -S jdk25-openjdk
 ```
 
 È possibile avere più ambienti Java installati contemporaneamente, si può selezionare quello corrente utilizzando il comando ``archlinux-java``.
-Per assicurarsi di star lavorando con OpenJDK 21, si utilizzi:
+Per assicurarsi di star lavorando con OpenJDK 25, si utilizzi:
 
 ```bash
-sudo archlinux-java set java-21-openjdk
+sudo archlinux-java set java-25-openjdk
 ```
 
 ### Debian e Ubuntu
 
-Installare il deb da: [https://pkgs.org/download/openjdk-21-jdk](https://pkgs.org/download/openjdk-21-jdk)
+Installare il deb da: [https://pkgs.org/download/openjdk-25-jdk](https://pkgs.org/download/openjdk-25-jdk)
 
 Oppure
 
 ```
-apt-get install openjdk-21-jdk -y
+apt-get install openjdk-25-jdk -y
 ```
 
 #### update-alternatives
@@ -70,12 +70,12 @@ There are 2 choices for the alternative java (providing /usr/bin/java).
 
   Selection    Path                                            Priority   Status
 ------------------------------------------------------------
-  0            /usr/lib/jvm/java-17-openjdk-arm64/bin/java       1111      auto mode
-* 1            /usr/lib/jvm/java-17-openjdk-arm64/bin/java       1111      manual mode
-  2            /usr/lib/jvm/java-21-openjdk-arm64/jre/bin/java   1081      manual mode
+  0            /usr/lib/jvm/java-21-openjdk-arm64/bin/java       1111      auto mode
+* 1            /usr/lib/jvm/java-21-openjdk-arm64/bin/java       1111      manual mode
+  2            /usr/lib/jvm/java-25-openjdk-arm64/jre/bin/java   1081      manual mode
 
 Press <enter> to keep the current choice[*], or type selection number: 2
-update-alternatives: using /usr/lib/jvm/java-21-openjdk-arm64/jre/bin/java to provide /usr/bin/java (java) in manual mode
+update-alternatives: using /usr/lib/jvm/java-25-openjdk-arm64/jre/bin/java to provide /usr/bin/java (java) in manual mode
 ```
 
 Ora è possibile verificare la versione in uso con il comando:
@@ -98,10 +98,10 @@ Per visualizzare le distribuzioni disponibili usare il comando:
 ```
 sdk list java
 ```
-Una volta identificata la distribuzione che si vuole installare, ad esempio `21.0.2-tem`, installarla con il comando:
+Una volta identificata la distribuzione che si vuole installare, ad esempio `25.0.4-tem`, installarla con il comando:
 
 ```
-sdk install java 21.0.2-tem
+sdk install java 25.0.4-tem
 ```
 
 Una volta terminata l'installazione, è possibile visualizzare quali distribuzioni sono installate localmente:
@@ -150,10 +150,10 @@ Per ulteriori dettagli, visitare il sito [https://learn.microsoft.com/it-it/wind
 
 ### Tramite `winget`
 
-È possibile installare la distribuzione di Adoptium JDK 21 attraverso il seguente comando su `PowerShell`:
+È possibile installare la distribuzione di Adoptium JDK 25 attraverso il seguente comando su `PowerShell`:
 
 ```powershell
-winget install -e --id EclipseAdoptium.Temurin.21.JDK
+winget install -e --id EclipseAdoptium.Temurin.25.JDK
 ```
 
 L'installazione del pacchetto dovrebbe automaticamente impostare la variabile d'ambiente `JAVA_HOME` correttamente.  
@@ -166,9 +166,9 @@ Riavviare la `PowerShell` per verificare la corretta installazione del JDK.
 I passi in comune a tutte le versioni di Windows sono i seguenti (di seguito si fa riferimento a Windows 10, analogamente per le versioni precedenti con eventuali variazioni in termini di interfaccia utente):
 
 1. Scaricare il JDK dalla [pagina di download ufficiale di Adoptium](https://adoptium.net/temurin/releases).
-   Scegliere la versione 21, filtrando anche per sistema operativo (Windows) e per architettura (x64). Cliccare il download <i class="fa fa-download"></i>`.msi`.
+   Scegliere la versione 25, filtrando anche per sistema operativo (Windows) e per architettura (x64). Cliccare il download <i class="fa fa-download"></i>`.msi`.
    
-   ![Missing image](img/win10/photo_2024-09-18_07-48-14.jpg)
+   ![Missing image](img/win10/adoptium_jdk_25.png)
    
 2. Eseguire l'installer scaricato e seguire il wizard di installazione passo-passo.
 
@@ -251,16 +251,16 @@ e si osservi il risultato. L'output atteso dovrà essere analogo a:
 
 ```bash
 $ java -version
-openjdk version "21.0.4" 2024-07-16
-OpenJDK Runtime Environment (build 21.0.4+7)
-OpenJDK 64-Bit Server VM (build 21.0.4+7, mixed mode, sharing)
+openjdk 25.0.4.1 2026-08-18
+OpenJDK Runtime Environment (build 25.0.4.1)
+OpenJDK 64-Bit Server VM (build 25.0.4.1, mixed mode, sharing)
 
 
 $ javac -version
-javac 21.0.4
+javac 25.0.4.1
 ```
 
-Si noti, in particolare, la versione 21, ed il provider AdoptOpenJDK.
+Si noti, in particolare, la versione 25, ed il provider OpenJDK.
 
 
 # Visual Studio Code
