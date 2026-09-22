@@ -90,7 +90,7 @@ java -version
 Installare [sdkman](https://sdkman.io/) tramite il comando:
 
 ```
-curl -s "https://get.sdkman.io" | bash
+curl -s "https://get.sdkman.io" | zsh
 ```
 
 Per visualizzare le distribuzioni disponibili usare il comando:
